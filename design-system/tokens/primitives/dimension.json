@@ -17,23 +17,37 @@
   },
   "radius": {
     "$type": "dimension",
-    "$description": "Arrondis sobres : l'outil doit paraître solide, pas ludique.",
-    "none": { "$value": "0px" },
-    "sm": { "$value": "4px", "$description": "Badges, pastilles métier, cases à cocher." },
-    "md": { "$value": "6px", "$description": "Boutons, champs de saisie." },
-    "lg": { "$value": "10px", "$description": "Cartes, panneaux, feuilles mobiles." },
-    "xl": { "$value": "16px", "$description": "Modales, bottom sheets." },
-    "full": { "$value": "9999px", "$description": "Avatars, indicateurs ronds, FAB." }
+    "$description": "Angles vifs : le béton se coffre à l'équerre. Seules exceptions : bulles de repère et conventions natives mobiles.",
+    "none": { "$value": "0px", "$description": "Boutons, champs, blocs, statuts, étiquettes." },
+    "sm": { "$value": "2px", "$description": "Cases à cocher, petites marques." },
+    "sheet": { "$value": "12px", "$description": "Bottom sheets et modales mobiles uniquement (convention iOS / Android)." },
+    "full": { "$value": "9999px", "$description": "Bulles de repère, avatars, pastilles de compteur." }
   },
   "border-width": {
     "$type": "dimension",
-    "thin": { "$value": "1px", "$description": "Séparateurs, contours de cartes et de champs." },
-    "thick": { "$value": "2px", "$description": "Élément sélectionné, champ en erreur." }
+    "thin": { "$value": "1px", "$description": "Séparateurs internes." },
+    "regular": { "$value": "1.5px", "$description": "Trait de plan : cartouche, cote, contours de champs, anneau des repères." },
+    "thick": { "$value": "2px", "$description": "Joint de structure entre blocs, champ en erreur, traits en densité terrain." }
   },
   "focus-ring": {
     "$type": "dimension",
     "width": { "$value": "3px", "$description": "Épaisseur de l'anneau de focus clavier (couleur : color.border.focus)." },
     "offset": { "$value": "2px", "$description": "Écart entre l'élément et l'anneau." }
+  },
+  "motif": {
+    "$type": "dimension",
+    "$description": "Signatures graphiques.",
+    "banche": {
+      "$description": "Trous de banche : trame de points du coffrage, sur le fond de page (color.border.subtle).",
+      "pas-x": { "$value": "72px" },
+      "pas-y": { "$value": "48px" },
+      "rayon": { "$value": "3px" }
+    },
+    "cote": {
+      "$description": "Cote d'avancement : barbules obliques aux extrémités.",
+      "barbule": { "$value": "14px" },
+      "trait": { "$value": "8px", "$description": "Épaisseur de la partie réalisée sur la ligne de cote." }
+    }
   },
   "breakpoint": {
     "$type": "dimension",

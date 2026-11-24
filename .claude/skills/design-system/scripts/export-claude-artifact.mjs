@@ -124,6 +124,7 @@ const familyOf = (p, type) => {
   if (p.startsWith('breakpoint.')) return 'breakpoint';
   if (p.startsWith('size.')) return 'size';
   if (p.startsWith('layout.')) return 'layout';
+  if (p.startsWith('motif.')) return 'motif';
   return null;
 };
 const plain = (type, v) => (type === 'dimension' ? dimensionToCss(v) : String(v));

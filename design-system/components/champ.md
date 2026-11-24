@@ -3,57 +3,45 @@ Saisie d'une valeur courte (texte, nombre, quantité avec unité) avec son libel
 
 ## Quand l'utiliser
 - Quantités, références, noms, dates saisies au clavier.
-- Ne pas l'utiliser pour choisir parmi une liste fermée (→ sélecteur) ni pour un texte long (→ zone de texte).
+- Ne pas l'utiliser pour une liste fermée (→ sélecteur) ni un texte long (→ zone de texte).
 
 ## Anatomie
-1. Libellé (+ « facultatif ») · 2. Conteneur · 3. Zone de saisie · 4. Unité (m², ml, m³, kg, t, u, h, %) · 5. Aide · 6. Message d'erreur avec icône
+1. Libellé (+ « facultatif ») · 2. Cadre à angles vifs · 3. Zone de saisie · 4. Cellule d'unité en mono (m², ml, m³, kg, t, u, h, %) · 5. Aide · 6. Erreur avec icône triangle
 
 ## Variantes
-| Variante | Usage | Tokens |
-|---|---|---|
-| Texte | saisie libre | conteneur `color.bg.surface`, bordure `color.border.strong` |
-| Avec unité | quantités du chantier | unité sur `color.bg.sunken`, texte `color.fg.muted`, séparateur `color.border.subtle` |
-| Lecture seule | valeur héritée, non modifiable | `color.bg.sunken`, texte `color.fg.default` |
+| Variante | Tokens |
+|---|---|
+| Texte | `color.bg.surface`, cadre `border-width.regular` en `color.border.strong` |
+| Avec unité | cellule `color.bg.sunken`, filet `color.border.strong`, `text.reference` en `color.fg.muted` |
+| Lecture seule / désactivé | `color.bg.sunken`, `color.border.subtle`, `color.fg.disabled` |
 
 ## Tailles
 | | bureau | terrain |
 |---|---|---|
 | Hauteur | `size.control.md` 40 px | 56 px |
+| Cadre | 1,5 px | 2 px |
 | Texte saisi | `text.body` 16 px | 18 px |
-| Libellé | `text.label` 14 px | 16 px |
 | Espace entre champs | `layout.stack` 16 px | 20 px |
 
 ## États
-| État | Changement visuel | Tokens |
-|---|---|---|
-| Repos | bordure fine | `color.border.strong` (≥ 3:1) |
-| Focus | anneau autour du conteneur entier, unité comprise | `color.border.focus`, `focus-ring.*` |
-| Erreur | bordure épaisse rouge + message sous le champ | `border-width.thick`, `color.danger.border`, `color.danger.text` |
-| Désactivé | fond creux, texte éteint | `color.bg.sunken`, `color.fg.disabled` |
-| Placeholder | exemple de format, jamais la consigne | `color.fg.subtle` |
+| État | Changement |
+|---|---|
+| Focus | anneau autour du cadre entier, unité comprise (`color.border.focus`) |
+| Erreur | cadre `border-width.thick` en `color.danger.border`, message `color.danger.text` |
+| Placeholder | exemple de format en `color.fg.subtle`, jamais la consigne |
 
 ## Contenu
-- Libellé court et toujours visible ; le placeholder ne remplace jamais le libellé.
-- On marque les champs **facultatifs** (« (facultatif) »), pas les obligatoires.
-- Erreur : ce qui ne va pas et comment corriger, avec la valeur de référence : « Supérieure au bon de commande (10 t) ».
-- Nombres au format français (virgule décimale, espace fine pour les milliers), chiffres tabulaires.
+Libellé visible en casse normale ; on marque les champs facultatifs. Erreur = problème + valeur de référence (« Supérieure au bon de commande (10 t) »). Nombres au format français.
 
 ## Accessibilité
-- `<label for>` relié au champ. Aide et erreur reliées par `aria-describedby`. En erreur : `aria-invalid="true"`.
-- L'unité est un texte visible lu après le champ ; pour un lecteur d'écran, l'inclure dans le libellé si besoin (« Surface coulée, en mètres carrés »).
-- Clavier adapté : `inputmode="decimal"` pour les quantités, `numeric` pour les entiers.
-- L'erreur n'est pas portée que par la couleur : icône + texte + bordure plus épaisse.
+`<label for>`, `aria-describedby` pour l'aide et l'erreur, `aria-invalid="true"`, `inputmode="decimal"` pour les quantités. L'erreur est signalée par l'icône, le texte et le cadre épais.
 
 ## Web
-Structure `.fd-field` > `.fd-field__label` + `.fd-field__control` (> `.fd-input` + `.fd-field__unit`) + `.fd-field__help` / `.fd-field__error`. Validation au moment où l'on quitte le champ, pas à chaque frappe.
+`.fd-field` > `.fd-field__label` + `.fd-field__control` (> `.fd-input` + `.fd-field__unit`) + `.fd-field__help` / `.fd-field__error`.
 
 ## Mobile
-- iOS : `keyboardType="decimalPad"` ; Android : `inputType="numberDecimal"`. Bouton « Suivant » du clavier pour passer au champ suivant.
-- Le champ actif reste visible au-dessus du clavier (défilement automatique).
-- Gants : 56 px de haut minimum ; pour les quantités fréquentes, proposer des boutons − / + autour du champ.
-- Dictée vocale autorisée sur les champs texte.
+Clavier décimal, bouton « Suivant », champ visible au-dessus du clavier. Avec des gants, boutons − / + de 56 px autour des quantités fréquentes.
 
 ## Ne pas faire
-- Un libellé dans le placeholder qui disparaît à la saisie.
-- Une unité tapée par l'utilisateur dans la valeur (« 12 t ») : l'unité est fixe.
-- Un message d'erreur générique (« Champ invalide »).
+- Un libellé dans le placeholder.
+- Une unité tapée dans la valeur.

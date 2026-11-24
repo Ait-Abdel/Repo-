@@ -2,38 +2,40 @@
   "size": {
     "$type": "dimension",
     "control": {
-      "$description": "Hauteur des boutons, champs, sélecteurs. Utilisable avec des gants.",
+      "$description": "Hauteur des boutons et champs. Utilisable avec des gants.",
       "sm": { "$value": "48px" },
       "md": { "$value": "56px" },
       "lg": { "$value": "64px" }
     },
-    "touch-target": { "$value": "48px", "$description": "Zone cliquable minimale : 48 px (Material 48 dp, Apple 44 pt, majorée pour les gants)." },
+    "touch-target": { "$value": "48px", "$description": "Zone cliquable minimale, majorée pour les gants." },
     "icon": {
       "sm": { "$value": "20px" },
       "md": { "$value": "24px" },
       "lg": { "$value": "32px" }
     },
-    "row": { "$value": "64px", "$description": "Hauteur minimale d'une ligne de liste ou de tableau." }
+    "row": { "$value": "64px", "$description": "Hauteur minimale d'une ligne de liste ou de tableau." },
+    "repere": { "$value": "40px", "$description": "Diamètre de la bulle de repère (code métier)." }
   },
   "layout": {
     "$type": "dimension",
     "gutter": { "$value": "16px", "$description": "Marge latérale de page." },
     "control-padding-x": { "$value": "16px", "$description": "Padding horizontal des boutons et champs." },
-    "stack": { "$value": "20px", "$description": "Espace vertical entre champs d'un formulaire." }
+    "stack": { "$value": "20px", "$description": "Espace vertical entre champs d'un formulaire." },
+    "block-padding": { "$value": "16px", "$description": "Padding intérieur d'un bloc (fiche, carte)." }
   },
   "text": {
     "$type": "typography",
-    "$description": "Styles de texte terrain : texte courant à 18 px pour la lecture en extérieur.",
-    "display": { "$value": {"fontFamily": "{font.family.display}", "fontWeight": "{font.weight.bold}", "fontSize": "{font.size.4xl}", "lineHeight": "{font.line-height.tight}", "letterSpacing": "{font.letter-spacing.tight}"}, "$description": "Chiffres clés et titres d'accueil." },
-    "title-1": { "$value": {"fontFamily": "{font.family.display}", "fontWeight": "{font.weight.semibold}", "fontSize": "{font.size.3xl}", "lineHeight": "{font.line-height.tight}", "letterSpacing": "{font.letter-spacing.tight}"}, "$description": "Titre de page (nom du chantier)." },
-    "title-2": { "$value": {"fontFamily": "{font.family.display}", "fontWeight": "{font.weight.semibold}", "fontSize": "{font.size.2xl}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Titre de section." },
-    "title-3": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.semibold}", "fontSize": "{font.size.xl}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Titre de carte, de panneau, de modale." },
-    "body": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.regular}", "fontSize": "{font.size.lg}", "lineHeight": "{font.line-height.normal}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Texte courant." },
-    "body-strong": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.semibold}", "fontSize": "{font.size.lg}", "lineHeight": "{font.line-height.normal}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Mise en avant dans le texte courant." },
-    "body-sm": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.regular}", "fontSize": "{font.size.md}", "lineHeight": "{font.line-height.normal}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Texte secondaire, cellules de tableau dense." },
-    "label": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.medium}", "fontSize": "{font.size.md}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Libellés de champs, boutons, onglets." },
-    "caption": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.regular}", "fontSize": "{font.size.sm}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Horodatages, mentions, légendes de photo." },
-    "overline": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.semibold}", "fontSize": "{font.size.sm}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.wide}"}, "$description": "Sur-titres en capitales (LOT 03, PHASE GROS ŒUVRE)." },
-    "reference": { "$value": {"fontFamily": "{font.family.mono}", "fontWeight": "{font.weight.regular}", "fontSize": "{font.size.md}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Numéros de lot, devis, bon de livraison." }
+    "$description": "Styles de texte terrain : texte courant à 18 px.",
+    "display": { "$value": { "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.black}", "fontSize": "{font.size.5xl}", "lineHeight": "{font.line-height.compact}", "letterSpacing": "{font.letter-spacing.tighter}" }, "$description": "Chiffres clés : avancement, effectifs, réserves ouvertes." },
+    "title-1": { "$value": { "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.extrabold}", "fontSize": "{font.size.3xl}", "lineHeight": "{font.line-height.tight}", "letterSpacing": "{font.letter-spacing.tight}" }, "$description": "Titre de page (nom du chantier dans le cartouche)." },
+    "title-2": { "$value": { "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.bold}", "fontSize": "{font.size.2xl}", "lineHeight": "{font.line-height.tight}", "letterSpacing": "{font.letter-spacing.tight}" }, "$description": "Titre de section." },
+    "title-3": { "$value": { "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.bold}", "fontSize": "{font.size.xl}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.tight}" }, "$description": "Titre de carte, de panneau, de modale." },
+    "body": { "$value": { "fontFamily": "{font.family.text}", "fontWeight": "{font.weight.regular}", "fontSize": "{font.size.lg}", "lineHeight": "{font.line-height.normal}", "letterSpacing": "{font.letter-spacing.normal}" }, "$description": "Texte courant." },
+    "body-strong": { "$value": { "fontFamily": "{font.family.text}", "fontWeight": "{font.weight.semibold}", "fontSize": "{font.size.lg}", "lineHeight": "{font.line-height.normal}", "letterSpacing": "{font.letter-spacing.normal}" }, "$description": "Mise en avant, intitulé de réserve." },
+    "body-sm": { "$value": { "fontFamily": "{font.family.text}", "fontWeight": "{font.weight.regular}", "fontSize": "{font.size.md}", "lineHeight": "{font.line-height.normal}", "letterSpacing": "{font.letter-spacing.normal}" }, "$description": "Texte secondaire, cellules de tableau dense." },
+    "label": { "$value": { "fontFamily": "{font.family.text}", "fontWeight": "{font.weight.semibold}", "fontSize": "{font.size.md}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.wide}" }, "$description": "Boutons (en capitales), libellés de champs, onglets." },
+    "caption": { "$value": { "fontFamily": "{font.family.text}", "fontWeight": "{font.weight.regular}", "fontSize": "{font.size.sm}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.normal}" }, "$description": "Horodatages, mentions, légendes." },
+    "overline": { "$value": { "fontFamily": "{font.family.mono}", "fontWeight": "{font.weight.medium}", "fontSize": "{font.size.sm}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.wider}" }, "$description": "Clés de cartouche et sur-titres en capitales (PROJET, LOT 02 · GROS ŒUVRE)." },
+    "reference": { "$value": { "fontFamily": "{font.family.mono}", "fontWeight": "{font.weight.medium}", "fontSize": "{font.size.md}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.normal}" }, "$description": "Références, codes métier, valeurs de cote (CH-2026-014, 41 %)." }
   }
 }

@@ -43,7 +43,7 @@ Deux surfaces, un seul système :
 - **Repérage** : bâtiment, niveau (R-1, RDC, R+2), logement, pièce.
 - **Familles de métiers** (tokens `color.metier.*`, 8 couleurs + « autre ») :
 
-| Famille | Métiers | Couleur |
+| Famille | Métiers | Couleur (anneau de la bulle de repère) |
 |---|---|---|
 | Gros œuvre | terrassement, VRD, démolition, fondations, maçonnerie, béton | brique |
 | Structure | charpente bois et métal, ossature bois, serrurerie-métallerie | bois |
@@ -56,30 +56,43 @@ Deux surfaces, un seul système :
 
 Pourquoi des familles plutôt qu'une couleur par métier : avec 12 couleurs ou plus, deux métiers deviennent indiscernables pour un daltonien (mesuré : écart ΔE de 0,002). Avec 8 familles, l'écart minimal reste de 0,10 en vision normale et de 0,04 à 0,07 selon le type de daltonisme. Chaque métier garde son icône et son code (GO, ELE, PLO…).
 
-## Direction visuelle retenue : « Bleu de travail et béton »
+## Direction visuelle retenue : « Plan et matière »
 
-| | Choix | Pourquoi |
+Choisie sur la planche `explorations/identites.html`. C'est un mélange des territoires **A · Cartouche** et **C · Béton brut**. Le troisième territoire, Tampon, a été écarté.
+
+| | Choix | Vient de |
 |---|---|---|
-| Idée | l'outil a l'air d'un équipement de chantier bien entretenu | robuste, sans folklore |
-| Couleur de marque | bleu de travail (OKLCH h 258), `palette.bleu` | la couleur des vêtements de travail en France ; sérieux, lisible au soleil |
-| Accent | orange signalisation (h 45), `palette.orange` : un seul élément par écran, avec du texte foncé dessus | le code couleur du balisage, réservé à ce qui doit attirer l'œil |
-| Neutres | « béton » : gris chaud (h 85, chroma 0,014), `palette.beton` | évite le gris bleuté générique des SaaS |
-| Statuts | vert tiré vers le bleu, ambre, rouge, bleu | cohérent avec les couleurs de sécurité (ISO 3864) connues du terrain, et distinguables par les daltoniens |
-| Titres | Barlow Semi Condensed | dessinée d'après la signalétique routière : compacte, lisible de loin |
-| Texte | Inter, chiffres tabulaires | formulaires et tableaux denses, quantités alignées |
-| Références | JetBrains Mono | numéros de lot, de devis, de bon |
-| Formes | rayons de 4 à 10 px, contours plutôt qu'ombres | solide, pas ludique |
-| Densités | bureau (contrôles de 40 px, texte 16 px) et terrain (56 px, texte 18 px) | deux contextes physiques très différents |
+| Idée | la matière du chantier livré (béton, corten) et le langage du plan qui le décrit (cartouche, cotes, révisions) | A + C |
+| Fonds | béton banché (`bg.canvas`) avec trous de banche ; béton ciré (`bg.surface`) pour les blocs | C |
+| Texte | anthracite, 11:1 sur le béton banché | C |
+| Action principale | encre de plan, bleu nuit (`primary`) | A |
+| Action mise en avant | corten (`accent`) : une seule par écran | C |
+| Statuts | encre claire (en cours), ocre (en attente), rouge révision (en retard), vert-de-gris (terminé) | A + C |
+| Titres et chiffres | Schibsted Grotesk, très gras, approche serrée | C |
+| Texte | Instrument Sans | C |
+| Langage du plan | IBM Plex Mono, en capitales espacées pour les clés, cotes et références | A |
+| Formes | angles vifs partout (`radius.none`), joints sombres de 2 px entre les blocs, pas d'ombre sauf pour ce qui flotte | C |
+| Densités | bureau (contrôles de 40 px, texte 16 px) et terrain (56 px, texte 18 px) | inchangé |
 
-**Alternative écartée : « Plan d'exécution »** (encre bleu nuit sur papier, traits fins, tout en mono). Élégante au bureau, mais trop fine pour le terrain.
+**Écartés** : la trame de calque en fond (un seul motif, les trous de banche), le jaune et les tampons du territoire B, le bleu « SaaS » de la première version.
 
-**Clichés évités** : bandes de balisage jaune et noir, interface tout orange, pictogrammes de casque, faux béton texturé.
+## Éléments signatures
+
+| Signature | Ce que c'est | À quoi ça sert | Où |
+|---|---|---|---|
+| Cartouche | en-tête de fiche en grille, cadre anthracite, clés en mono capitales (PROJET, RÉF., LOT, INDICE, STATUT) | retrouver d'un coup d'œil les infos d'identité, comme sur un plan | fiche chantier, lot, réserve, document |
+| Cote d'avancement | ligne de cote à barbules obliques ; la partie réalisée en trait épais ; valeur écrite sur le trait ; prévu en pointillé | voir l'avancement **et** l'écart au prévu, dans le langage des plans | cartes, fiches, planning |
+| Indice de révision | triangle rouge avec une lettre (A, B, C…) | signaler ce qui a changé depuis la dernière visite, comme sur un plan révisé | lignes, cartes, documents modifiés |
+| Bulles de repère | cercle à anneau de couleur de famille, code métier en mono | identifier le métier sans dépendre de la couleur | partout où un métier apparaît |
+| Grands chiffres | avancement, effectifs, réserves ouvertes en Schibsted noir | lire l'essentiel avant le détail | en-têtes de fiche, tableau de bord, en-tête mobile |
+| Structure apparente | blocs séparés par des joints sombres de 2 px, angles vifs, sans ombre | hiérarchie lisible sans décoration | toutes les mises en page de blocs |
+| Trous de banche | trame de points discrète sur le fond de page | ancrer la matière, reconnaître le produit | fond de page uniquement |
 
 ## Conséquences pour le système
 
 - 2 thèmes (`light`, `dark`) × 2 densités (`bureau`, `terrain`). Le web desktop est en bureau ; le mobile et la tablette tactile sont en terrain.
 - Rôles de couleur métier : 5 statuts, 8 familles de métiers + « autre ».
-- Composants prioritaires : bouton, champ avec unité, badge statut, pastille métier, carte chantier, barre d'avancement, réserve, navigation (barre latérale web / onglets mobiles), bandeau hors connexion.
+- Composants prioritaires : bouton, champ avec unité, statut, bulle de repère (métier), cote d'avancement, cartouche, chiffres clés, indice de révision, carte chantier, réserve, navigation (barre latérale web / onglets mobiles), bandeau hors connexion.
 
 ## Hypothèses à valider
 

@@ -70,7 +70,7 @@ x bloquants · y importants · z mineurs — état : prêt / à corriger
 ## Importants
 ## Mineurs
 ## Conforme
-- ce qui a été vérifié et passe (avec les chiffres : 192/192 paires de contraste…)
+- ce qui a été vérifié et passe (avec les chiffres : 204/204 paires de contraste…)
 ```
 
 Bloquant = un utilisateur est empêché de faire une tâche, ou un critère WCAG AA échoue. Important = une incohérence visible ou une dette qui va se propager. Mineur = du confort.

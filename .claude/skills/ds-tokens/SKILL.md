@@ -88,7 +88,7 @@ Les axes de modes sont déclarés dans `ds.config.json` (`modes.<axe>.values`). 
 }
 ```
 
-Le système Fondation BTP dans `design-system/` est un exemple complet : 3 palettes de marque, 4 statuts, 8 familles de métiers, 2 thèmes, 2 densités et 192 paires de contraste contrôlées.
+Le système Fondation BTP dans `design-system/` est un exemple complet : 6 palettes de marque et de statut, 8 familles de métiers, des tokens de motif (trous de banche, cote), 2 thèmes, 2 densités et 204 paires de contraste contrôlées.
 
 ## Modifier un système existant
 

@@ -43,6 +43,7 @@
         { "fg": "color.fg.muted", "bg": ["color.bg.canvas", "color.bg.surface", "color.bg.raised", "color.bg.sunken"], "min": 4.5 },
         { "fg": "color.fg.subtle", "bg": ["color.bg.canvas", "color.bg.surface"], "min": 3, "note": "icônes et placeholders" },
         { "fg": "color.fg.inverse", "bg": "color.bg.inverse", "min": 4.5 },
+        { "fg": "color.fg.inverse-muted", "bg": "color.bg.inverse", "min": 4.5 },
         { "fg": "color.fg.link", "bg": ["color.bg.canvas", "color.bg.surface", "color.bg.raised"], "min": 4.5 },
         { "fg": "color.*.on-solid", "bg": ["color.*.solid"], "min": 4.5 },
         { "fg": "color.primary.on-solid", "bg": ["color.primary.solid-hover", "color.primary.solid-active"], "min": 4.5 },
@@ -55,12 +56,17 @@
         { "fg": "color.statut.*.on-subtle", "bg": ["color.statut.*.subtle"], "min": 4.5 },
         { "fg": "color.statut.*.solid", "bg": ["color.bg.surface"], "min": 3 },
         { "fg": "color.metier.*.on-subtle", "bg": ["color.metier.*.subtle"], "min": 4.5 },
-        { "fg": "color.metier.*.solid", "bg": ["color.bg.surface", "color.bg.canvas"], "min": 3 }
+        { "fg": "color.metier.*.solid", "bg": ["color.bg.surface", "color.bg.raised"], "min": 3 },
+        { "fg": "color.border.joint", "bg": ["color.bg.canvas", "color.bg.surface"], "min": 3, "note": "joints de structure" },
+        { "fg": "color.chrome.fg", "bg": ["color.chrome.bg"], "min": 7 },
+        { "fg": "color.chrome.fg-muted", "bg": ["color.chrome.bg"], "min": 4.5 },
+        { "fg": "color.chrome.indicator", "bg": ["color.chrome.bg"], "min": 3 }
       ]
     },
     "categorical": [
       { "name": "familles de métiers", "axis": "theme", "tokens": "color.metier.*.solid", "minDeltaE": 0.08, "minDeltaECvd": 0.04 },
-      { "name": "statuts", "axis": "theme", "tokens": ["color.success.solid", "color.warning.solid", "color.danger.solid", "color.info.solid"], "minDeltaE": 0.1, "minDeltaECvd": 0.05 }
+      { "name": "statuts", "axis": "theme", "tokens": ["color.success.solid", "color.warning.solid", "color.danger.solid", "color.info.solid"], "minDeltaE": 0.1, "minDeltaECvd": 0.05 },
+      { "name": "corten / rouge", "axis": "theme", "tokens": ["color.accent.solid", "color.danger.solid"], "minDeltaE": 0.08, "minDeltaECvd": 0.05 }
     ]
   },
   "export": {
@@ -68,7 +74,7 @@
       "light": "Clair",
       "dark": "Sombre"
     },
-    "googleFonts": "https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap",
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800;900&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap",
     "samples": {
       "text.display": "62 %",
       "text.title-1": "Résidence Les Tilleuls",
@@ -79,8 +85,8 @@
       "text.body-sm": "Bât. A · R+2 · Logement 204 · Salle d'eau",
       "text.label": "Quantité livrée",
       "text.caption": "Levée le 21/11 · 2 photos",
-      "text.overline": "LOT 02 · GROS ŒUVRE",
-      "text.reference": "BL-2026-0412"
+      "text.overline": "PROJET · LOT 02 · GROS ŒUVRE",
+      "text.reference": "CH-2026-014 · 41 %"
     }
   }
 }

@@ -1,51 +1,40 @@
 # Navigation principale
-Donne accès aux grandes rubriques : Chantiers, Planning, Réserves, Photos, Équipe (et, sur web, Documents, Achats, Paramètres).
+Donne accès aux grandes rubriques : Chantiers, Planning, Réserves, Photos, Équipe (et, sur web, Documents, Achats, Paramètres). Le cadre de l'application (`color.chrome.*`) est anthracite dans les deux thèmes.
 
 ## Quand l'utiliser
-Une seule navigation principale par application, toujours visible sur les écrans de premier niveau.
+Une seule navigation principale, toujours visible sur les écrans de premier niveau.
 
 ## Anatomie
-- **Web desktop (≥ `breakpoint.lg`)** : barre latérale fixe (logo, rubriques avec icône + libellé, sélecteur de chantier, compte en bas) + barre supérieure (recherche, notifications).
-- **Web tablette (`md` → `lg`)** : barre latérale réduite aux icônes, libellés en infobulle, ou tiroir.
-- **Mobile et web < `md`** : barre d'onglets en bas, 5 entrées maximum (icône + libellé + pastille de compteur).
+- **Web desktop (≥ `breakpoint.lg`)** : barre latérale anthracite (nom du produit, rubriques icône + libellé, sélecteur de chantier, compte), contenu sur le béton.
+- **Web tablette** : barre latérale réduite aux icônes, ou tiroir.
+- **Mobile et web < `md`** : en-tête anthracite (`.fd-mhead` : sur-titre, nom du chantier, un chiffre clé) + barre d'onglets du bas, 5 entrées maximum.
 
 ## Variantes
 | Élément | Repos | Actif |
 |---|---|---|
-| Entrée d'onglet | icône + libellé `color.fg.muted` | `color.primary.text`, semi-gras, trait supérieur `color.primary.solid` |
-| Compteur | — | pastille `color.danger.solid` / `on-solid`, chiffre |
+| Entrée | icône + libellé `color.chrome.fg-muted` | `color.chrome.fg` en gras + trait supérieur `border-width.thick` en `color.chrome.indicator` (corten) |
+| Compteur | — | pastille `color.danger.solid` / `on-solid` |
 
 ## Tailles
 | | bureau | terrain |
 |---|---|---|
-| Hauteur d'un onglet | `size.control.lg` 48 px | 64 px |
-| Icône | `size.icon.md` 20 px | 24 px |
-| Libellé | `text.caption` | `text.caption` (14 px) |
-| Largeur barre latérale | 240 px (à tokeniser lors de sa spec détaillée) | — |
+| Hauteur d'onglet | `size.control.lg` 48 px | 64 px |
+| Icône | 20 px | 24 px |
 
 ## États
-| État | Changement |
-|---|---|
-| Actif | couleur primaire, semi-gras, trait de `border-width.thick` |
-| Pressé | fond `color.bg.hover` |
-| Focus | anneau `color.border.focus` |
+Actif (voir ci-dessus), pressé (fond `color.chrome.fg-muted` à faible opacité ou effet natif de la plateforme), focus (`color.border.focus`).
 
 ## Contenu
-Libellés d'un mot (« Réserves », pas « Mes réserves en cours »). Les rubriques sont les mêmes sur web et mobile, dans le même ordre.
+Libellés d'un mot, mêmes rubriques et même ordre sur web et mobile.
 
 ## Accessibilité
-- `<nav aria-label="Navigation principale">`, entrée active avec `aria-current="page"`.
-- Le compteur est inclus dans le nom accessible (« Réserves, 4 nouvelles »).
-- La barre du bas respecte la zone sûre (`env(safe-area-inset-bottom)`).
+`<nav aria-label="Navigation principale">`, `aria-current="page"`, compteur inclus dans le nom (« Réserves, 4 nouvelles »), zone sûre du bas respectée.
 
 ## Web
-`.fd-tabbar` / `.fd-tabbar__item` / `.fd-tabbar__badge` pour la barre du bas (web mobile et démonstration). Barre latérale : à implémenter selon cette spec.
+`.fd-tabbar` / `.fd-tabbar__item` / `.fd-tabbar__badge` ; en-tête mobile `.fd-mhead`. Barre latérale : à implémenter selon cette spec, avec les mêmes tokens `color.chrome.*`.
 
 ## Mobile
-- iOS : `UITabBar` / onglets de la navigation choisie (Expo Router `Tabs`, Flutter `NavigationBar`, Compose `NavigationBar`), stylés avec les tokens.
-- Les rubriques au-delà de 5 vont dans un onglet « Plus » ou dans l'écran Chantier.
-- La barre reste visible pendant la saisie ; elle se masque seulement quand le clavier est ouvert.
+Composant d'onglets de la techno choisie (Expo Router `Tabs`, Flutter `NavigationBar`, Compose `NavigationBar`), stylé avec `color.chrome.*`.
 
 ## Ne pas faire
-- Un menu « hamburger » comme navigation principale sur mobile.
-- Des icônes sans libellé.
+Un menu « hamburger » comme navigation principale sur mobile ; des icônes sans libellé.

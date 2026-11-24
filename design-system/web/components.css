@@ -1,18 +1,32 @@
-/* Fondation BTP — composants web de référence.
+/* Fondation BTP · « Plan et matière » : composants web de référence.
    Ne lit que des variables de build/css/tokens.css (charger ce fichier avant).
    Thème : data-theme="light|dark" (sinon préférence système). Densité : data-density="bureau|terrain". */
 
 /* ---------------------------------------------------------------- Base */
 
 .fd-app {
-  background: var(--fd-color-bg-canvas);
+  background-color: var(--fd-color-bg-canvas);
   color: var(--fd-color-fg-default);
   font: var(--fd-text-body);
   letter-spacing: var(--fd-text-body-letter-spacing);
   -webkit-font-smoothing: antialiased;
 }
 
+/* Trous de banche : la trame du coffrage, uniquement sur le fond de page. */
+.fd-banche {
+  background-image: radial-gradient(circle at center, var(--fd-color-border-subtle) 0 var(--fd-motif-banche-rayon), transparent calc(var(--fd-motif-banche-rayon) + 0.5px));
+  background-size: var(--fd-motif-banche-pas-x) var(--fd-motif-banche-pas-y);
+  background-position: calc(var(--fd-motif-banche-pas-x) / 2) calc(var(--fd-motif-banche-pas-y) / 2);
+}
+
 .fd-num { font-variant-numeric: tabular-nums; }
+
+.fd-overline {
+  font: var(--fd-text-overline);
+  letter-spacing: var(--fd-text-overline-letter-spacing);
+  text-transform: uppercase;
+  color: var(--fd-color-fg-muted);
+}
 
 .fd-icon {
   width: var(--fd-size-icon-md);
@@ -20,16 +34,28 @@
   flex: none;
   fill: none;
   stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke-width: 1.75;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
 }
 .fd-icon--sm { width: var(--fd-size-icon-sm); height: var(--fd-size-icon-sm); }
 
-:where(.fd-btn, .fd-input, .fd-tabbar__item, .fd-reserve__check, .fd-banner__action):focus-visible {
+:where(.fd-btn, .fd-input, .fd-tabbar__item, .fd-reserve__check, .fd-banner__action, .fd-card--interactive):focus-visible {
   outline: var(--fd-focus-ring-width) solid var(--fd-color-border-focus);
   outline-offset: var(--fd-focus-ring-offset);
 }
+
+/* ---------------------------------------------------------------- Structure apparente */
+
+/* Les blocs enfants sont séparés par des joints sombres de 2 px (le fond du conteneur). */
+.fd-structure {
+  display: grid;
+  gap: var(--fd-border-width-thick);
+  background: var(--fd-color-border-joint);
+  border: var(--fd-border-width-thick) solid var(--fd-color-border-joint);
+  min-width: 0;
+}
+.fd-structure > * { background: var(--fd-color-bg-surface); min-width: 0; }
 
 /* ---------------------------------------------------------------- Bouton */
 
@@ -41,12 +67,13 @@
   min-height: var(--fd-size-control-md);
   min-width: var(--fd-size-touch-target);
   padding-inline: var(--fd-layout-control-padding-x);
-  border: var(--fd-border-width-thin) solid var(--fd-color-border-default);
-  border-radius: var(--fd-radius-md);
+  border: var(--fd-border-width-regular) solid var(--fd-color-border-default);
+  border-radius: var(--fd-radius-none);
   background: var(--fd-color-bg-surface);
   color: var(--fd-color-fg-default);
   font: var(--fd-text-label);
   letter-spacing: var(--fd-text-label-letter-spacing);
+  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   transition: background-color var(--fd-duration-fast) ease, border-color var(--fd-duration-fast) ease;
@@ -61,8 +88,9 @@
 .fd-btn--accent { background: var(--fd-color-accent-solid); border-color: var(--fd-color-accent-solid); color: var(--fd-color-accent-on-solid); }
 .fd-btn--accent:hover, .fd-btn--accent:active { background: var(--fd-color-accent-solid-hover); border-color: var(--fd-color-accent-solid-hover); }
 
-.fd-btn--danger { background: var(--fd-color-danger-solid); border-color: var(--fd-color-danger-solid); color: var(--fd-color-danger-on-solid); }
-.fd-btn--danger:hover, .fd-btn--danger:active { filter: brightness(0.92); }
+/* Danger : contour rouge, jamais un aplat qui pourrait se confondre avec le corten. */
+.fd-btn--danger { background: var(--fd-color-bg-surface); border-color: var(--fd-color-danger-border); color: var(--fd-color-danger-text); }
+.fd-btn--danger:hover { background: var(--fd-color-danger-subtle); }
 
 .fd-btn--ghost { background: transparent; border-color: transparent; color: var(--fd-color-primary-text); }
 .fd-btn--ghost:hover { background: var(--fd-color-primary-subtle); }
@@ -77,14 +105,13 @@
   border-color: var(--fd-color-border-subtle);
   color: var(--fd-color-fg-disabled);
   cursor: not-allowed;
-  filter: none;
 }
 
 .fd-btn[aria-busy="true"] { cursor: progress; }
 .fd-btn[aria-busy="true"]::before {
   content: "";
-  width: 1em;
-  height: 1em;
+  width: 0.9em;
+  height: 0.9em;
   border: var(--fd-border-width-thick) solid currentColor;
   border-right-color: transparent;
   border-radius: var(--fd-radius-full);
@@ -95,15 +122,15 @@
 /* ---------------------------------------------------------------- Champ de saisie */
 
 .fd-field { display: grid; gap: var(--fd-space-1); align-content: start; min-width: 0; }
-.fd-field__label { font: var(--fd-text-label); letter-spacing: var(--fd-text-label-letter-spacing); color: var(--fd-color-fg-default); }
+.fd-field__label { font: var(--fd-text-label); color: var(--fd-color-fg-default); }
 .fd-field__optional { color: var(--fd-color-fg-muted); font-weight: var(--fd-font-weight-regular); }
 
 .fd-field__control {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   min-height: var(--fd-size-control-md);
-  border: var(--fd-border-width-thin) solid var(--fd-color-border-strong);
-  border-radius: var(--fd-radius-md);
+  border: var(--fd-border-width-regular) solid var(--fd-color-border-strong);
+  border-radius: var(--fd-radius-none);
   background: var(--fd-color-bg-surface);
 }
 .fd-field__control:focus-within {
@@ -115,10 +142,8 @@
   flex: 1;
   width: 100%;
   min-width: 0;
-  align-self: stretch;
   padding-inline: var(--fd-layout-control-padding-x);
   border: 0;
-  border-radius: inherit;
   background: transparent;
   color: var(--fd-color-fg-default);
   font: var(--fd-text-body);
@@ -129,15 +154,13 @@
 .fd-input::placeholder { color: var(--fd-color-fg-subtle); }
 
 .fd-field__unit {
-  padding-inline: var(--fd-space-3);
-  align-self: stretch;
   display: flex;
   align-items: center;
-  border-left: var(--fd-border-width-thin) solid var(--fd-color-border-subtle);
+  padding-inline: var(--fd-space-3);
+  border-left: var(--fd-border-width-regular) solid var(--fd-color-border-strong);
   background: var(--fd-color-bg-sunken);
-  border-radius: 0 var(--fd-radius-md) var(--fd-radius-md) 0;
   color: var(--fd-color-fg-muted);
-  font: var(--fd-text-label);
+  font: var(--fd-text-reference);
 }
 
 .fd-field__help { font: var(--fd-text-caption); color: var(--fd-color-fg-muted); }
@@ -147,171 +170,239 @@
 .fd-field__control:has(.fd-input:disabled) { background: var(--fd-color-bg-sunken); border-color: var(--fd-color-border-subtle); }
 .fd-input:disabled { color: var(--fd-color-fg-disabled); cursor: not-allowed; }
 
-/* ---------------------------------------------------------------- Badge statut */
+/* ---------------------------------------------------------------- Statut */
 
-.fd-badge {
+.fd-statut {
   display: inline-flex;
   align-items: center;
-  gap: var(--fd-space-1);
-  padding: calc(var(--fd-space-1) / 2) var(--fd-space-2);
-  border-radius: var(--fd-radius-sm);
-  font: var(--fd-text-caption);
-  font-weight: var(--fd-font-weight-semibold);
+  gap: var(--fd-space-2);
+  font: var(--fd-text-overline);
+  letter-spacing: var(--fd-text-overline-letter-spacing);
+  text-transform: uppercase;
+  color: var(--fd-color-fg-default);
   white-space: nowrap;
-  --_bg: var(--fd-color-statut-planifie-subtle);
-  --_fg: var(--fd-color-statut-planifie-on-subtle);
-  --_mark: var(--fd-color-statut-planifie-solid);
-  background: var(--_bg);
-  color: var(--_fg);
+  --_c: var(--fd-color-statut-planifie-solid);
 }
-.fd-badge .fd-icon { width: 1.15em; height: 1.15em; color: var(--_mark); }
-.fd-badge--en-cours { --_bg: var(--fd-color-statut-en-cours-subtle); --_fg: var(--fd-color-statut-en-cours-on-subtle); --_mark: var(--fd-color-statut-en-cours-solid); }
-.fd-badge--en-attente { --_bg: var(--fd-color-statut-en-attente-subtle); --_fg: var(--fd-color-statut-en-attente-on-subtle); --_mark: var(--fd-color-statut-en-attente-solid); }
-.fd-badge--en-retard { --_bg: var(--fd-color-statut-en-retard-subtle); --_fg: var(--fd-color-statut-en-retard-on-subtle); --_mark: var(--fd-color-statut-en-retard-solid); }
-.fd-badge--termine { --_bg: var(--fd-color-statut-termine-subtle); --_fg: var(--fd-color-statut-termine-on-subtle); --_mark: var(--fd-color-statut-termine-solid); }
-.fd-badge--annule { text-decoration: line-through; }
-
-/* ---------------------------------------------------------------- Pastille métier */
-
-.fd-metier {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--fd-space-1);
-  max-width: 100%;
-  padding: calc(var(--fd-space-1) / 2) var(--fd-space-2) calc(var(--fd-space-1) / 2) var(--fd-space-1);
-  border-radius: var(--fd-radius-sm);
-  background: var(--_subtle);
-  color: var(--_on);
-  font: var(--fd-text-caption);
-  font-weight: var(--fd-font-weight-medium);
-  --_solid: var(--fd-color-metier-autre-solid);
-  --_subtle: var(--fd-color-metier-autre-subtle);
-  --_on: var(--fd-color-metier-autre-on-subtle);
+.fd-statut::before {
+  content: "";
+  flex: none;
+  width: 0.8em;
+  height: 0.8em;
+  box-sizing: border-box;
+  border: var(--fd-border-width-regular) solid var(--_c);
 }
-.fd-metier__swatch { width: 0.75em; height: 0.75em; border-radius: calc(var(--fd-radius-sm) / 2); background: var(--_solid); flex: none; }
-.fd-metier__code { font-family: var(--fd-font-family-mono); font-weight: var(--fd-font-weight-semibold); }
-.fd-metier__label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.fd-metier--gros-oeuvre { --_solid: var(--fd-color-metier-gros-oeuvre-solid); --_subtle: var(--fd-color-metier-gros-oeuvre-subtle); --_on: var(--fd-color-metier-gros-oeuvre-on-subtle); }
-.fd-metier--structure { --_solid: var(--fd-color-metier-structure-solid); --_subtle: var(--fd-color-metier-structure-subtle); --_on: var(--fd-color-metier-structure-on-subtle); }
-.fd-metier--electricite { --_solid: var(--fd-color-metier-electricite-solid); --_subtle: var(--fd-color-metier-electricite-subtle); --_on: var(--fd-color-metier-electricite-on-subtle); }
-.fd-metier--exterieurs { --_solid: var(--fd-color-metier-exterieurs-solid); --_subtle: var(--fd-color-metier-exterieurs-subtle); --_on: var(--fd-color-metier-exterieurs-on-subtle); }
-.fd-metier--fluides { --_solid: var(--fd-color-metier-fluides-solid); --_subtle: var(--fd-color-metier-fluides-subtle); --_on: var(--fd-color-metier-fluides-on-subtle); }
-.fd-metier--enveloppe { --_solid: var(--fd-color-metier-enveloppe-solid); --_subtle: var(--fd-color-metier-enveloppe-subtle); --_on: var(--fd-color-metier-enveloppe-on-subtle); }
-.fd-metier--amenagement { --_solid: var(--fd-color-metier-amenagement-solid); --_subtle: var(--fd-color-metier-amenagement-subtle); --_on: var(--fd-color-metier-amenagement-on-subtle); }
-.fd-metier--finitions { --_solid: var(--fd-color-metier-finitions-solid); --_subtle: var(--fd-color-metier-finitions-subtle); --_on: var(--fd-color-metier-finitions-on-subtle); }
+.fd-statut--en-cours { --_c: var(--fd-color-statut-en-cours-solid); }
+.fd-statut--en-cours::before { background: linear-gradient(90deg, var(--_c) 50%, transparent 50%); }
+.fd-statut--en-attente { --_c: var(--fd-color-statut-en-attente-solid); }
+.fd-statut--en-attente::before { border: 0; background: linear-gradient(90deg, var(--_c) 0 35%, transparent 35% 65%, var(--_c) 65%); }
+.fd-statut--en-retard { --_c: var(--fd-color-statut-en-retard-solid); color: var(--fd-color-danger-text); }
+.fd-statut--en-retard::before { width: 0.95em; border: 0; background: var(--_c); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.fd-statut--termine { --_c: var(--fd-color-statut-termine-solid); }
+.fd-statut--termine::before { background: var(--_c); }
+.fd-statut--annule { text-decoration: line-through; color: var(--fd-color-fg-muted); }
 
-/* ---------------------------------------------------------------- Barre d'avancement */
+/* ---------------------------------------------------------------- Bulle de repère (métier) */
 
-.fd-progress { display: grid; gap: var(--fd-space-1); }
-.fd-progress__head { display: flex; justify-content: space-between; gap: var(--fd-space-2); font: var(--fd-text-caption); color: var(--fd-color-fg-muted); }
-.fd-progress__value { font-variant-numeric: tabular-nums; font-weight: var(--fd-font-weight-semibold); color: var(--fd-color-fg-default); }
-.fd-progress__track { height: var(--fd-space-2); border-radius: var(--fd-radius-full); background: var(--fd-color-bg-sunken); box-shadow: inset 0 0 0 1px var(--fd-color-border-subtle); overflow: hidden; }
-.fd-progress__bar { height: 100%; border-radius: inherit; background: var(--_bar, var(--fd-color-primary-solid)); }
-.fd-progress--en-retard { --_bar: var(--fd-color-statut-en-retard-solid); }
-.fd-progress--termine { --_bar: var(--fd-color-statut-termine-solid); }
+.fd-repere {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: var(--fd-size-repere);
+  height: var(--fd-size-repere);
+  border-radius: var(--fd-radius-full);
+  border: var(--fd-border-width-thick) solid var(--_c, var(--fd-color-metier-autre-solid));
+  background: var(--fd-color-bg-surface);
+  color: var(--fd-color-fg-default);
+  font: var(--fd-text-reference);
+  font-size: var(--fd-font-size-xs);
+  font-weight: var(--fd-font-weight-semibold);
+}
+.fd-repere-label { display: inline-flex; align-items: center; gap: var(--fd-space-2); font: var(--fd-text-body-sm); color: var(--fd-color-fg-default); min-width: 0; }
+.fd-reperes { display: flex; flex-wrap: wrap; gap: var(--fd-space-2); }
+.fd-repere--gros-oeuvre { --_c: var(--fd-color-metier-gros-oeuvre-solid); }
+.fd-repere--structure { --_c: var(--fd-color-metier-structure-solid); }
+.fd-repere--electricite { --_c: var(--fd-color-metier-electricite-solid); }
+.fd-repere--exterieurs { --_c: var(--fd-color-metier-exterieurs-solid); }
+.fd-repere--fluides { --_c: var(--fd-color-metier-fluides-solid); }
+.fd-repere--enveloppe { --_c: var(--fd-color-metier-enveloppe-solid); }
+.fd-repere--amenagement { --_c: var(--fd-color-metier-amenagement-solid); }
+.fd-repere--finitions { --_c: var(--fd-color-metier-finitions-solid); }
 
-/* ---------------------------------------------------------------- Carte */
+/* ---------------------------------------------------------------- Indice de révision */
+
+.fd-indice { width: 1.4em; height: 1.3em; flex: none; vertical-align: middle; }
+.fd-indice path { fill: var(--fd-color-bg-surface); stroke: var(--fd-color-danger-solid); stroke-width: 1.6; }
+.fd-indice text { fill: var(--fd-color-danger-text); font: 700 11px var(--fd-font-family-mono); }
+
+/* ---------------------------------------------------------------- Cote d'avancement */
+
+.fd-cote {
+  --_fill: var(--fd-color-primary-solid);
+  --_line: var(--fd-color-border-strong);
+  position: relative;
+  container-type: inline-size;
+  height: calc(var(--fd-motif-cote-barbule) + var(--fd-space-6) + var(--fd-space-5));
+  margin-inline: var(--fd-space-2);
+}
+.fd-cote__trait { position: absolute; left: 0; right: 0; bottom: var(--fd-space-5); height: var(--fd-motif-cote-barbule); }
+.fd-cote__trait::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: var(--fd-border-width-regular); background: var(--_line); transform: translateY(-50%); }
+.fd-cote__fait { position: absolute; left: 0; top: 50%; height: var(--fd-motif-cote-trait); width: calc(var(--v) * 1%); background: var(--_fill); transform: translateY(-50%); }
+.fd-cote__barbule { position: absolute; top: 0; bottom: 0; width: var(--fd-border-width-regular); background: var(--_line); transform: rotate(45deg); }
+.fd-cote__barbule--debut { left: 0; }
+.fd-cote__barbule--fin { right: 0; }
+.fd-cote__val {
+  position: absolute;
+  bottom: calc(var(--fd-motif-cote-barbule) + var(--fd-space-5) + var(--fd-space-1));
+  left: clamp(2.5ch, calc(var(--v) * 1%), calc(100% - 2.5ch));
+  transform: translateX(-50%);
+  font: var(--fd-text-reference);
+  font-weight: var(--fd-font-weight-semibold);
+  color: var(--fd-color-fg-default);
+  white-space: nowrap;
+}
+/* Le prévu se lit sous la ligne de cote, la valeur réalisée au-dessus : jamais de chevauchement. */
+.fd-cote__plan { position: absolute; left: calc(var(--p) * 1%); bottom: 0; height: calc(var(--fd-motif-cote-barbule) + var(--fd-space-5)); border-left: var(--fd-border-width-regular) dashed var(--fd-color-fg-default); }
+/* Le libellé passe à gauche du repère quand il n'a plus la place à droite (prévu proche de 100 %). */
+.fd-cote__plan span { position: absolute; left: min(var(--fd-space-1), calc((100 - var(--p)) * 1cqw - 11ch)); bottom: 0; font: var(--fd-text-overline); letter-spacing: var(--fd-text-overline-letter-spacing); text-transform: uppercase; color: var(--fd-color-fg-muted); white-space: nowrap; }
+.fd-cote--en-retard { --_fill: var(--fd-color-statut-en-retard-solid); }
+.fd-cote--en-retard .fd-cote__val { color: var(--fd-color-danger-text); }
+.fd-cote--termine { --_fill: var(--fd-color-statut-termine-solid); }
+
+/* ---------------------------------------------------------------- Cartouche */
+
+.fd-cartouche {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--fd-border-width-regular);
+  background: var(--fd-color-border-joint);
+  border: var(--fd-border-width-regular) solid var(--fd-color-border-joint);
+}
+.fd-cartouche__cell { display: grid; gap: var(--fd-space-1); align-content: start; padding: var(--fd-space-2) var(--fd-space-3) var(--fd-space-3); background: var(--fd-color-bg-surface); min-width: 0; }
+.fd-cartouche__cell--projet { grid-column: 1 / -1; padding: var(--fd-space-3) var(--fd-space-4) var(--fd-space-4); }
+.fd-cartouche__k { font: var(--fd-text-overline); letter-spacing: var(--fd-text-overline-letter-spacing); text-transform: uppercase; color: var(--fd-color-fg-muted); }
+.fd-cartouche__v { display: flex; align-items: center; gap: var(--fd-space-2); flex-wrap: wrap; font: var(--fd-text-reference); font-weight: var(--fd-font-weight-semibold); color: var(--fd-color-fg-default); min-width: 0; }
+.fd-cartouche__titre { margin: 0; font: var(--fd-text-title-1); letter-spacing: var(--fd-text-title-1-letter-spacing); color: var(--fd-color-fg-default); text-wrap: balance; }
+@media (max-width: 560px) {
+  .fd-cartouche { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------------------------------------------------------------- Chiffres clés */
+
+.fd-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 7.5rem), 1fr)); }
+.fd-kpi { display: grid; gap: var(--fd-space-1); align-content: end; padding: var(--fd-space-3) var(--fd-space-4) 0; border-left: var(--fd-border-width-thin) solid var(--fd-color-border-subtle); min-width: 0; }
+.fd-kpi:first-child { border-left: 0; padding-left: 0; }
+.fd-kpi__val { font: var(--fd-text-display); letter-spacing: var(--fd-text-display-letter-spacing); font-variant-numeric: tabular-nums; color: var(--fd-color-fg-default); }
+.fd-kpi__unit { font: var(--fd-text-title-3); margin-left: 0.1em; letter-spacing: 0; }
+.fd-kpi__lbl { font: var(--fd-text-overline); letter-spacing: var(--fd-text-overline-letter-spacing); text-transform: uppercase; color: var(--fd-color-fg-muted); }
+
+/* ---------------------------------------------------------------- Carte et carte chantier */
 
 .fd-card {
   display: grid;
   gap: var(--fd-space-3);
-  padding: var(--fd-space-4);
-  border: var(--fd-border-width-thin) solid var(--fd-color-border-subtle);
-  border-radius: var(--fd-radius-lg);
+  padding: var(--fd-layout-block-padding);
+  border: var(--fd-border-width-thick) solid var(--fd-color-border-joint);
+  border-radius: var(--fd-radius-none);
   background: var(--fd-color-bg-surface);
   min-width: 0;
 }
-.fd-card--interactive { cursor: pointer; transition: border-color var(--fd-duration-fast) ease, box-shadow var(--fd-duration-fast) ease; }
-.fd-card--interactive:hover { border-color: var(--fd-color-border-default); box-shadow: var(--fd-shadow-sm); }
+.fd-structure > .fd-card { border: 0; }
+.fd-card--interactive { cursor: pointer; transition: background-color var(--fd-duration-fast) ease; }
+.fd-card--interactive:hover { background: var(--fd-color-bg-hover); }
 
-.fd-chantier__head { display: flex; justify-content: space-between; align-items: start; gap: var(--fd-space-3); }
-.fd-chantier__ref { font: var(--fd-text-overline); letter-spacing: var(--fd-text-overline-letter-spacing); text-transform: uppercase; color: var(--fd-color-fg-muted); }
-.fd-chantier__title { margin: 0; font: var(--fd-text-title-3); color: var(--fd-color-fg-default); text-wrap: balance; }
-.fd-chantier__meta { margin: 0; font: var(--fd-text-body-sm); color: var(--fd-color-fg-muted); }
-.fd-chantier__metiers { display: flex; flex-wrap: wrap; gap: var(--fd-space-1); }
+.fd-chantier__head { display: flex; justify-content: space-between; align-items: center; gap: var(--fd-space-2) var(--fd-space-3); flex-wrap: wrap; }
+.fd-chantier__title { margin: 0; font: var(--fd-text-title-3); letter-spacing: var(--fd-text-title-3-letter-spacing); color: var(--fd-color-fg-default); text-wrap: balance; }
+.fd-chantier__meta { margin: 0; display: flex; align-items: center; gap: var(--fd-space-2); flex-wrap: wrap; font: var(--fd-text-body-sm); color: var(--fd-color-fg-muted); }
 .fd-chantier__foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--fd-space-2); padding-top: var(--fd-space-3); border-top: var(--fd-border-width-thin) solid var(--fd-color-border-subtle); font: var(--fd-text-caption); color: var(--fd-color-fg-muted); }
 
-/* ---------------------------------------------------------------- Réserve (élément de liste) */
+/* ---------------------------------------------------------------- Réserve */
 
 .fd-reserve {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: var(--fd-space-3);
-  align-items: start;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: var(--fd-space-3) var(--fd-space-4);
+  align-items: center;
   min-height: var(--fd-size-row);
-  padding: var(--fd-space-3) var(--fd-space-4);
-  border-bottom: var(--fd-border-width-thin) solid var(--fd-color-border-subtle);
+  padding: var(--fd-space-3) var(--fd-layout-block-padding);
   background: var(--fd-color-bg-surface);
 }
+.fd-reserve + .fd-reserve { border-top: var(--fd-border-width-thin) solid var(--fd-color-border-subtle); }
 .fd-reserve__check {
   display: grid;
   place-items: center;
   width: var(--fd-size-touch-target);
   height: var(--fd-size-touch-target);
-  margin: calc((var(--fd-size-icon-lg) - var(--fd-size-touch-target)) / 2);
+  margin: calc((var(--fd-size-icon-md) - var(--fd-size-touch-target)) / 2);
   border: 0;
-  border-radius: var(--fd-radius-full);
   background: transparent;
-  color: var(--fd-color-border-strong);
+  color: var(--fd-color-bg-surface);
   cursor: pointer;
 }
-.fd-reserve__check .fd-icon { width: var(--fd-size-icon-lg); height: var(--fd-size-icon-lg); }
-.fd-reserve__check[aria-checked="true"] { color: var(--fd-color-statut-termine-solid); }
+.fd-reserve__check::before {
+  content: "";
+  grid-area: 1 / 1;
+  width: var(--fd-size-icon-md);
+  height: var(--fd-size-icon-md);
+  border: var(--fd-border-width-regular) solid var(--fd-color-border-strong);
+  border-radius: var(--fd-radius-sm);
+}
+.fd-reserve__check .fd-icon { grid-area: 1 / 1; width: calc(var(--fd-size-icon-md) - 6px); height: calc(var(--fd-size-icon-md) - 6px); stroke-width: 2.5; }
+.fd-reserve__check[aria-checked="true"]::before { background: var(--fd-color-statut-termine-solid); border-color: var(--fd-color-statut-termine-solid); }
+.fd-reserve__check[aria-checked="false"] .fd-icon { visibility: hidden; }
 .fd-reserve__body { display: grid; gap: var(--fd-space-1); min-width: 0; }
-.fd-reserve__title { margin: 0; font: var(--fd-text-body-strong); color: var(--fd-color-fg-default); }
+.fd-reserve__title { margin: 0; display: flex; align-items: center; gap: var(--fd-space-2); flex-wrap: wrap; font: var(--fd-text-body-strong); color: var(--fd-color-fg-default); }
 .fd-reserve--levee .fd-reserve__title { text-decoration: line-through; color: var(--fd-color-fg-muted); }
-.fd-reserve__where { margin: 0; font: var(--fd-text-body-sm); color: var(--fd-color-fg-muted); }
-.fd-reserve__tags { display: flex; flex-wrap: wrap; gap: var(--fd-space-1); align-items: center; }
-.fd-reserve__aside { display: grid; justify-items: end; gap: var(--fd-space-1); font: var(--fd-text-caption); color: var(--fd-color-fg-muted); }
+.fd-reserve__where { margin: 0; font: var(--fd-text-overline); letter-spacing: var(--fd-text-overline-letter-spacing); text-transform: uppercase; color: var(--fd-color-fg-muted); }
+.fd-reserve__aside { display: flex; align-items: center; gap: var(--fd-space-3); }
+@media (max-width: 560px) {
+  .fd-reserve { grid-template-columns: auto minmax(0, 1fr); }
+  .fd-reserve__aside { grid-column: 2; }
+}
 
-/* ---------------------------------------------------------------- Navigation mobile (onglets du bas) */
+/* ---------------------------------------------------------------- En-tête mobile et navigation */
+
+.fd-mhead { display: grid; gap: var(--fd-space-2); padding: var(--fd-space-4) var(--fd-layout-gutter); background: var(--fd-color-chrome-bg); color: var(--fd-color-chrome-fg); }
+.fd-mhead .fd-overline, .fd-mhead .fd-kpi__lbl { color: var(--fd-color-chrome-fg-muted); }
+.fd-mhead__title { margin: 0; font: var(--fd-text-title-2); letter-spacing: var(--fd-text-title-2-letter-spacing); }
+.fd-mhead .fd-kpi__val { color: var(--fd-color-chrome-fg); }
 
 .fd-tabbar {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
-  background: var(--fd-color-bg-surface);
-  border-top: var(--fd-border-width-thin) solid var(--fd-color-border-subtle);
+  background: var(--fd-color-chrome-bg);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 .fd-tabbar__item {
+  position: relative;
   display: grid;
   justify-items: center;
   align-content: center;
-  gap: calc(var(--fd-space-1) / 2);
+  gap: var(--fd-space-1);
   min-height: var(--fd-size-control-lg);
   padding: var(--fd-space-1);
   border: 0;
   background: transparent;
-  color: var(--fd-color-fg-muted);
+  color: var(--fd-color-chrome-fg-muted);
   font: var(--fd-text-caption);
   font-weight: var(--fd-font-weight-medium);
   text-decoration: none;
-  position: relative;
 }
-.fd-tabbar__item[aria-current="page"] { color: var(--fd-color-primary-text); font-weight: var(--fd-font-weight-semibold); }
-.fd-tabbar__item[aria-current="page"]::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  inset-inline: 25%;
-  height: var(--fd-border-width-thick);
-  border-radius: 0 0 var(--fd-radius-sm) var(--fd-radius-sm);
-  background: var(--fd-color-primary-solid);
-}
+.fd-tabbar__item[aria-current="page"] { color: var(--fd-color-chrome-fg); font-weight: var(--fd-font-weight-bold); }
+.fd-tabbar__item[aria-current="page"]::before { content: ""; position: absolute; top: 0; inset-inline: 0; height: var(--fd-border-width-thick); background: var(--fd-color-chrome-indicator); }
 .fd-tabbar__badge {
   position: absolute;
   top: var(--fd-space-1);
   left: calc(50% + var(--fd-space-1));
-  min-width: calc(var(--fd-space-4) + var(--fd-space-1) / 2);
+  min-width: calc(var(--fd-space-4) + var(--fd-space-1));
   padding-inline: var(--fd-space-1);
   border-radius: var(--fd-radius-full);
   background: var(--fd-color-danger-solid);
   color: var(--fd-color-danger-on-solid);
-  font: var(--fd-text-caption);
+  font: var(--fd-text-reference);
   font-size: var(--fd-font-size-xs);
   font-weight: var(--fd-font-weight-bold);
-  line-height: calc(var(--fd-space-4) + var(--fd-space-1) / 2);
+  line-height: calc(var(--fd-space-4) + var(--fd-space-1));
   text-align: center;
 }
 
@@ -323,25 +414,32 @@
   align-items: center;
   gap: var(--fd-space-2) var(--fd-space-3);
   padding: var(--fd-space-3) var(--fd-space-4);
-  border-radius: var(--fd-radius-md);
+  border: var(--fd-border-width-thick) solid var(--fd-color-warning-border);
   background: var(--fd-color-warning-subtle);
   color: var(--fd-color-warning-on-subtle);
-  border: var(--fd-border-width-thin) solid var(--fd-color-warning-border);
   font: var(--fd-text-body-sm);
 }
-.fd-banner__text { flex: 1 1 16em; min-width: 0; }
-.fd-banner__text strong { font-weight: var(--fd-font-weight-semibold); }
+.fd-banner__text { flex: 1 1 14em; min-width: 0; }
+.fd-banner__text strong { font-weight: var(--fd-font-weight-bold); }
 .fd-banner__action {
   min-height: var(--fd-size-control-sm);
   padding-inline: var(--fd-space-3);
-  border: var(--fd-border-width-thin) solid currentColor;
-  border-radius: var(--fd-radius-md);
+  border: var(--fd-border-width-regular) solid currentColor;
   background: transparent;
   color: inherit;
   font: var(--fd-text-label);
+  letter-spacing: var(--fd-text-label-letter-spacing);
+  text-transform: uppercase;
   cursor: pointer;
 }
-.fd-banner--synced { background: var(--fd-color-success-subtle); color: var(--fd-color-success-on-subtle); border-color: var(--fd-color-success-border); }
+.fd-banner--synced { border-color: var(--fd-color-success-border); background: var(--fd-color-success-subtle); color: var(--fd-color-success-on-subtle); }
+
+/* ---------------------------------------------------------------- Densité terrain : traits plus épais */
+
+[data-density="terrain"] .fd-cartouche { gap: var(--fd-border-width-thick); border-width: var(--fd-border-width-thick); }
+[data-density="terrain"] .fd-field__control { border-width: var(--fd-border-width-thick); }
+[data-density="terrain"] .fd-cote__trait::before, [data-density="terrain"] .fd-cote__barbule { width: var(--fd-border-width-thick); }
+[data-density="terrain"] .fd-cote__trait::before { width: auto; height: var(--fd-border-width-thick); }
 
 @media (prefers-reduced-motion: reduce) {
   .fd-btn, .fd-card--interactive { transition: none; }

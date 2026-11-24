@@ -2,94 +2,103 @@
   "color": {
     "$type": "color",
     "bg": {
-      "$description": "Fonds.",
-      "canvas": { "$value": "{palette.beton.50}", "$description": "Fond de page, derrière les cartes." },
-      "surface": { "$value": "{palette.blanc}", "$description": "Cartes, panneaux, tableaux, barres de navigation." },
-      "raised": { "$value": "{palette.blanc}", "$description": "Menus, popovers, modales, bottom sheets (avec une ombre)." },
-      "sunken": { "$value": "{palette.beton.100}", "$description": "Zones en creux : champs en lecture seule, pistes de progression, en-têtes de tableau." },
-      "hover": { "$value": "{palette.beton.100}", "$description": "Survol de lignes et d'éléments neutres." },
-      "selected": { "$value": "{palette.bleu.50}", "$description": "Ligne ou élément sélectionné." },
-      "inverse": { "$value": "{palette.beton.900}", "$description": "Toasts, infobulles." },
-      "overlay": { "$value": "#15141199", "$description": "Voile derrière une modale ou une bottom sheet." }
+      "$description": "Fonds : la matière.",
+      "canvas": { "$value": "{palette.beton.200}", "$description": "Béton banché : fond de page, avec le motif des trous de banche." },
+      "surface": { "$value": "{palette.beton.100}", "$description": "Béton ciré : blocs de travail (fiches, cartes, listes, tableaux)." },
+      "raised": { "$value": "{palette.beton.50}", "$description": "Menus, popovers, modales, bottom sheets (avec une ombre)." },
+      "sunken": { "$value": "{palette.beton.150}", "$description": "Creux : pistes de cote, cellules d'unité, lecture seule." },
+      "hover": { "$value": "{palette.beton.150}", "$description": "Survol des lignes et éléments neutres." },
+      "selected": { "$value": "{palette.encre.100}", "$description": "Ligne ou élément sélectionné." },
+      "inverse": { "$value": "{palette.beton.950}", "$description": "Bandeaux anthracite (en-tête mobile, navigation, toasts)." },
+      "overlay": { "$value": "#151411a6", "$description": "Voile derrière une modale ou une bottom sheet." }
     },
     "fg": {
       "$description": "Textes et icônes.",
-      "default": { "$value": "{palette.beton.900}", "$description": "Texte principal, sur tous les fonds bg.*." },
-      "muted": { "$value": "{palette.beton.600}", "$description": "Texte secondaire : métadonnées, aides de champ, dates. Sur bg.canvas, surface, raised, sunken." },
-      "subtle": { "$value": "{palette.beton.500}", "$description": "Icônes décoratives, placeholders. 3:1 minimum : jamais pour un texte indispensable." },
-      "disabled": { "$value": "{palette.beton.400}", "$description": "Texte et icônes désactivés (pas d'exigence de contraste, mais toujours doublé d'un état non coloré)." },
-      "inverse": { "$value": "{palette.blanc}", "$description": "Texte sur bg.inverse." },
+      "default": { "$value": "{palette.beton.950}", "$description": "Anthracite : texte principal, sur tous les fonds bg.* (7:1 minimum)." },
+      "muted": { "$value": "{palette.beton.700}", "$description": "Texte secondaire, clés de cartouche, métadonnées. Sur bg.canvas, surface, raised, sunken." },
+      "subtle": { "$value": "{palette.beton.600}", "$description": "Icônes décoratives, placeholders (3:1)." },
+      "disabled": { "$value": "{palette.beton.500}", "$description": "Texte et icônes désactivés." },
+      "inverse": { "$value": "{palette.beton.50}", "$description": "Texte sur bg.inverse." },
+      "inverse-muted": { "$value": "{palette.beton.400}", "$description": "Texte secondaire sur bg.inverse." },
       "link": { "$value": "{color.primary.text}", "$description": "Liens dans le texte." }
     },
     "border": {
-      "$description": "Contours et séparateurs.",
-      "subtle": { "$value": "{palette.beton.200}", "$description": "Séparateurs de lignes, contours de cartes." },
-      "default": { "$value": "{palette.beton.300}", "$description": "Contours de boutons secondaires, puces." },
-      "strong": { "$value": "{palette.beton.500}", "$description": "Contours de champs de saisie et cases à cocher (3:1 minimum)." },
-      "focus": { "$value": "{palette.bleu.600}", "$description": "Anneau de focus clavier, sur tous les fonds." }
+      "$description": "Traits et joints.",
+      "subtle": { "$value": "{palette.beton.300}", "$description": "Séparateurs fins à l'intérieur d'un bloc." },
+      "default": { "$value": "{palette.beton.500}", "$description": "Contours de boutons secondaires." },
+      "strong": { "$value": "{palette.beton.600}", "$description": "Contours de champs, cases, traits de cote (3:1 minimum)." },
+      "joint": { "$value": "{palette.beton.950}", "$description": "Structure apparente : joint de 2 px entre deux blocs, cadre du cartouche." },
+      "focus": { "$value": "{palette.encre.700}", "$description": "Anneau de focus clavier, sur tous les fonds." }
+    },
+    "chrome": {
+      "$description": "Cadre de l'application : barre de navigation, en-tête mobile, barre latérale. Anthracite dans les deux thèmes.",
+      "bg": { "$value": "{palette.beton.950}", "$description": "Fond des barres de navigation et de l'en-tête mobile." },
+      "fg": { "$value": "{palette.beton.50}", "$description": "Texte et icônes actifs sur chrome.bg." },
+      "fg-muted": { "$value": "{palette.beton.400}", "$description": "Texte et icônes inactifs sur chrome.bg." },
+      "indicator": { "$value": "{palette.corten.400}", "$description": "Trait de l'onglet actif (avec le texte en chrome.fg et en gras)." }
     },
     "primary": {
-      "$description": "Bleu de travail : action principale, éléments actifs, liens.",
-      "solid": { "$value": "{palette.bleu.700}" },
-      "solid-hover": { "$value": "{palette.bleu.800}" },
-      "solid-active": { "$value": "{palette.bleu.900}" },
-      "on-solid": { "$value": "{palette.blanc}" },
-      "subtle": { "$value": "{palette.bleu.50}" },
-      "on-subtle": { "$value": "{palette.bleu.800}" },
-      "text": { "$value": "{palette.bleu.700}" }
+      "$description": "Encre de plan : action principale, élément actif, liens.",
+      "solid": { "$value": "{palette.encre.900}" },
+      "solid-hover": { "$value": "{palette.encre.800}" },
+      "solid-active": { "$value": "{palette.encre.950}" },
+      "on-solid": { "$value": "{palette.beton.50}" },
+      "subtle": { "$value": "{palette.encre.100}" },
+      "on-subtle": { "$value": "{palette.encre.900}" },
+      "text": { "$value": "{palette.encre.800}" }
     },
     "accent": {
-      "$description": "Orange signalisation : un seul élément mis en avant par écran (bouton « Nouveau chantier », nouveauté). Texte foncé dessus, dans les deux thèmes.",
-      "solid": { "$value": "{palette.orange.500}" },
-      "solid-hover": { "$value": "{palette.orange.400}" },
-      "on-solid": { "$value": "{palette.beton.975}" },
-      "subtle": { "$value": "{palette.orange.50}" },
-      "on-subtle": { "$value": "{palette.orange.800}" },
-      "text": { "$value": "{palette.orange.700}" }
+      "$description": "Corten : une seule action mise en avant par écran (« Nouveau chantier », « Ajouter au rapport »). Jamais pour une alerte.",
+      "solid": { "$value": "{palette.corten.600}" },
+      "solid-hover": { "$value": "{palette.corten.700}" },
+      "on-solid": { "$value": "{palette.beton.50}" },
+      "subtle": { "$value": "{palette.corten.100}" },
+      "on-subtle": { "$value": "{palette.corten.800}" },
+      "text": { "$value": "{palette.corten.800}" }
     },
     "success": {
-      "$description": "Réussite, terminé, conforme.",
-      "solid": { "$value": "{palette.vert.700}" },
-      "on-solid": { "$value": "{palette.blanc}" },
-      "subtle": { "$value": "{palette.vert.50}" },
-      "on-subtle": { "$value": "{palette.vert.800}" },
-      "border": { "$value": "{palette.vert.600}" },
-      "text": { "$value": "{palette.vert.700}" }
+      "$description": "Vert-de-gris : terminé, conforme, levé.",
+      "solid": { "$value": "{palette.vertdegris.700}" },
+      "on-solid": { "$value": "{palette.beton.50}" },
+      "subtle": { "$value": "{palette.vertdegris.100}" },
+      "on-subtle": { "$value": "{palette.vertdegris.800}" },
+      "border": { "$value": "{palette.vertdegris.600}" },
+      "text": { "$value": "{palette.vertdegris.800}" }
     },
     "warning": {
-      "$description": "Attention, en attente, à vérifier. Toujours du texte foncé sur le fond plein.",
-      "solid": { "$value": "{palette.ambre.500}" },
+      "$description": "Ocre : en attente, à vérifier. Texte foncé sur le fond plein.",
+      "solid": { "$value": "{palette.ocre.500}" },
       "on-solid": { "$value": "{palette.beton.975}" },
-      "subtle": { "$value": "{palette.ambre.50}" },
-      "on-subtle": { "$value": "{palette.ambre.800}" },
-      "border": { "$value": "{palette.ambre.500}" },
-      "text": { "$value": "{palette.ambre.700}" }
+      "subtle": { "$value": "{palette.ocre.100}" },
+      "on-subtle": { "$value": "{palette.ocre.800}" },
+      "border": { "$value": "{palette.ocre.500}" },
+      "text": { "$value": "{palette.ocre.800}" }
     },
     "danger": {
-      "$description": "Erreur, retard, suppression, risque.",
+      "$description": "Rouge révision : retard, erreur, suppression, modification.",
       "solid": { "$value": "{palette.rouge.700}" },
-      "on-solid": { "$value": "{palette.blanc}" },
-      "subtle": { "$value": "{palette.rouge.50}" },
+      "on-solid": { "$value": "{palette.beton.50}" },
+      "subtle": { "$value": "{palette.rouge.100}" },
       "on-subtle": { "$value": "{palette.rouge.800}" },
       "border": { "$value": "{palette.rouge.600}" },
-      "text": { "$value": "{palette.rouge.700}" }
+      "text": { "$value": "{palette.rouge.800}" }
     },
     "info": {
-      "$description": "Information neutre, en cours.",
-      "solid": { "$value": "{palette.bleu.600}" },
-      "on-solid": { "$value": "{palette.blanc}" },
-      "subtle": { "$value": "{palette.bleu.50}" },
-      "on-subtle": { "$value": "{palette.bleu.800}" },
-      "border": { "$value": "{palette.bleu.500}" },
-      "text": { "$value": "{palette.bleu.700}" }
+      "$description": "Encre claire : information, en cours.",
+      "solid": { "$value": "{palette.encre.600}" },
+      "on-solid": { "$value": "{palette.beton.50}" },
+      "subtle": { "$value": "{palette.encre.100}" },
+      "on-subtle": { "$value": "{palette.encre.800}" },
+      "border": { "$value": "{palette.encre.600}" },
+      "text": { "$value": "{palette.encre.800}" }
     },
     "statut": {
-      "$description": "Statuts d'un chantier, d'une tâche ou d'une réserve. Toujours accompagnés d'un libellé et d'une icône.",
+      "$description": "Statuts d'un chantier, d'une tâche ou d'une réserve. Toujours une forme (carré, demi-carré, pause, triangle, carré plein) et un libellé.",
       "planifie": {
-        "$description": "Planifié, pas encore démarré.",
-        "solid": { "$value": "{palette.beton.500}" },
-        "subtle": { "$value": "{palette.beton.100}" },
-        "on-subtle": { "$value": "{palette.beton.800}" }
+        "$description": "Planifié.",
+        "solid": { "$value": "{palette.beton.600}" },
+        "subtle": { "$value": "{palette.beton.150}" },
+        "on-subtle": { "$value": "{palette.beton.900}" }
       },
       "en-cours": {
         "$description": "En cours.",
@@ -98,26 +107,26 @@
         "on-subtle": { "$value": "{color.info.on-subtle}" }
       },
       "en-attente": {
-        "$description": "En attente, bloqué (matériel, validation, météo).",
+        "$description": "En attente, bloqué.",
         "solid": { "$value": "{color.warning.solid}" },
         "subtle": { "$value": "{color.warning.subtle}" },
         "on-subtle": { "$value": "{color.warning.on-subtle}" }
       },
       "en-retard": {
-        "$description": "En retard sur le planning.",
+        "$description": "En retard sur le planning (triangle de révision).",
         "solid": { "$value": "{color.danger.solid}" },
         "subtle": { "$value": "{color.danger.subtle}" },
         "on-subtle": { "$value": "{color.danger.on-subtle}" }
       },
       "termine": {
-        "$description": "Terminé, réceptionné, réserve levée.",
+        "$description": "Terminé, réceptionné, levé.",
         "solid": { "$value": "{color.success.solid}" },
         "subtle": { "$value": "{color.success.subtle}" },
         "on-subtle": { "$value": "{color.success.on-subtle}" }
       }
     },
     "metier": {
-      "$description": "Familles de corps d'état. La couleur identifie la famille, l'icône et le code identifient le métier. solid : barres de planning, pastilles ; subtle + on-subtle : badges.",
+      "$description": "Familles de corps d'état. solid : anneau de la bulle de repère, barres de planning ; subtle + on-subtle : barres et étiquettes de planning.",
       "gros-oeuvre": {
         "$description": "Terrassement, VRD, démolition, fondations, maçonnerie, béton.",
         "solid": { "$value": "{palette.brique.700}" },
@@ -131,20 +140,20 @@
         "on-subtle": { "$value": "{palette.bois.800}" }
       },
       "electricite": {
-        "$description": "Électricité courants forts et faibles, domotique, photovoltaïque.",
+        "$description": "Électricité, courants faibles, photovoltaïque.",
         "solid": { "$value": "{palette.jaune.500}" },
         "subtle": { "$value": "{palette.jaune.100}" },
         "on-subtle": { "$value": "{palette.jaune.800}" }
       },
       "exterieurs": {
-        "$description": "Aménagements extérieurs, espaces verts, clôtures, piscines.",
+        "$description": "Aménagements extérieurs, espaces verts, clôtures.",
         "solid": { "$value": "{palette.feuille.600}" },
         "subtle": { "$value": "{palette.feuille.100}" },
         "on-subtle": { "$value": "{palette.feuille.800}" }
       },
       "fluides": {
         "$description": "Plomberie, sanitaire, chauffage, ventilation, climatisation.",
-        "solid": { "$value": "{palette.eau.500}" },
+        "solid": { "$value": "{palette.eau.600}" },
         "subtle": { "$value": "{palette.eau.100}" },
         "on-subtle": { "$value": "{palette.eau.800}" }
       },
@@ -167,7 +176,7 @@
         "on-subtle": { "$value": "{palette.framboise.800}" }
       },
       "autre": {
-        "$description": "Métier non classé, sous-traitant divers.",
+        "$description": "Métier non classé.",
         "solid": { "$value": "{palette.beton.600}" },
         "subtle": { "$value": "{palette.beton.100}" },
         "on-subtle": { "$value": "{palette.beton.800}" }
@@ -176,8 +185,8 @@
   },
   "shadow": {
     "$type": "shadow",
-    "sm": { "$value": [{"color": "#15141114", "offsetX": "0px", "offsetY": "1px", "blur": "2px", "spread": "0px"},{"color": "#1514110f", "offsetX": "0px", "offsetY": "1px", "blur": "3px", "spread": "0px"}], "$description": "Cartes au repos (optionnel : préférer le contour border.subtle)." },
-    "md": { "$value": [{"color": "#15141114", "offsetX": "0px", "offsetY": "2px", "blur": "4px", "spread": "0px"},{"color": "#1514111f", "offsetX": "0px", "offsetY": "6px", "blur": "16px", "spread": "-2px"}], "$description": "Menus déroulants, popovers, carte en cours de glisser." },
-    "lg": { "$value": [{"color": "#1514111a", "offsetX": "0px", "offsetY": "8px", "blur": "16px", "spread": "0px"},{"color": "#15141129", "offsetX": "0px", "offsetY": "20px", "blur": "40px", "spread": "-8px"}], "$description": "Modales, bottom sheets, toasts." }
+    "$description": "La structure se lit par les joints, pas par les ombres : ombres réservées à ce qui flotte.",
+    "md": { "$value": [{ "color": "#1514111f", "offsetX": "0px", "offsetY": "4px", "blur": "12px", "spread": "0px" }], "$description": "Menus déroulants, popovers." },
+    "lg": { "$value": [{ "color": "#15141129", "offsetX": "0px", "offsetY": "16px", "blur": "40px", "spread": "-8px" }], "$description": "Modales, bottom sheets, toasts." }
   }
 }

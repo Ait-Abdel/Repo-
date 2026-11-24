@@ -3,73 +3,74 @@
 /* ---- Base (primitives, partagée par tous les modes) ---- */
 :root {
   --fd-palette-blanc: #ffffff;
-  --fd-palette-beton-50: #f8f8f6;
+  --fd-palette-beton-50: #fafaf9;
   --fd-palette-beton-100: #f1f0ee;
-  --fd-palette-beton-200: #e3e1dd;
-  --fd-palette-beton-300: #cdcac4;
-  --fd-palette-beton-400: #a8a49c;
-  --fd-palette-beton-500: #848077;
-  --fd-palette-beton-600: #67635a;
-  --fd-palette-beton-700: #504d45;
-  --fd-palette-beton-800: #3b3831;
-  --fd-palette-beton-900: #282621;
+  --fd-palette-beton-150: #e4e3e0;
+  --fd-palette-beton-200: #d4d2cf;
+  --fd-palette-beton-300: #c0bdb8;
+  --fd-palette-beton-400: #a19e97;
+  --fd-palette-beton-500: #838078;
+  --fd-palette-beton-600: #66635c;
+  --fd-palette-beton-700: #504d46;
+  --fd-palette-beton-800: #3a3832;
+  --fd-palette-beton-900: #282622;
   --fd-palette-beton-950: #1d1c18;
   --fd-palette-beton-975: #151411;
-  --fd-palette-bleu-50: #f2f7ff;
-  --fd-palette-bleu-100: #e2eeff;
-  --fd-palette-bleu-200: #c5ddff;
-  --fd-palette-bleu-300: #9ac3ff;
-  --fd-palette-bleu-400: #6da5f9;
-  --fd-palette-bleu-500: #4688e8;
-  --fd-palette-bleu-600: #2d6fcd;
-  --fd-palette-bleu-700: #1c58ab;
-  --fd-palette-bleu-800: #0f4288;
-  --fd-palette-bleu-900: #062e63;
-  --fd-palette-bleu-950: #021d46;
-  --fd-palette-orange-50: #fff4f0;
-  --fd-palette-orange-100: #ffe7dd;
-  --fd-palette-orange-200: #ffcfb9;
-  --fd-palette-orange-300: #ffa982;
-  --fd-palette-orange-400: #f97c3d;
-  --fd-palette-orange-500: #dd5b00;
-  --fd-palette-orange-600: #b84b00;
-  --fd-palette-orange-700: #953b00;
-  --fd-palette-orange-800: #732c00;
-  --fd-palette-orange-900: #531d00;
-  --fd-palette-orange-950: #381200;
-  --fd-palette-vert-50: #eefaf3;
-  --fd-palette-vert-100: #ddf3e6;
-  --fd-palette-vert-200: #bee6cf;
-  --fd-palette-vert-300: #93d1af;
-  --fd-palette-vert-400: #5fba8d;
-  --fd-palette-vert-500: #28a16d;
-  --fd-palette-vert-600: #008758;
-  --fd-palette-vert-700: #006c45;
-  --fd-palette-vert-800: #005334;
-  --fd-palette-vert-900: #003b24;
-  --fd-palette-vert-950: #002716;
-  --fd-palette-ambre-50: #fef6e9;
-  --fd-palette-ambre-100: #faebd3;
-  --fd-palette-ambre-200: #f2d6ac;
-  --fd-palette-ambre-300: #e4b975;
-  --fd-palette-ambre-400: #d3982c;
-  --fd-palette-ambre-500: #b47d00;
-  --fd-palette-ambre-600: #966800;
-  --fd-palette-ambre-700: #795300;
-  --fd-palette-ambre-800: #5d3e00;
-  --fd-palette-ambre-900: #422b00;
-  --fd-palette-ambre-950: #2c1c00;
-  --fd-palette-rouge-50: #fff4f3;
-  --fd-palette-rouge-100: #ffe6e4;
-  --fd-palette-rouge-200: #ffcdc8;
-  --fd-palette-rouge-300: #ffa59e;
-  --fd-palette-rouge-400: #f97770;
-  --fd-palette-rouge-500: #e54c4a;
-  --fd-palette-rouge-600: #c92f33;
-  --fd-palette-rouge-700: #a71922;
-  --fd-palette-rouge-800: #840915;
-  --fd-palette-rouge-900: #60020b;
-  --fd-palette-rouge-950: #420004;
+  --fd-palette-encre-50: #f2f7ff;
+  --fd-palette-encre-100: #e3edff;
+  --fd-palette-encre-200: #c8dcff;
+  --fd-palette-encre-300: #9fc1ff;
+  --fd-palette-encre-400: #72a3ff;
+  --fd-palette-encre-500: #4d84ee;
+  --fd-palette-encre-600: #366bd3;
+  --fd-palette-encre-700: #2554b1;
+  --fd-palette-encre-800: #183f8c;
+  --fd-palette-encre-900: #0e2c67;
+  --fd-palette-encre-950: #061c48;
+  --fd-palette-corten-50: #fff4f0;
+  --fd-palette-corten-100: #ffe7de;
+  --fd-palette-corten-200: #ffcfbc;
+  --fd-palette-corten-300: #f5ad92;
+  --fd-palette-corten-400: #e78862;
+  --fd-palette-corten-500: #d26538;
+  --fd-palette-corten-600: #b64c1b;
+  --fd-palette-corten-700: #973806;
+  --fd-palette-corten-800: #762800;
+  --fd-palette-corten-900: #551b00;
+  --fd-palette-corten-950: #3a1000;
+  --fd-palette-rouge-50: #fff4f2;
+  --fd-palette-rouge-100: #ffe6e3;
+  --fd-palette-rouge-200: #ffcdc7;
+  --fd-palette-rouge-300: #ffa69c;
+  --fd-palette-rouge-400: #ff7269;
+  --fd-palette-rouge-500: #f1393a;
+  --fd-palette-rouge-600: #d40a1f;
+  --fd-palette-rouge-700: #ad0015;
+  --fd-palette-rouge-800: #86000e;
+  --fd-palette-rouge-900: #610007;
+  --fd-palette-rouge-950: #430003;
+  --fd-palette-ocre-50: #fcf6eb;
+  --fd-palette-ocre-100: #f7ebd8;
+  --fd-palette-ocre-200: #edd8b5;
+  --fd-palette-ocre-300: #ddbc85;
+  --fd-palette-ocre-400: #c99d4d;
+  --fd-palette-ocre-500: #b27f02;
+  --fd-palette-ocre-600: #946900;
+  --fd-palette-ocre-700: #775300;
+  --fd-palette-ocre-800: #5b3f00;
+  --fd-palette-ocre-900: #412c00;
+  --fd-palette-ocre-950: #2b1c00;
+  --fd-palette-vertdegris-50: #f0f9f7;
+  --fd-palette-vertdegris-100: #e1f1ed;
+  --fd-palette-vertdegris-200: #c5e2db;
+  --fd-palette-vertdegris-300: #9fccc1;
+  --fd-palette-vertdegris-400: #75b3a4;
+  --fd-palette-vertdegris-500: #4d9989;
+  --fd-palette-vertdegris-600: #338171;
+  --fd-palette-vertdegris-700: #20685b;
+  --fd-palette-vertdegris-800: #125045;
+  --fd-palette-vertdegris-900: #083930;
+  --fd-palette-vertdegris-950: #03261f;
   --fd-palette-brique-50: #fff4f2;
   --fd-palette-brique-100: #ffe6e2;
   --fd-palette-brique-200: #ffcdc4;
@@ -177,25 +178,30 @@
   --fd-space-12: 48px;
   --fd-space-16: 64px;
   --fd-space-20: 80px;
+  /* Boutons, champs, blocs, statuts, étiquettes. */
   --fd-radius-none: 0;
-  /* Badges, pastilles métier, cases à cocher. */
-  --fd-radius-sm: 4px;
-  /* Boutons, champs de saisie. */
-  --fd-radius-md: 6px;
-  /* Cartes, panneaux, feuilles mobiles. */
-  --fd-radius-lg: 10px;
-  /* Modales, bottom sheets. */
-  --fd-radius-xl: 16px;
-  /* Avatars, indicateurs ronds, FAB. */
+  /* Cases à cocher, petites marques. */
+  --fd-radius-sm: 2px;
+  /* Bottom sheets et modales mobiles uniquement (convention iOS / Android). */
+  --fd-radius-sheet: 12px;
+  /* Bulles de repère, avatars, pastilles de compteur. */
   --fd-radius-full: 9999px;
-  /* Séparateurs, contours de cartes et de champs. */
+  /* Séparateurs internes. */
   --fd-border-width-thin: 1px;
-  /* Élément sélectionné, champ en erreur. */
+  /* Trait de plan : cartouche, cote, contours de champs, anneau des repères. */
+  --fd-border-width-regular: 1.5px;
+  /* Joint de structure entre blocs, champ en erreur, traits en densité terrain. */
   --fd-border-width-thick: 2px;
   /* Épaisseur de l'anneau de focus clavier (couleur : color.border.focus). */
   --fd-focus-ring-width: 3px;
   /* Écart entre l'élément et l'anneau. */
   --fd-focus-ring-offset: 2px;
+  --fd-motif-banche-pas-x: 72px;
+  --fd-motif-banche-pas-y: 48px;
+  --fd-motif-banche-rayon: 3px;
+  --fd-motif-cote-barbule: 14px;
+  /* Épaisseur de la partie réalisée sur la ligne de cote. */
+  --fd-motif-cote-trait: 8px;
   /* Grand téléphone en paysage. */
   --fd-breakpoint-sm: 640px;
   /* Tablette portrait : la barre latérale se replie. */
@@ -204,35 +210,44 @@
   --fd-breakpoint-lg: 1024px;
   /* Poste du conducteur de travaux : planning et tableaux denses. */
   --fd-breakpoint-xl: 1280px;
-  /* Titres et chiffres clés. Inspirée de la signalétique routière : lisible de loin, compacte. */
-  --fd-font-family-display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
-  /* Texte courant, formulaires, tableaux. Chiffres tabulaires disponibles (font-variant-numeric: tabular-nums). */
-  --fd-font-family-text: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  /* Références (n° de lot, de devis, de bon), codes d'accès. */
-  --fd-font-family-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  /* Titres et grands chiffres. Grotesque dense, serrée en approche : le poids du béton. */
+  --fd-font-family-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  /* Texte courant, formulaires, listes. Chiffres tabulaires disponibles. */
+  --fd-font-family-text: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Langage du plan : clés de cartouche, cotes, références, codes métier. */
+  --fd-font-family-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --fd-font-weight-regular: 400;
   --fd-font-weight-medium: 500;
   --fd-font-weight-semibold: 600;
   --fd-font-weight-bold: 700;
+  --fd-font-weight-extrabold: 800;
+  --fd-font-weight-black: 900;
   --fd-font-size-xs: 0.75rem;
   --fd-font-size-sm: 0.875rem;
   --fd-font-size-md: 1rem;
   --fd-font-size-lg: 1.125rem;
   --fd-font-size-xl: 1.25rem;
   --fd-font-size-2xl: 1.5rem;
-  --fd-font-size-3xl: 1.875rem;
-  --fd-font-size-4xl: 2.25rem;
-  --fd-font-size-5xl: 3rem;
-  /* Titres d'affichage. */
-  --fd-font-line-height-tight: 1.15;
-  /* Titres, libellés. */
+  --fd-font-size-3xl: 2rem;
+  --fd-font-size-4xl: 2.5rem;
+  --fd-font-size-5xl: 3.5rem;
+  /* Grands chiffres. */
+  --fd-font-line-height-compact: 0.9;
+  /* Titres. */
+  --fd-font-line-height-tight: 1.08;
+  /* Libellés, titres de carte. */
   --fd-font-line-height-snug: 1.3;
   /* Texte courant. */
   --fd-font-line-height-normal: 1.5;
-  --fd-font-letter-spacing-tight: -0.01em;
+  /* Grands chiffres. */
+  --fd-font-letter-spacing-tighter: -0.045em;
+  /* Titres en Schibsted. */
+  --fd-font-letter-spacing-tight: -0.025em;
   --fd-font-letter-spacing-normal: 0;
-  /* Sur-titres en capitales. */
-  --fd-font-letter-spacing-wide: 0.06em;
+  /* Libellés de boutons en capitales. */
+  --fd-font-letter-spacing-wide: 0.04em;
+  /* Clés de cartouche et sur-titres en mono capitales. */
+  --fd-font-letter-spacing-wider: 0.1em;
   /* Survol, pression, changement d'état d'un contrôle. */
   --fd-duration-fast: 120ms;
   /* Ouverture de menu, apparition de toast. */
@@ -247,82 +262,94 @@
 
 /* ---- theme : light (défaut) ---- */
 :root, [data-theme="light"] {
-  /* Fond de page, derrière les cartes. */
-  --fd-color-bg-canvas: var(--fd-palette-beton-50);
-  /* Cartes, panneaux, tableaux, barres de navigation. */
-  --fd-color-bg-surface: var(--fd-palette-blanc);
+  /* Béton banché : fond de page, avec le motif des trous de banche. */
+  --fd-color-bg-canvas: var(--fd-palette-beton-200);
+  /* Béton ciré : blocs de travail (fiches, cartes, listes, tableaux). */
+  --fd-color-bg-surface: var(--fd-palette-beton-100);
   /* Menus, popovers, modales, bottom sheets (avec une ombre). */
-  --fd-color-bg-raised: var(--fd-palette-blanc);
-  /* Zones en creux : champs en lecture seule, pistes de progression, en-têtes de tableau. */
-  --fd-color-bg-sunken: var(--fd-palette-beton-100);
-  /* Survol de lignes et d'éléments neutres. */
-  --fd-color-bg-hover: var(--fd-palette-beton-100);
+  --fd-color-bg-raised: var(--fd-palette-beton-50);
+  /* Creux : pistes de cote, cellules d'unité, lecture seule. */
+  --fd-color-bg-sunken: var(--fd-palette-beton-150);
+  /* Survol des lignes et éléments neutres. */
+  --fd-color-bg-hover: var(--fd-palette-beton-150);
   /* Ligne ou élément sélectionné. */
-  --fd-color-bg-selected: var(--fd-palette-bleu-50);
-  /* Toasts, infobulles. */
-  --fd-color-bg-inverse: var(--fd-palette-beton-900);
+  --fd-color-bg-selected: var(--fd-palette-encre-100);
+  /* Bandeaux anthracite (en-tête mobile, navigation, toasts). */
+  --fd-color-bg-inverse: var(--fd-palette-beton-950);
   /* Voile derrière une modale ou une bottom sheet. */
-  --fd-color-bg-overlay: #15141199;
-  /* Texte principal, sur tous les fonds bg.*. */
-  --fd-color-fg-default: var(--fd-palette-beton-900);
-  /* Texte secondaire : métadonnées, aides de champ, dates. Sur bg.canvas, surface, raised, sunken. */
-  --fd-color-fg-muted: var(--fd-palette-beton-600);
-  /* Icônes décoratives, placeholders. 3:1 minimum : jamais pour un texte indispensable. */
-  --fd-color-fg-subtle: var(--fd-palette-beton-500);
-  /* Texte et icônes désactivés (pas d'exigence de contraste, mais toujours doublé d'un état non coloré). */
-  --fd-color-fg-disabled: var(--fd-palette-beton-400);
+  --fd-color-bg-overlay: #151411a6;
+  /* Anthracite : texte principal, sur tous les fonds bg.* (7:1 minimum). */
+  --fd-color-fg-default: var(--fd-palette-beton-950);
+  /* Texte secondaire, clés de cartouche, métadonnées. Sur bg.canvas, surface, raised, sunken. */
+  --fd-color-fg-muted: var(--fd-palette-beton-700);
+  /* Icônes décoratives, placeholders (3:1). */
+  --fd-color-fg-subtle: var(--fd-palette-beton-600);
+  /* Texte et icônes désactivés. */
+  --fd-color-fg-disabled: var(--fd-palette-beton-500);
   /* Texte sur bg.inverse. */
-  --fd-color-fg-inverse: var(--fd-palette-blanc);
+  --fd-color-fg-inverse: var(--fd-palette-beton-50);
+  /* Texte secondaire sur bg.inverse. */
+  --fd-color-fg-inverse-muted: var(--fd-palette-beton-400);
   /* Liens dans le texte. */
   --fd-color-fg-link: var(--fd-color-primary-text);
-  /* Séparateurs de lignes, contours de cartes. */
-  --fd-color-border-subtle: var(--fd-palette-beton-200);
-  /* Contours de boutons secondaires, puces. */
-  --fd-color-border-default: var(--fd-palette-beton-300);
-  /* Contours de champs de saisie et cases à cocher (3:1 minimum). */
-  --fd-color-border-strong: var(--fd-palette-beton-500);
+  /* Séparateurs fins à l'intérieur d'un bloc. */
+  --fd-color-border-subtle: var(--fd-palette-beton-300);
+  /* Contours de boutons secondaires. */
+  --fd-color-border-default: var(--fd-palette-beton-500);
+  /* Contours de champs, cases, traits de cote (3:1 minimum). */
+  --fd-color-border-strong: var(--fd-palette-beton-600);
+  /* Structure apparente : joint de 2 px entre deux blocs, cadre du cartouche. */
+  --fd-color-border-joint: var(--fd-palette-beton-950);
   /* Anneau de focus clavier, sur tous les fonds. */
-  --fd-color-border-focus: var(--fd-palette-bleu-600);
-  --fd-color-primary-solid: var(--fd-palette-bleu-700);
-  --fd-color-primary-solid-hover: var(--fd-palette-bleu-800);
-  --fd-color-primary-solid-active: var(--fd-palette-bleu-900);
-  --fd-color-primary-on-solid: var(--fd-palette-blanc);
-  --fd-color-primary-subtle: var(--fd-palette-bleu-50);
-  --fd-color-primary-on-subtle: var(--fd-palette-bleu-800);
-  --fd-color-primary-text: var(--fd-palette-bleu-700);
-  --fd-color-accent-solid: var(--fd-palette-orange-500);
-  --fd-color-accent-solid-hover: var(--fd-palette-orange-400);
-  --fd-color-accent-on-solid: var(--fd-palette-beton-975);
-  --fd-color-accent-subtle: var(--fd-palette-orange-50);
-  --fd-color-accent-on-subtle: var(--fd-palette-orange-800);
-  --fd-color-accent-text: var(--fd-palette-orange-700);
-  --fd-color-success-solid: var(--fd-palette-vert-700);
-  --fd-color-success-on-solid: var(--fd-palette-blanc);
-  --fd-color-success-subtle: var(--fd-palette-vert-50);
-  --fd-color-success-on-subtle: var(--fd-palette-vert-800);
-  --fd-color-success-border: var(--fd-palette-vert-600);
-  --fd-color-success-text: var(--fd-palette-vert-700);
-  --fd-color-warning-solid: var(--fd-palette-ambre-500);
+  --fd-color-border-focus: var(--fd-palette-encre-700);
+  /* Fond des barres de navigation et de l'en-tête mobile. */
+  --fd-color-chrome-bg: var(--fd-palette-beton-950);
+  /* Texte et icônes actifs sur chrome.bg. */
+  --fd-color-chrome-fg: var(--fd-palette-beton-50);
+  /* Texte et icônes inactifs sur chrome.bg. */
+  --fd-color-chrome-fg-muted: var(--fd-palette-beton-400);
+  /* Trait de l'onglet actif (avec le texte en chrome.fg et en gras). */
+  --fd-color-chrome-indicator: var(--fd-palette-corten-400);
+  --fd-color-primary-solid: var(--fd-palette-encre-900);
+  --fd-color-primary-solid-hover: var(--fd-palette-encre-800);
+  --fd-color-primary-solid-active: var(--fd-palette-encre-950);
+  --fd-color-primary-on-solid: var(--fd-palette-beton-50);
+  --fd-color-primary-subtle: var(--fd-palette-encre-100);
+  --fd-color-primary-on-subtle: var(--fd-palette-encre-900);
+  --fd-color-primary-text: var(--fd-palette-encre-800);
+  --fd-color-accent-solid: var(--fd-palette-corten-600);
+  --fd-color-accent-solid-hover: var(--fd-palette-corten-700);
+  --fd-color-accent-on-solid: var(--fd-palette-beton-50);
+  --fd-color-accent-subtle: var(--fd-palette-corten-100);
+  --fd-color-accent-on-subtle: var(--fd-palette-corten-800);
+  --fd-color-accent-text: var(--fd-palette-corten-800);
+  --fd-color-success-solid: var(--fd-palette-vertdegris-700);
+  --fd-color-success-on-solid: var(--fd-palette-beton-50);
+  --fd-color-success-subtle: var(--fd-palette-vertdegris-100);
+  --fd-color-success-on-subtle: var(--fd-palette-vertdegris-800);
+  --fd-color-success-border: var(--fd-palette-vertdegris-600);
+  --fd-color-success-text: var(--fd-palette-vertdegris-800);
+  --fd-color-warning-solid: var(--fd-palette-ocre-500);
   --fd-color-warning-on-solid: var(--fd-palette-beton-975);
-  --fd-color-warning-subtle: var(--fd-palette-ambre-50);
-  --fd-color-warning-on-subtle: var(--fd-palette-ambre-800);
-  --fd-color-warning-border: var(--fd-palette-ambre-500);
-  --fd-color-warning-text: var(--fd-palette-ambre-700);
+  --fd-color-warning-subtle: var(--fd-palette-ocre-100);
+  --fd-color-warning-on-subtle: var(--fd-palette-ocre-800);
+  --fd-color-warning-border: var(--fd-palette-ocre-500);
+  --fd-color-warning-text: var(--fd-palette-ocre-800);
   --fd-color-danger-solid: var(--fd-palette-rouge-700);
-  --fd-color-danger-on-solid: var(--fd-palette-blanc);
-  --fd-color-danger-subtle: var(--fd-palette-rouge-50);
+  --fd-color-danger-on-solid: var(--fd-palette-beton-50);
+  --fd-color-danger-subtle: var(--fd-palette-rouge-100);
   --fd-color-danger-on-subtle: var(--fd-palette-rouge-800);
   --fd-color-danger-border: var(--fd-palette-rouge-600);
-  --fd-color-danger-text: var(--fd-palette-rouge-700);
-  --fd-color-info-solid: var(--fd-palette-bleu-600);
-  --fd-color-info-on-solid: var(--fd-palette-blanc);
-  --fd-color-info-subtle: var(--fd-palette-bleu-50);
-  --fd-color-info-on-subtle: var(--fd-palette-bleu-800);
-  --fd-color-info-border: var(--fd-palette-bleu-500);
-  --fd-color-info-text: var(--fd-palette-bleu-700);
-  --fd-color-statut-planifie-solid: var(--fd-palette-beton-500);
-  --fd-color-statut-planifie-subtle: var(--fd-palette-beton-100);
-  --fd-color-statut-planifie-on-subtle: var(--fd-palette-beton-800);
+  --fd-color-danger-text: var(--fd-palette-rouge-800);
+  --fd-color-info-solid: var(--fd-palette-encre-600);
+  --fd-color-info-on-solid: var(--fd-palette-beton-50);
+  --fd-color-info-subtle: var(--fd-palette-encre-100);
+  --fd-color-info-on-subtle: var(--fd-palette-encre-800);
+  --fd-color-info-border: var(--fd-palette-encre-600);
+  --fd-color-info-text: var(--fd-palette-encre-800);
+  --fd-color-statut-planifie-solid: var(--fd-palette-beton-600);
+  --fd-color-statut-planifie-subtle: var(--fd-palette-beton-150);
+  --fd-color-statut-planifie-on-subtle: var(--fd-palette-beton-900);
   --fd-color-statut-en-cours-solid: var(--fd-color-info-solid);
   --fd-color-statut-en-cours-subtle: var(--fd-color-info-subtle);
   --fd-color-statut-en-cours-on-subtle: var(--fd-color-info-on-subtle);
@@ -347,7 +374,7 @@
   --fd-color-metier-exterieurs-solid: var(--fd-palette-feuille-600);
   --fd-color-metier-exterieurs-subtle: var(--fd-palette-feuille-100);
   --fd-color-metier-exterieurs-on-subtle: var(--fd-palette-feuille-800);
-  --fd-color-metier-fluides-solid: var(--fd-palette-eau-500);
+  --fd-color-metier-fluides-solid: var(--fd-palette-eau-600);
   --fd-color-metier-fluides-subtle: var(--fd-palette-eau-100);
   --fd-color-metier-fluides-on-subtle: var(--fd-palette-eau-800);
   --fd-color-metier-enveloppe-solid: var(--fd-palette-ardoise-700);
@@ -362,90 +389,100 @@
   --fd-color-metier-autre-solid: var(--fd-palette-beton-600);
   --fd-color-metier-autre-subtle: var(--fd-palette-beton-100);
   --fd-color-metier-autre-on-subtle: var(--fd-palette-beton-800);
-  /* Cartes au repos (optionnel : préférer le contour border.subtle). */
-  --fd-shadow-sm: 0 1px 2px 0 #15141114, 0 1px 3px 0 #1514110f;
-  /* Menus déroulants, popovers, carte en cours de glisser. */
-  --fd-shadow-md: 0 2px 4px 0 #15141114, 0 6px 16px -2px #1514111f;
+  /* Menus déroulants, popovers. */
+  --fd-shadow-md: 0 4px 12px 0 #1514111f;
   /* Modales, bottom sheets, toasts. */
-  --fd-shadow-lg: 0 8px 16px 0 #1514111a, 0 20px 40px -8px #15141129;
+  --fd-shadow-lg: 0 16px 40px -8px #15141129;
   color-scheme: light;
 }
 
 /* ---- theme : dark ---- */
 [data-theme="dark"] {
-  /* Fond de page, derrière les cartes. */
+  /* Béton banché : fond de page, avec le motif des trous de banche. */
   --fd-color-bg-canvas: var(--fd-palette-beton-975);
-  /* Cartes, panneaux, tableaux, barres de navigation. */
+  /* Béton ciré : blocs de travail (fiches, cartes, listes, tableaux). */
   --fd-color-bg-surface: var(--fd-palette-beton-950);
   /* Menus, popovers, modales, bottom sheets (avec une ombre). */
   --fd-color-bg-raised: var(--fd-palette-beton-900);
-  /* Zones en creux : champs en lecture seule, pistes de progression, en-têtes de tableau. */
+  /* Creux : pistes de cote, cellules d'unité, lecture seule. */
   --fd-color-bg-sunken: var(--fd-palette-beton-975);
-  /* Survol de lignes et d'éléments neutres. */
+  /* Survol des lignes et éléments neutres. */
   --fd-color-bg-hover: var(--fd-palette-beton-900);
   /* Ligne ou élément sélectionné. */
-  --fd-color-bg-selected: var(--fd-palette-bleu-950);
-  /* Toasts, infobulles. */
+  --fd-color-bg-selected: var(--fd-palette-encre-950);
+  /* Bandeaux anthracite (en-tête mobile, navigation, toasts). */
   --fd-color-bg-inverse: var(--fd-palette-beton-100);
   /* Voile derrière une modale ou une bottom sheet. */
   --fd-color-bg-overlay: #000000b3;
-  /* Texte principal, sur tous les fonds bg.*. */
+  /* Anthracite : texte principal, sur tous les fonds bg.* (7:1 minimum). */
   --fd-color-fg-default: var(--fd-palette-beton-100);
-  /* Texte secondaire : métadonnées, aides de champ, dates. Sur bg.canvas, surface, raised, sunken. */
+  /* Texte secondaire, clés de cartouche, métadonnées. Sur bg.canvas, surface, raised, sunken. */
   --fd-color-fg-muted: var(--fd-palette-beton-400);
-  /* Icônes décoratives, placeholders. 3:1 minimum : jamais pour un texte indispensable. */
+  /* Icônes décoratives, placeholders (3:1). */
   --fd-color-fg-subtle: var(--fd-palette-beton-500);
-  /* Texte et icônes désactivés (pas d'exigence de contraste, mais toujours doublé d'un état non coloré). */
+  /* Texte et icônes désactivés. */
   --fd-color-fg-disabled: var(--fd-palette-beton-600);
   /* Texte sur bg.inverse. */
-  --fd-color-fg-inverse: var(--fd-palette-beton-900);
+  --fd-color-fg-inverse: var(--fd-palette-beton-950);
+  /* Texte secondaire sur bg.inverse. */
+  --fd-color-fg-inverse-muted: var(--fd-palette-beton-700);
   /* Liens dans le texte. */
   --fd-color-fg-link: var(--fd-color-primary-text);
-  /* Séparateurs de lignes, contours de cartes. */
+  /* Séparateurs fins à l'intérieur d'un bloc. */
   --fd-color-border-subtle: var(--fd-palette-beton-800);
-  /* Contours de boutons secondaires, puces. */
+  /* Contours de boutons secondaires. */
   --fd-color-border-default: var(--fd-palette-beton-700);
-  /* Contours de champs de saisie et cases à cocher (3:1 minimum). */
+  /* Contours de champs, cases, traits de cote (3:1 minimum). */
   --fd-color-border-strong: var(--fd-palette-beton-500);
+  /* Structure apparente : joint de 2 px entre deux blocs, cadre du cartouche. */
+  --fd-color-border-joint: var(--fd-palette-beton-500);
   /* Anneau de focus clavier, sur tous les fonds. */
-  --fd-color-border-focus: var(--fd-palette-bleu-400);
-  --fd-color-primary-solid: var(--fd-palette-bleu-400);
-  --fd-color-primary-solid-hover: var(--fd-palette-bleu-300);
-  --fd-color-primary-solid-active: var(--fd-palette-bleu-200);
+  --fd-color-border-focus: var(--fd-palette-encre-300);
+  /* Fond des barres de navigation et de l'en-tête mobile. */
+  --fd-color-chrome-bg: var(--fd-palette-beton-900);
+  /* Texte et icônes actifs sur chrome.bg. */
+  --fd-color-chrome-fg: var(--fd-palette-beton-50);
+  /* Texte et icônes inactifs sur chrome.bg. */
+  --fd-color-chrome-fg-muted: var(--fd-palette-beton-400);
+  /* Trait de l'onglet actif (avec le texte en chrome.fg et en gras). */
+  --fd-color-chrome-indicator: var(--fd-palette-corten-400);
+  --fd-color-primary-solid: var(--fd-palette-encre-300);
+  --fd-color-primary-solid-hover: var(--fd-palette-encre-200);
+  --fd-color-primary-solid-active: var(--fd-palette-encre-100);
   --fd-color-primary-on-solid: var(--fd-palette-beton-975);
-  --fd-color-primary-subtle: var(--fd-palette-bleu-950);
-  --fd-color-primary-on-subtle: var(--fd-palette-bleu-200);
-  --fd-color-primary-text: var(--fd-palette-bleu-300);
-  --fd-color-accent-solid: var(--fd-palette-orange-400);
-  --fd-color-accent-solid-hover: var(--fd-palette-orange-300);
+  --fd-color-primary-subtle: var(--fd-palette-encre-950);
+  --fd-color-primary-on-subtle: var(--fd-palette-encre-200);
+  --fd-color-primary-text: var(--fd-palette-encre-300);
+  --fd-color-accent-solid: var(--fd-palette-corten-400);
+  --fd-color-accent-solid-hover: var(--fd-palette-corten-300);
   --fd-color-accent-on-solid: var(--fd-palette-beton-975);
-  --fd-color-accent-subtle: var(--fd-palette-orange-950);
-  --fd-color-accent-on-subtle: var(--fd-palette-orange-200);
-  --fd-color-accent-text: var(--fd-palette-orange-400);
-  --fd-color-success-solid: var(--fd-palette-vert-400);
+  --fd-color-accent-subtle: var(--fd-palette-corten-950);
+  --fd-color-accent-on-subtle: var(--fd-palette-corten-200);
+  --fd-color-accent-text: var(--fd-palette-corten-400);
+  --fd-color-success-solid: var(--fd-palette-vertdegris-400);
   --fd-color-success-on-solid: var(--fd-palette-beton-975);
-  --fd-color-success-subtle: var(--fd-palette-vert-950);
-  --fd-color-success-on-subtle: var(--fd-palette-vert-200);
-  --fd-color-success-border: var(--fd-palette-vert-500);
-  --fd-color-success-text: var(--fd-palette-vert-400);
-  --fd-color-warning-solid: var(--fd-palette-ambre-400);
+  --fd-color-success-subtle: var(--fd-palette-vertdegris-950);
+  --fd-color-success-on-subtle: var(--fd-palette-vertdegris-200);
+  --fd-color-success-border: var(--fd-palette-vertdegris-500);
+  --fd-color-success-text: var(--fd-palette-vertdegris-400);
+  --fd-color-warning-solid: var(--fd-palette-ocre-400);
   --fd-color-warning-on-solid: var(--fd-palette-beton-975);
-  --fd-color-warning-subtle: var(--fd-palette-ambre-950);
-  --fd-color-warning-on-subtle: var(--fd-palette-ambre-200);
-  --fd-color-warning-border: var(--fd-palette-ambre-500);
-  --fd-color-warning-text: var(--fd-palette-ambre-300);
+  --fd-color-warning-subtle: var(--fd-palette-ocre-950);
+  --fd-color-warning-on-subtle: var(--fd-palette-ocre-200);
+  --fd-color-warning-border: var(--fd-palette-ocre-500);
+  --fd-color-warning-text: var(--fd-palette-ocre-300);
   --fd-color-danger-solid: var(--fd-palette-rouge-500);
   --fd-color-danger-on-solid: var(--fd-palette-beton-975);
   --fd-color-danger-subtle: var(--fd-palette-rouge-950);
   --fd-color-danger-on-subtle: var(--fd-palette-rouge-200);
   --fd-color-danger-border: var(--fd-palette-rouge-500);
   --fd-color-danger-text: var(--fd-palette-rouge-300);
-  --fd-color-info-solid: var(--fd-palette-bleu-500);
+  --fd-color-info-solid: var(--fd-palette-encre-500);
   --fd-color-info-on-solid: var(--fd-palette-beton-975);
-  --fd-color-info-subtle: var(--fd-palette-bleu-950);
-  --fd-color-info-on-subtle: var(--fd-palette-bleu-200);
-  --fd-color-info-border: var(--fd-palette-bleu-500);
-  --fd-color-info-text: var(--fd-palette-bleu-300);
+  --fd-color-info-subtle: var(--fd-palette-encre-950);
+  --fd-color-info-on-subtle: var(--fd-palette-encre-200);
+  --fd-color-info-border: var(--fd-palette-encre-500);
+  --fd-color-info-text: var(--fd-palette-encre-300);
   --fd-color-statut-planifie-solid: var(--fd-palette-beton-400);
   --fd-color-statut-planifie-subtle: var(--fd-palette-beton-900);
   --fd-color-statut-planifie-on-subtle: var(--fd-palette-beton-200);
@@ -488,9 +525,7 @@
   --fd-color-metier-autre-solid: var(--fd-palette-beton-500);
   --fd-color-metier-autre-subtle: var(--fd-palette-beton-900);
   --fd-color-metier-autre-on-subtle: var(--fd-palette-beton-200);
-  /* Cartes au repos (optionnel : préférer le contour border.subtle). */
-  --fd-shadow-sm: 0 1px 2px 0 #00000066;
-  /* Menus déroulants, popovers, carte en cours de glisser. */
+  /* Menus déroulants, popovers. */
   --fd-shadow-md: 0 4px 12px 0 #00000080;
   /* Modales, bottom sheets, toasts. */
   --fd-shadow-lg: 0 16px 40px -4px #000000a6;
@@ -498,79 +533,91 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    /* Fond de page, derrière les cartes. */
+    /* Béton banché : fond de page, avec le motif des trous de banche. */
     --fd-color-bg-canvas: var(--fd-palette-beton-975);
-    /* Cartes, panneaux, tableaux, barres de navigation. */
+    /* Béton ciré : blocs de travail (fiches, cartes, listes, tableaux). */
     --fd-color-bg-surface: var(--fd-palette-beton-950);
     /* Menus, popovers, modales, bottom sheets (avec une ombre). */
     --fd-color-bg-raised: var(--fd-palette-beton-900);
-    /* Zones en creux : champs en lecture seule, pistes de progression, en-têtes de tableau. */
+    /* Creux : pistes de cote, cellules d'unité, lecture seule. */
     --fd-color-bg-sunken: var(--fd-palette-beton-975);
-    /* Survol de lignes et d'éléments neutres. */
+    /* Survol des lignes et éléments neutres. */
     --fd-color-bg-hover: var(--fd-palette-beton-900);
     /* Ligne ou élément sélectionné. */
-    --fd-color-bg-selected: var(--fd-palette-bleu-950);
-    /* Toasts, infobulles. */
+    --fd-color-bg-selected: var(--fd-palette-encre-950);
+    /* Bandeaux anthracite (en-tête mobile, navigation, toasts). */
     --fd-color-bg-inverse: var(--fd-palette-beton-100);
     /* Voile derrière une modale ou une bottom sheet. */
     --fd-color-bg-overlay: #000000b3;
-    /* Texte principal, sur tous les fonds bg.*. */
+    /* Anthracite : texte principal, sur tous les fonds bg.* (7:1 minimum). */
     --fd-color-fg-default: var(--fd-palette-beton-100);
-    /* Texte secondaire : métadonnées, aides de champ, dates. Sur bg.canvas, surface, raised, sunken. */
+    /* Texte secondaire, clés de cartouche, métadonnées. Sur bg.canvas, surface, raised, sunken. */
     --fd-color-fg-muted: var(--fd-palette-beton-400);
-    /* Icônes décoratives, placeholders. 3:1 minimum : jamais pour un texte indispensable. */
+    /* Icônes décoratives, placeholders (3:1). */
     --fd-color-fg-subtle: var(--fd-palette-beton-500);
-    /* Texte et icônes désactivés (pas d'exigence de contraste, mais toujours doublé d'un état non coloré). */
+    /* Texte et icônes désactivés. */
     --fd-color-fg-disabled: var(--fd-palette-beton-600);
     /* Texte sur bg.inverse. */
-    --fd-color-fg-inverse: var(--fd-palette-beton-900);
+    --fd-color-fg-inverse: var(--fd-palette-beton-950);
+    /* Texte secondaire sur bg.inverse. */
+    --fd-color-fg-inverse-muted: var(--fd-palette-beton-700);
     /* Liens dans le texte. */
     --fd-color-fg-link: var(--fd-color-primary-text);
-    /* Séparateurs de lignes, contours de cartes. */
+    /* Séparateurs fins à l'intérieur d'un bloc. */
     --fd-color-border-subtle: var(--fd-palette-beton-800);
-    /* Contours de boutons secondaires, puces. */
+    /* Contours de boutons secondaires. */
     --fd-color-border-default: var(--fd-palette-beton-700);
-    /* Contours de champs de saisie et cases à cocher (3:1 minimum). */
+    /* Contours de champs, cases, traits de cote (3:1 minimum). */
     --fd-color-border-strong: var(--fd-palette-beton-500);
+    /* Structure apparente : joint de 2 px entre deux blocs, cadre du cartouche. */
+    --fd-color-border-joint: var(--fd-palette-beton-500);
     /* Anneau de focus clavier, sur tous les fonds. */
-    --fd-color-border-focus: var(--fd-palette-bleu-400);
-    --fd-color-primary-solid: var(--fd-palette-bleu-400);
-    --fd-color-primary-solid-hover: var(--fd-palette-bleu-300);
-    --fd-color-primary-solid-active: var(--fd-palette-bleu-200);
+    --fd-color-border-focus: var(--fd-palette-encre-300);
+    /* Fond des barres de navigation et de l'en-tête mobile. */
+    --fd-color-chrome-bg: var(--fd-palette-beton-900);
+    /* Texte et icônes actifs sur chrome.bg. */
+    --fd-color-chrome-fg: var(--fd-palette-beton-50);
+    /* Texte et icônes inactifs sur chrome.bg. */
+    --fd-color-chrome-fg-muted: var(--fd-palette-beton-400);
+    /* Trait de l'onglet actif (avec le texte en chrome.fg et en gras). */
+    --fd-color-chrome-indicator: var(--fd-palette-corten-400);
+    --fd-color-primary-solid: var(--fd-palette-encre-300);
+    --fd-color-primary-solid-hover: var(--fd-palette-encre-200);
+    --fd-color-primary-solid-active: var(--fd-palette-encre-100);
     --fd-color-primary-on-solid: var(--fd-palette-beton-975);
-    --fd-color-primary-subtle: var(--fd-palette-bleu-950);
-    --fd-color-primary-on-subtle: var(--fd-palette-bleu-200);
-    --fd-color-primary-text: var(--fd-palette-bleu-300);
-    --fd-color-accent-solid: var(--fd-palette-orange-400);
-    --fd-color-accent-solid-hover: var(--fd-palette-orange-300);
+    --fd-color-primary-subtle: var(--fd-palette-encre-950);
+    --fd-color-primary-on-subtle: var(--fd-palette-encre-200);
+    --fd-color-primary-text: var(--fd-palette-encre-300);
+    --fd-color-accent-solid: var(--fd-palette-corten-400);
+    --fd-color-accent-solid-hover: var(--fd-palette-corten-300);
     --fd-color-accent-on-solid: var(--fd-palette-beton-975);
-    --fd-color-accent-subtle: var(--fd-palette-orange-950);
-    --fd-color-accent-on-subtle: var(--fd-palette-orange-200);
-    --fd-color-accent-text: var(--fd-palette-orange-400);
-    --fd-color-success-solid: var(--fd-palette-vert-400);
+    --fd-color-accent-subtle: var(--fd-palette-corten-950);
+    --fd-color-accent-on-subtle: var(--fd-palette-corten-200);
+    --fd-color-accent-text: var(--fd-palette-corten-400);
+    --fd-color-success-solid: var(--fd-palette-vertdegris-400);
     --fd-color-success-on-solid: var(--fd-palette-beton-975);
-    --fd-color-success-subtle: var(--fd-palette-vert-950);
-    --fd-color-success-on-subtle: var(--fd-palette-vert-200);
-    --fd-color-success-border: var(--fd-palette-vert-500);
-    --fd-color-success-text: var(--fd-palette-vert-400);
-    --fd-color-warning-solid: var(--fd-palette-ambre-400);
+    --fd-color-success-subtle: var(--fd-palette-vertdegris-950);
+    --fd-color-success-on-subtle: var(--fd-palette-vertdegris-200);
+    --fd-color-success-border: var(--fd-palette-vertdegris-500);
+    --fd-color-success-text: var(--fd-palette-vertdegris-400);
+    --fd-color-warning-solid: var(--fd-palette-ocre-400);
     --fd-color-warning-on-solid: var(--fd-palette-beton-975);
-    --fd-color-warning-subtle: var(--fd-palette-ambre-950);
-    --fd-color-warning-on-subtle: var(--fd-palette-ambre-200);
-    --fd-color-warning-border: var(--fd-palette-ambre-500);
-    --fd-color-warning-text: var(--fd-palette-ambre-300);
+    --fd-color-warning-subtle: var(--fd-palette-ocre-950);
+    --fd-color-warning-on-subtle: var(--fd-palette-ocre-200);
+    --fd-color-warning-border: var(--fd-palette-ocre-500);
+    --fd-color-warning-text: var(--fd-palette-ocre-300);
     --fd-color-danger-solid: var(--fd-palette-rouge-500);
     --fd-color-danger-on-solid: var(--fd-palette-beton-975);
     --fd-color-danger-subtle: var(--fd-palette-rouge-950);
     --fd-color-danger-on-subtle: var(--fd-palette-rouge-200);
     --fd-color-danger-border: var(--fd-palette-rouge-500);
     --fd-color-danger-text: var(--fd-palette-rouge-300);
-    --fd-color-info-solid: var(--fd-palette-bleu-500);
+    --fd-color-info-solid: var(--fd-palette-encre-500);
     --fd-color-info-on-solid: var(--fd-palette-beton-975);
-    --fd-color-info-subtle: var(--fd-palette-bleu-950);
-    --fd-color-info-on-subtle: var(--fd-palette-bleu-200);
-    --fd-color-info-border: var(--fd-palette-bleu-500);
-    --fd-color-info-text: var(--fd-palette-bleu-300);
+    --fd-color-info-subtle: var(--fd-palette-encre-950);
+    --fd-color-info-on-subtle: var(--fd-palette-encre-200);
+    --fd-color-info-border: var(--fd-palette-encre-500);
+    --fd-color-info-text: var(--fd-palette-encre-300);
     --fd-color-statut-planifie-solid: var(--fd-palette-beton-400);
     --fd-color-statut-planifie-subtle: var(--fd-palette-beton-900);
     --fd-color-statut-planifie-on-subtle: var(--fd-palette-beton-200);
@@ -613,9 +660,7 @@
     --fd-color-metier-autre-solid: var(--fd-palette-beton-500);
     --fd-color-metier-autre-subtle: var(--fd-palette-beton-900);
     --fd-color-metier-autre-on-subtle: var(--fd-palette-beton-200);
-    /* Cartes au repos (optionnel : préférer le contour border.subtle). */
-    --fd-shadow-sm: 0 1px 2px 0 #00000066;
-    /* Menus déroulants, popovers, carte en cours de glisser. */
+    /* Menus déroulants, popovers. */
     --fd-shadow-md: 0 4px 12px 0 #00000080;
     /* Modales, bottom sheets, toasts. */
     --fd-shadow-lg: 0 16px 40px -4px #000000a6;
@@ -628,51 +673,55 @@
   --fd-size-control-sm: 32px;
   --fd-size-control-md: 40px;
   --fd-size-control-lg: 48px;
-  /* Zone cliquable minimale à la souris (WCAG 2.2 : 24 px minimum). */
+  /* Zone cliquable minimale à la souris. */
   --fd-size-touch-target: 32px;
   --fd-size-icon-sm: 16px;
   --fd-size-icon-md: 20px;
   --fd-size-icon-lg: 24px;
   /* Hauteur minimale d'une ligne de liste ou de tableau. */
   --fd-size-row: 44px;
+  /* Diamètre de la bulle de repère (code métier). */
+  --fd-size-repere: 32px;
   /* Marge latérale de page. */
   --fd-layout-gutter: 24px;
   /* Padding horizontal des boutons et champs. */
-  --fd-layout-control-padding-x: 12px;
+  --fd-layout-control-padding-x: 16px;
   /* Espace vertical entre champs d'un formulaire. */
   --fd-layout-stack: 16px;
-  /* Chiffres clés et titres d'accueil. */
-  --fd-text-display: var(--fd-font-weight-bold) var(--fd-font-size-4xl)/var(--fd-font-line-height-tight) var(--fd-font-family-display);
-  --fd-text-display-letter-spacing: var(--fd-font-letter-spacing-tight);
-  /* Titre de page (nom du chantier). */
-  --fd-text-title-1: var(--fd-font-weight-semibold) var(--fd-font-size-3xl)/var(--fd-font-line-height-tight) var(--fd-font-family-display);
+  /* Padding intérieur d'un bloc (fiche, carte). */
+  --fd-layout-block-padding: 24px;
+  /* Chiffres clés : avancement, effectifs, réserves ouvertes. */
+  --fd-text-display: var(--fd-font-weight-black) var(--fd-font-size-5xl)/var(--fd-font-line-height-compact) var(--fd-font-family-display);
+  --fd-text-display-letter-spacing: var(--fd-font-letter-spacing-tighter);
+  /* Titre de page (nom du chantier dans le cartouche). */
+  --fd-text-title-1: var(--fd-font-weight-extrabold) var(--fd-font-size-3xl)/var(--fd-font-line-height-tight) var(--fd-font-family-display);
   --fd-text-title-1-letter-spacing: var(--fd-font-letter-spacing-tight);
   /* Titre de section. */
-  --fd-text-title-2: var(--fd-font-weight-semibold) var(--fd-font-size-2xl)/var(--fd-font-line-height-snug) var(--fd-font-family-display);
-  --fd-text-title-2-letter-spacing: var(--fd-font-letter-spacing-normal);
+  --fd-text-title-2: var(--fd-font-weight-bold) var(--fd-font-size-2xl)/var(--fd-font-line-height-tight) var(--fd-font-family-display);
+  --fd-text-title-2-letter-spacing: var(--fd-font-letter-spacing-tight);
   /* Titre de carte, de panneau, de modale. */
-  --fd-text-title-3: var(--fd-font-weight-semibold) var(--fd-font-size-lg)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
-  --fd-text-title-3-letter-spacing: var(--fd-font-letter-spacing-normal);
+  --fd-text-title-3: var(--fd-font-weight-bold) var(--fd-font-size-lg)/var(--fd-font-line-height-snug) var(--fd-font-family-display);
+  --fd-text-title-3-letter-spacing: var(--fd-font-letter-spacing-tight);
   /* Texte courant. */
   --fd-text-body: var(--fd-font-weight-regular) var(--fd-font-size-md)/var(--fd-font-line-height-normal) var(--fd-font-family-text);
   --fd-text-body-letter-spacing: var(--fd-font-letter-spacing-normal);
-  /* Mise en avant dans le texte courant. */
+  /* Mise en avant, intitulé de réserve. */
   --fd-text-body-strong: var(--fd-font-weight-semibold) var(--fd-font-size-md)/var(--fd-font-line-height-normal) var(--fd-font-family-text);
   --fd-text-body-strong-letter-spacing: var(--fd-font-letter-spacing-normal);
   /* Texte secondaire, cellules de tableau dense. */
   --fd-text-body-sm: var(--fd-font-weight-regular) var(--fd-font-size-sm)/var(--fd-font-line-height-normal) var(--fd-font-family-text);
   --fd-text-body-sm-letter-spacing: var(--fd-font-letter-spacing-normal);
-  /* Libellés de champs, boutons, onglets. */
-  --fd-text-label: var(--fd-font-weight-medium) var(--fd-font-size-sm)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
-  --fd-text-label-letter-spacing: var(--fd-font-letter-spacing-normal);
-  /* Horodatages, mentions, légendes de photo. */
+  /* Boutons (en capitales), libellés de champs, onglets. */
+  --fd-text-label: var(--fd-font-weight-semibold) var(--fd-font-size-sm)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
+  --fd-text-label-letter-spacing: var(--fd-font-letter-spacing-wide);
+  /* Horodatages, mentions, légendes. */
   --fd-text-caption: var(--fd-font-weight-regular) var(--fd-font-size-xs)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
   --fd-text-caption-letter-spacing: var(--fd-font-letter-spacing-normal);
-  /* Sur-titres en capitales (LOT 03, PHASE GROS ŒUVRE). */
-  --fd-text-overline: var(--fd-font-weight-semibold) var(--fd-font-size-xs)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
-  --fd-text-overline-letter-spacing: var(--fd-font-letter-spacing-wide);
-  /* Numéros de lot, devis, bon de livraison. */
-  --fd-text-reference: var(--fd-font-weight-regular) var(--fd-font-size-sm)/var(--fd-font-line-height-snug) var(--fd-font-family-mono);
+  /* Clés de cartouche et sur-titres en capitales (PROJET, LOT 02 · GROS ŒUVRE). */
+  --fd-text-overline: var(--fd-font-weight-medium) var(--fd-font-size-xs)/var(--fd-font-line-height-snug) var(--fd-font-family-mono);
+  --fd-text-overline-letter-spacing: var(--fd-font-letter-spacing-wider);
+  /* Références, codes métier, valeurs de cote (CH-2026-014, 41 %). */
+  --fd-text-reference: var(--fd-font-weight-medium) var(--fd-font-size-sm)/var(--fd-font-line-height-snug) var(--fd-font-family-mono);
   --fd-text-reference-letter-spacing: var(--fd-font-letter-spacing-normal);
 }
 
@@ -681,51 +730,55 @@
   --fd-size-control-sm: 48px;
   --fd-size-control-md: 56px;
   --fd-size-control-lg: 64px;
-  /* Zone cliquable minimale : 48 px (Material 48 dp, Apple 44 pt, majorée pour les gants). */
+  /* Zone cliquable minimale, majorée pour les gants. */
   --fd-size-touch-target: 48px;
   --fd-size-icon-sm: 20px;
   --fd-size-icon-md: 24px;
   --fd-size-icon-lg: 32px;
   /* Hauteur minimale d'une ligne de liste ou de tableau. */
   --fd-size-row: 64px;
+  /* Diamètre de la bulle de repère (code métier). */
+  --fd-size-repere: 40px;
   /* Marge latérale de page. */
   --fd-layout-gutter: 16px;
   /* Padding horizontal des boutons et champs. */
   --fd-layout-control-padding-x: 16px;
   /* Espace vertical entre champs d'un formulaire. */
   --fd-layout-stack: 20px;
-  /* Chiffres clés et titres d'accueil. */
-  --fd-text-display: var(--fd-font-weight-bold) var(--fd-font-size-4xl)/var(--fd-font-line-height-tight) var(--fd-font-family-display);
-  --fd-text-display-letter-spacing: var(--fd-font-letter-spacing-tight);
-  /* Titre de page (nom du chantier). */
-  --fd-text-title-1: var(--fd-font-weight-semibold) var(--fd-font-size-3xl)/var(--fd-font-line-height-tight) var(--fd-font-family-display);
+  /* Padding intérieur d'un bloc (fiche, carte). */
+  --fd-layout-block-padding: 16px;
+  /* Chiffres clés : avancement, effectifs, réserves ouvertes. */
+  --fd-text-display: var(--fd-font-weight-black) var(--fd-font-size-5xl)/var(--fd-font-line-height-compact) var(--fd-font-family-display);
+  --fd-text-display-letter-spacing: var(--fd-font-letter-spacing-tighter);
+  /* Titre de page (nom du chantier dans le cartouche). */
+  --fd-text-title-1: var(--fd-font-weight-extrabold) var(--fd-font-size-3xl)/var(--fd-font-line-height-tight) var(--fd-font-family-display);
   --fd-text-title-1-letter-spacing: var(--fd-font-letter-spacing-tight);
   /* Titre de section. */
-  --fd-text-title-2: var(--fd-font-weight-semibold) var(--fd-font-size-2xl)/var(--fd-font-line-height-snug) var(--fd-font-family-display);
-  --fd-text-title-2-letter-spacing: var(--fd-font-letter-spacing-normal);
+  --fd-text-title-2: var(--fd-font-weight-bold) var(--fd-font-size-2xl)/var(--fd-font-line-height-tight) var(--fd-font-family-display);
+  --fd-text-title-2-letter-spacing: var(--fd-font-letter-spacing-tight);
   /* Titre de carte, de panneau, de modale. */
-  --fd-text-title-3: var(--fd-font-weight-semibold) var(--fd-font-size-xl)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
-  --fd-text-title-3-letter-spacing: var(--fd-font-letter-spacing-normal);
+  --fd-text-title-3: var(--fd-font-weight-bold) var(--fd-font-size-xl)/var(--fd-font-line-height-snug) var(--fd-font-family-display);
+  --fd-text-title-3-letter-spacing: var(--fd-font-letter-spacing-tight);
   /* Texte courant. */
   --fd-text-body: var(--fd-font-weight-regular) var(--fd-font-size-lg)/var(--fd-font-line-height-normal) var(--fd-font-family-text);
   --fd-text-body-letter-spacing: var(--fd-font-letter-spacing-normal);
-  /* Mise en avant dans le texte courant. */
+  /* Mise en avant, intitulé de réserve. */
   --fd-text-body-strong: var(--fd-font-weight-semibold) var(--fd-font-size-lg)/var(--fd-font-line-height-normal) var(--fd-font-family-text);
   --fd-text-body-strong-letter-spacing: var(--fd-font-letter-spacing-normal);
   /* Texte secondaire, cellules de tableau dense. */
   --fd-text-body-sm: var(--fd-font-weight-regular) var(--fd-font-size-md)/var(--fd-font-line-height-normal) var(--fd-font-family-text);
   --fd-text-body-sm-letter-spacing: var(--fd-font-letter-spacing-normal);
-  /* Libellés de champs, boutons, onglets. */
-  --fd-text-label: var(--fd-font-weight-medium) var(--fd-font-size-md)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
-  --fd-text-label-letter-spacing: var(--fd-font-letter-spacing-normal);
-  /* Horodatages, mentions, légendes de photo. */
+  /* Boutons (en capitales), libellés de champs, onglets. */
+  --fd-text-label: var(--fd-font-weight-semibold) var(--fd-font-size-md)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
+  --fd-text-label-letter-spacing: var(--fd-font-letter-spacing-wide);
+  /* Horodatages, mentions, légendes. */
   --fd-text-caption: var(--fd-font-weight-regular) var(--fd-font-size-sm)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
   --fd-text-caption-letter-spacing: var(--fd-font-letter-spacing-normal);
-  /* Sur-titres en capitales (LOT 03, PHASE GROS ŒUVRE). */
-  --fd-text-overline: var(--fd-font-weight-semibold) var(--fd-font-size-sm)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
-  --fd-text-overline-letter-spacing: var(--fd-font-letter-spacing-wide);
-  /* Numéros de lot, devis, bon de livraison. */
-  --fd-text-reference: var(--fd-font-weight-regular) var(--fd-font-size-md)/var(--fd-font-line-height-snug) var(--fd-font-family-mono);
+  /* Clés de cartouche et sur-titres en capitales (PROJET, LOT 02 · GROS ŒUVRE). */
+  --fd-text-overline: var(--fd-font-weight-medium) var(--fd-font-size-sm)/var(--fd-font-line-height-snug) var(--fd-font-family-mono);
+  --fd-text-overline-letter-spacing: var(--fd-font-letter-spacing-wider);
+  /* Références, codes métier, valeurs de cote (CH-2026-014, 41 %). */
+  --fd-text-reference: var(--fd-font-weight-medium) var(--fd-font-size-md)/var(--fd-font-line-height-snug) var(--fd-font-family-mono);
   --fd-text-reference-letter-spacing: var(--fd-font-letter-spacing-normal);
 }
 

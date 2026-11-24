@@ -2,45 +2,39 @@
 Ligne d'une liste de réserves (défauts constatés à lever avant ou après réception) : on la consulte, on la lève, on y joint des photos.
 
 ## Quand l'utiliser
-- Listes de réserves par chantier, par logement, par entreprise ; OPR et réception.
-- C'est un élément de liste spécialisé : pour une tâche de planning, utiliser l'élément de liste standard (à spécifier).
+Listes de réserves par chantier, logement ou entreprise ; OPR et réception.
 
 ## Anatomie
-1. Case « lever » (cercle, zone tactile `size.touch-target`) · 2. Intitulé (`text.body-strong`) · 3. Localisation (bâtiment · niveau · logement · pièce, `text.body-sm`, `fg.muted`) · 4. Pastille métier · 5. Échéance ou badge statut daté · 6. Nombre de photos
+1. Case « lever » carrée (`radius.sm`, zone tactile `size.touch-target`) · 2. Intitulé (`text.body-strong`) + indice de révision si modifiée · 3. Localisation en mono capitales (`text.overline`) : BÂT. · NIVEAU · LGT · PIÈCE · 4. Bulle de repère du métier · 5. Statut daté
 
 ## Variantes
 | Variante | Différence | Tokens |
 |---|---|---|
-| Ouverte | case vide | cercle `color.border.strong` |
-| Échue | badge « Échue le … » | `color.statut.en-retard.*` |
-| Levée | case cochée, intitulé barré et éteint, badge « Levée le … » | `color.statut.termine.solid`, `color.fg.muted` |
+| Ouverte | case vide | cadre `color.border.strong` |
+| Échue | statut « Échue 20/11 » | `color.statut.en-retard.*`, `color.danger.text` |
+| Levée | case pleine cochée, intitulé barré, statut « Levée 21/11 » | `color.statut.termine.solid`, `color.fg.muted` |
 
 ## Tailles
-Hauteur minimale `size.row` (44 px bureau, 64 px terrain), padding `space.3` × `space.4`, séparateur `border.subtle`. Icône de case `size.icon.lg`.
+Hauteur minimale `size.row` (44 px bureau, 64 px terrain), padding `space.3` × `layout.block-padding`. Les lignes d'une liste sont dans une structure ; entre deux lignes, un filet `color.border.subtle`.
 
 ## États
 | État | Changement |
 |---|---|
 | Focus de la case | anneau `color.border.focus` |
-| Pressé (mobile) | fond `color.bg.hover` sur la ligne |
-| Levée en attente de synchronisation | case cochée + mention « à synchroniser » (`fg.muted`) |
+| Pressé (mobile) | fond `color.bg.hover` |
+| Levée hors connexion | case cochée + « à synchroniser » en `color.fg.muted` |
 
 ## Contenu
-- Intitulé : le défaut constaté, concret (« Joint de carrelage fissuré devant la douche »), pas la catégorie.
-- Localisation toujours dans le même ordre : Bât. · Niveau (R-1, RDC, R+2) · Logement · Pièce.
+Intitulé = le défaut constaté, concret. Localisation toujours dans le même ordre.
 
 ## Accessibilité
-- La case est un `role="checkbox"` avec `aria-checked` et un nom qui reprend l'intitulé (« Lever la réserve : prise non fixée »).
-- Lever une réserve est réversible : un toast « Réserve levée · Annuler » plutôt qu'une confirmation bloquante.
-- L'état « levée » est porté par la coche, le texte barré **et** le badge, pas seulement par la couleur.
+`role="checkbox"` + `aria-checked`, nom qui reprend l'intitulé (« Lever la réserve : prise non fixée »). Levée réversible : toast « Réserve levée · Annuler ».
 
 ## Web
-`.fd-reserve` (+ `--levee`) > `.fd-reserve__check` + `.fd-reserve__body` (`__title`, `__where`, `__tags`) + `.fd-reserve__aside`.
+`.fd-reserve` (+ `--levee`) > `.fd-reserve__check` + `.fd-reserve__body` (`__title`, `__where`) + `.fd-reserve__aside` (repère + statut). Sous 560 px, le repère et le statut passent sous l'intitulé.
 
 ## Mobile
-- Toucher la ligne ouvre le détail (photos, historique) ; la case lève directement.
-- Balayer vers la droite pour lever (avec retour haptique), toujours doublé par la case visible.
-- Lever une réserve exige une photo si l'entreprise l'a configuré : ouvrir l'appareil photo directement.
+Toucher la ligne ouvre le détail ; la case lève directement ; balayage vers la droite pour lever, toujours doublé par la case. Photo obligatoire si l'entreprise l'a configuré.
 
 ## Ne pas faire
-- Supprimer une réserve levée de la liste sans trace : elle reste visible (filtre « Levées »).
+Supprimer une réserve levée de la liste sans trace.

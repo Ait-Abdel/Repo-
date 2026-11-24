@@ -23,13 +23,14 @@ Exemples de demandes : « crée un design system pour une app de réservation de
 
 Le système produit avec ces skills, dans `design-system/` :
 
-- `brief.md` : utilisateurs (gérant, conducteur de travaux, chef de chantier, compagnon), contraintes du terrain (soleil, gants, réseau faible, daltonisme), direction « bleu de travail et béton » ;
-- `tokens/` : 14 palettes, 2 thèmes (clair, sombre), 2 densités (bureau, terrain), 5 statuts de chantier, 8 familles de métiers ;
+- `brief.md` : utilisateurs (gérant, conducteur de travaux, chef de chantier, compagnon), contraintes du terrain (soleil, gants, réseau faible, daltonisme), direction « Plan et matière » (béton, corten, encre de plan) et ses éléments signatures ;
+- `explorations/identites.html` : les trois territoires d'identité comparés (Cartouche, Tampon, Béton brut) ; le choix retenu mélange A et C ;
+- `tokens/` : 14 palettes, 2 thèmes (clair, sombre), 2 densités (bureau, terrain), 5 statuts de chantier, 8 familles de métiers, motifs signatures (trous de banche, cote) ;
 - `build/` : `css/tokens.css`, `ts/tokens.ts` (React / React Native, avec `resolveTokens({ theme, density })`), `json/tokens.json` (Flutter, natif) ;
-- `components/` : specs de bouton, champ avec unité, badge statut, pastille métier, barre d'avancement, carte chantier, réserve, navigation et bandeau hors connexion ;
+- `components/` : 13 specs, dont les signatures (cartouche, cote d'avancement, indice de révision, bulle de repère, chiffres clés, structure apparente) ;
 - `web/components.css` et `web/demo.html` : implémentation web de référence et page de démonstration.
 
-Contrôles actuels : 192/192 paires de contraste conformes (texte principal ≥ 7:1). Les couleurs de statut et de famille de métiers restent distinguables en vision normale et pour les trois types de daltonisme.
+Contrôles actuels : 204/204 paires de contraste conformes (texte principal ≥ 7:1). Les couleurs de statut, de famille de métiers, et le corten face au rouge de retard restent distinguables en vision normale et pour les trois types de daltonisme.
 
 ## Commandes
 
