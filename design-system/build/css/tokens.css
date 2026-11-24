@@ -1,0 +1,743 @@
+/* Fondation BTP — généré par build-tokens.mjs depuis tokens. Ne pas éditer à la main. */
+
+/* ---- Base (primitives, partagée par tous les modes) ---- */
+:root {
+  --fd-palette-blanc: #ffffff;
+  --fd-palette-beton-50: #f8f8f6;
+  --fd-palette-beton-100: #f1f0ee;
+  --fd-palette-beton-200: #e3e1dd;
+  --fd-palette-beton-300: #cdcac4;
+  --fd-palette-beton-400: #a8a49c;
+  --fd-palette-beton-500: #848077;
+  --fd-palette-beton-600: #67635a;
+  --fd-palette-beton-700: #504d45;
+  --fd-palette-beton-800: #3b3831;
+  --fd-palette-beton-900: #282621;
+  --fd-palette-beton-950: #1d1c18;
+  --fd-palette-beton-975: #151411;
+  --fd-palette-bleu-50: #f2f7ff;
+  --fd-palette-bleu-100: #e2eeff;
+  --fd-palette-bleu-200: #c5ddff;
+  --fd-palette-bleu-300: #9ac3ff;
+  --fd-palette-bleu-400: #6da5f9;
+  --fd-palette-bleu-500: #4688e8;
+  --fd-palette-bleu-600: #2d6fcd;
+  --fd-palette-bleu-700: #1c58ab;
+  --fd-palette-bleu-800: #0f4288;
+  --fd-palette-bleu-900: #062e63;
+  --fd-palette-bleu-950: #021d46;
+  --fd-palette-orange-50: #fff4f0;
+  --fd-palette-orange-100: #ffe7dd;
+  --fd-palette-orange-200: #ffcfb9;
+  --fd-palette-orange-300: #ffa982;
+  --fd-palette-orange-400: #f97c3d;
+  --fd-palette-orange-500: #dd5b00;
+  --fd-palette-orange-600: #b84b00;
+  --fd-palette-orange-700: #953b00;
+  --fd-palette-orange-800: #732c00;
+  --fd-palette-orange-900: #531d00;
+  --fd-palette-orange-950: #381200;
+  --fd-palette-vert-50: #eefaf3;
+  --fd-palette-vert-100: #ddf3e6;
+  --fd-palette-vert-200: #bee6cf;
+  --fd-palette-vert-300: #93d1af;
+  --fd-palette-vert-400: #5fba8d;
+  --fd-palette-vert-500: #28a16d;
+  --fd-palette-vert-600: #008758;
+  --fd-palette-vert-700: #006c45;
+  --fd-palette-vert-800: #005334;
+  --fd-palette-vert-900: #003b24;
+  --fd-palette-vert-950: #002716;
+  --fd-palette-ambre-50: #fef6e9;
+  --fd-palette-ambre-100: #faebd3;
+  --fd-palette-ambre-200: #f2d6ac;
+  --fd-palette-ambre-300: #e4b975;
+  --fd-palette-ambre-400: #d3982c;
+  --fd-palette-ambre-500: #b47d00;
+  --fd-palette-ambre-600: #966800;
+  --fd-palette-ambre-700: #795300;
+  --fd-palette-ambre-800: #5d3e00;
+  --fd-palette-ambre-900: #422b00;
+  --fd-palette-ambre-950: #2c1c00;
+  --fd-palette-rouge-50: #fff4f3;
+  --fd-palette-rouge-100: #ffe6e4;
+  --fd-palette-rouge-200: #ffcdc8;
+  --fd-palette-rouge-300: #ffa59e;
+  --fd-palette-rouge-400: #f97770;
+  --fd-palette-rouge-500: #e54c4a;
+  --fd-palette-rouge-600: #c92f33;
+  --fd-palette-rouge-700: #a71922;
+  --fd-palette-rouge-800: #840915;
+  --fd-palette-rouge-900: #60020b;
+  --fd-palette-rouge-950: #420004;
+  --fd-palette-brique-50: #fff4f2;
+  --fd-palette-brique-100: #ffe6e2;
+  --fd-palette-brique-200: #ffcdc4;
+  --fd-palette-brique-300: #f7ab9d;
+  --fd-palette-brique-400: #e98474;
+  --fd-palette-brique-500: #d46050;
+  --fd-palette-brique-600: #b94739;
+  --fd-palette-brique-700: #993427;
+  --fd-palette-brique-800: #78231a;
+  --fd-palette-brique-900: #58160f;
+  --fd-palette-brique-950: #3d0b06;
+  --fd-palette-bois-50: #fef5ed;
+  --fd-palette-bois-100: #faeadb;
+  --fd-palette-bois-200: #f2d5ba;
+  --fd-palette-bois-300: #e3b88e;
+  --fd-palette-bois-400: #d1975d;
+  --fd-palette-bois-500: #ba782e;
+  --fd-palette-bois-600: #a0600b;
+  --fd-palette-bois-700: #824c00;
+  --fd-palette-bois-800: #643900;
+  --fd-palette-bois-900: #482800;
+  --fd-palette-bois-950: #301900;
+  --fd-palette-jaune-50: #faf7ea;
+  --fd-palette-jaune-100: #f3edd5;
+  --fd-palette-jaune-200: #e7dbae;
+  --fd-palette-jaune-300: #d4c17a;
+  --fd-palette-jaune-400: #bea337;
+  --fd-palette-jaune-500: #a28700;
+  --fd-palette-jaune-600: #867000;
+  --fd-palette-jaune-700: #6c5900;
+  --fd-palette-jaune-800: #534400;
+  --fd-palette-jaune-900: #3a2f00;
+  --fd-palette-jaune-950: #271f00;
+  --fd-palette-feuille-50: #f1faf1;
+  --fd-palette-feuille-100: #e2f2e2;
+  --fd-palette-feuille-200: #c8e4c8;
+  --fd-palette-feuille-300: #a3cea4;
+  --fd-palette-feuille-400: #7bb67d;
+  --fd-palette-feuille-500: #579c5a;
+  --fd-palette-feuille-600: #3e8343;
+  --fd-palette-feuille-700: #2c6a31;
+  --fd-palette-feuille-800: #1d5222;
+  --fd-palette-feuille-900: #113a15;
+  --fd-palette-feuille-950: #07270a;
+  --fd-palette-eau-50: #edf9fe;
+  --fd-palette-eau-100: #dbf1fa;
+  --fd-palette-eau-200: #b9e3f2;
+  --fd-palette-eau-300: #8acce4;
+  --fd-palette-eau-400: #50b3d2;
+  --fd-palette-eau-500: #0098bb;
+  --fd-palette-eau-600: #007e9c;
+  --fd-palette-eau-700: #00657e;
+  --fd-palette-eau-800: #004d61;
+  --fd-palette-eau-900: #003645;
+  --fd-palette-eau-950: #00242e;
+  --fd-palette-ardoise-50: #f3f7fd;
+  --fd-palette-ardoise-100: #e7edf7;
+  --fd-palette-ardoise-200: #d0dcee;
+  --fd-palette-ardoise-300: #b0c2dd;
+  --fd-palette-ardoise-400: #8ea6ca;
+  --fd-palette-ardoise-500: #6f8bb4;
+  --fd-palette-ardoise-600: #58739b;
+  --fd-palette-ardoise-700: #445c7f;
+  --fd-palette-ardoise-800: #324663;
+  --fd-palette-ardoise-900: #223147;
+  --fd-palette-ardoise-950: #142030;
+  --fd-palette-lavande-50: #f7f5ff;
+  --fd-palette-lavande-100: #eeeafd;
+  --fd-palette-lavande-200: #dcd5f8;
+  --fd-palette-lavande-300: #c4b8ed;
+  --fd-palette-lavande-400: #a998de;
+  --fd-palette-lavande-500: #8f79ca;
+  --fd-palette-lavande-600: #7761b0;
+  --fd-palette-lavande-700: #604c92;
+  --fd-palette-lavande-800: #493972;
+  --fd-palette-lavande-900: #342753;
+  --fd-palette-lavande-950: #221839;
+  --fd-palette-framboise-50: #fff3fa;
+  --fd-palette-framboise-100: #fce5f3;
+  --fd-palette-framboise-200: #f5cde6;
+  --fd-palette-framboise-300: #e8abd3;
+  --fd-palette-framboise-400: #d686bc;
+  --fd-palette-framboise-500: #bf64a4;
+  --fd-palette-framboise-600: #a54c8b;
+  --fd-palette-framboise-700: #883971;
+  --fd-palette-framboise-800: #6a2858;
+  --fd-palette-framboise-900: #4d1a3e;
+  --fd-palette-framboise-950: #340e2a;
+  --fd-space-0: 0;
+  /* Icône ↔ libellé. */
+  --fd-space-1: 4px;
+  /* Entre éléments d'un même groupe (puces, boutons d'une barre). */
+  --fd-space-2: 8px;
+  /* Padding interne des contrôles compacts, lignes de liste. */
+  --fd-space-3: 12px;
+  /* Padding des cartes, gouttière mobile. */
+  --fd-space-4: 16px;
+  --fd-space-5: 20px;
+  /* Entre blocs d'une même page, gouttière desktop. */
+  --fd-space-6: 24px;
+  /* Entre sections. */
+  --fd-space-8: 32px;
+  --fd-space-10: 40px;
+  /* Respiration des en-têtes de page. */
+  --fd-space-12: 48px;
+  --fd-space-16: 64px;
+  --fd-space-20: 80px;
+  --fd-radius-none: 0;
+  /* Badges, pastilles métier, cases à cocher. */
+  --fd-radius-sm: 4px;
+  /* Boutons, champs de saisie. */
+  --fd-radius-md: 6px;
+  /* Cartes, panneaux, feuilles mobiles. */
+  --fd-radius-lg: 10px;
+  /* Modales, bottom sheets. */
+  --fd-radius-xl: 16px;
+  /* Avatars, indicateurs ronds, FAB. */
+  --fd-radius-full: 9999px;
+  /* Séparateurs, contours de cartes et de champs. */
+  --fd-border-width-thin: 1px;
+  /* Élément sélectionné, champ en erreur. */
+  --fd-border-width-thick: 2px;
+  /* Épaisseur de l'anneau de focus clavier (couleur : color.border.focus). */
+  --fd-focus-ring-width: 3px;
+  /* Écart entre l'élément et l'anneau. */
+  --fd-focus-ring-offset: 2px;
+  /* Grand téléphone en paysage. */
+  --fd-breakpoint-sm: 640px;
+  /* Tablette portrait : la barre latérale se replie. */
+  --fd-breakpoint-md: 768px;
+  /* Tablette paysage, petit portable : navigation latérale visible. */
+  --fd-breakpoint-lg: 1024px;
+  /* Poste du conducteur de travaux : planning et tableaux denses. */
+  --fd-breakpoint-xl: 1280px;
+  /* Titres et chiffres clés. Inspirée de la signalétique routière : lisible de loin, compacte. */
+  --fd-font-family-display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
+  /* Texte courant, formulaires, tableaux. Chiffres tabulaires disponibles (font-variant-numeric: tabular-nums). */
+  --fd-font-family-text: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Références (n° de lot, de devis, de bon), codes d'accès. */
+  --fd-font-family-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --fd-font-weight-regular: 400;
+  --fd-font-weight-medium: 500;
+  --fd-font-weight-semibold: 600;
+  --fd-font-weight-bold: 700;
+  --fd-font-size-xs: 0.75rem;
+  --fd-font-size-sm: 0.875rem;
+  --fd-font-size-md: 1rem;
+  --fd-font-size-lg: 1.125rem;
+  --fd-font-size-xl: 1.25rem;
+  --fd-font-size-2xl: 1.5rem;
+  --fd-font-size-3xl: 1.875rem;
+  --fd-font-size-4xl: 2.25rem;
+  --fd-font-size-5xl: 3rem;
+  /* Titres d'affichage. */
+  --fd-font-line-height-tight: 1.15;
+  /* Titres, libellés. */
+  --fd-font-line-height-snug: 1.3;
+  /* Texte courant. */
+  --fd-font-line-height-normal: 1.5;
+  --fd-font-letter-spacing-tight: -0.01em;
+  --fd-font-letter-spacing-normal: 0;
+  /* Sur-titres en capitales. */
+  --fd-font-letter-spacing-wide: 0.06em;
+  /* Survol, pression, changement d'état d'un contrôle. */
+  --fd-duration-fast: 120ms;
+  /* Ouverture de menu, apparition de toast. */
+  --fd-duration-base: 200ms;
+  /* Panneaux, bottom sheets, transitions d'écran. */
+  --fd-duration-slow: 320ms;
+  /* Entrées et changements d'état. */
+  --fd-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  /* Sorties d'écran. */
+  --fd-easing-exit: cubic-bezier(0.3, 0, 1, 1);
+}
+
+/* ---- theme : light (défaut) ---- */
+:root, [data-theme="light"] {
+  /* Fond de page, derrière les cartes. */
+  --fd-color-bg-canvas: var(--fd-palette-beton-50);
+  /* Cartes, panneaux, tableaux, barres de navigation. */
+  --fd-color-bg-surface: var(--fd-palette-blanc);
+  /* Menus, popovers, modales, bottom sheets (avec une ombre). */
+  --fd-color-bg-raised: var(--fd-palette-blanc);
+  /* Zones en creux : champs en lecture seule, pistes de progression, en-têtes de tableau. */
+  --fd-color-bg-sunken: var(--fd-palette-beton-100);
+  /* Survol de lignes et d'éléments neutres. */
+  --fd-color-bg-hover: var(--fd-palette-beton-100);
+  /* Ligne ou élément sélectionné. */
+  --fd-color-bg-selected: var(--fd-palette-bleu-50);
+  /* Toasts, infobulles. */
+  --fd-color-bg-inverse: var(--fd-palette-beton-900);
+  /* Voile derrière une modale ou une bottom sheet. */
+  --fd-color-bg-overlay: #15141199;
+  /* Texte principal, sur tous les fonds bg.*. */
+  --fd-color-fg-default: var(--fd-palette-beton-900);
+  /* Texte secondaire : métadonnées, aides de champ, dates. Sur bg.canvas, surface, raised, sunken. */
+  --fd-color-fg-muted: var(--fd-palette-beton-600);
+  /* Icônes décoratives, placeholders. 3:1 minimum : jamais pour un texte indispensable. */
+  --fd-color-fg-subtle: var(--fd-palette-beton-500);
+  /* Texte et icônes désactivés (pas d'exigence de contraste, mais toujours doublé d'un état non coloré). */
+  --fd-color-fg-disabled: var(--fd-palette-beton-400);
+  /* Texte sur bg.inverse. */
+  --fd-color-fg-inverse: var(--fd-palette-blanc);
+  /* Liens dans le texte. */
+  --fd-color-fg-link: var(--fd-color-primary-text);
+  /* Séparateurs de lignes, contours de cartes. */
+  --fd-color-border-subtle: var(--fd-palette-beton-200);
+  /* Contours de boutons secondaires, puces. */
+  --fd-color-border-default: var(--fd-palette-beton-300);
+  /* Contours de champs de saisie et cases à cocher (3:1 minimum). */
+  --fd-color-border-strong: var(--fd-palette-beton-500);
+  /* Anneau de focus clavier, sur tous les fonds. */
+  --fd-color-border-focus: var(--fd-palette-bleu-600);
+  --fd-color-primary-solid: var(--fd-palette-bleu-700);
+  --fd-color-primary-solid-hover: var(--fd-palette-bleu-800);
+  --fd-color-primary-solid-active: var(--fd-palette-bleu-900);
+  --fd-color-primary-on-solid: var(--fd-palette-blanc);
+  --fd-color-primary-subtle: var(--fd-palette-bleu-50);
+  --fd-color-primary-on-subtle: var(--fd-palette-bleu-800);
+  --fd-color-primary-text: var(--fd-palette-bleu-700);
+  --fd-color-accent-solid: var(--fd-palette-orange-500);
+  --fd-color-accent-solid-hover: var(--fd-palette-orange-400);
+  --fd-color-accent-on-solid: var(--fd-palette-beton-975);
+  --fd-color-accent-subtle: var(--fd-palette-orange-50);
+  --fd-color-accent-on-subtle: var(--fd-palette-orange-800);
+  --fd-color-accent-text: var(--fd-palette-orange-700);
+  --fd-color-success-solid: var(--fd-palette-vert-700);
+  --fd-color-success-on-solid: var(--fd-palette-blanc);
+  --fd-color-success-subtle: var(--fd-palette-vert-50);
+  --fd-color-success-on-subtle: var(--fd-palette-vert-800);
+  --fd-color-success-border: var(--fd-palette-vert-600);
+  --fd-color-success-text: var(--fd-palette-vert-700);
+  --fd-color-warning-solid: var(--fd-palette-ambre-500);
+  --fd-color-warning-on-solid: var(--fd-palette-beton-975);
+  --fd-color-warning-subtle: var(--fd-palette-ambre-50);
+  --fd-color-warning-on-subtle: var(--fd-palette-ambre-800);
+  --fd-color-warning-border: var(--fd-palette-ambre-500);
+  --fd-color-warning-text: var(--fd-palette-ambre-700);
+  --fd-color-danger-solid: var(--fd-palette-rouge-700);
+  --fd-color-danger-on-solid: var(--fd-palette-blanc);
+  --fd-color-danger-subtle: var(--fd-palette-rouge-50);
+  --fd-color-danger-on-subtle: var(--fd-palette-rouge-800);
+  --fd-color-danger-border: var(--fd-palette-rouge-600);
+  --fd-color-danger-text: var(--fd-palette-rouge-700);
+  --fd-color-info-solid: var(--fd-palette-bleu-600);
+  --fd-color-info-on-solid: var(--fd-palette-blanc);
+  --fd-color-info-subtle: var(--fd-palette-bleu-50);
+  --fd-color-info-on-subtle: var(--fd-palette-bleu-800);
+  --fd-color-info-border: var(--fd-palette-bleu-500);
+  --fd-color-info-text: var(--fd-palette-bleu-700);
+  --fd-color-statut-planifie-solid: var(--fd-palette-beton-500);
+  --fd-color-statut-planifie-subtle: var(--fd-palette-beton-100);
+  --fd-color-statut-planifie-on-subtle: var(--fd-palette-beton-800);
+  --fd-color-statut-en-cours-solid: var(--fd-color-info-solid);
+  --fd-color-statut-en-cours-subtle: var(--fd-color-info-subtle);
+  --fd-color-statut-en-cours-on-subtle: var(--fd-color-info-on-subtle);
+  --fd-color-statut-en-attente-solid: var(--fd-color-warning-solid);
+  --fd-color-statut-en-attente-subtle: var(--fd-color-warning-subtle);
+  --fd-color-statut-en-attente-on-subtle: var(--fd-color-warning-on-subtle);
+  --fd-color-statut-en-retard-solid: var(--fd-color-danger-solid);
+  --fd-color-statut-en-retard-subtle: var(--fd-color-danger-subtle);
+  --fd-color-statut-en-retard-on-subtle: var(--fd-color-danger-on-subtle);
+  --fd-color-statut-termine-solid: var(--fd-color-success-solid);
+  --fd-color-statut-termine-subtle: var(--fd-color-success-subtle);
+  --fd-color-statut-termine-on-subtle: var(--fd-color-success-on-subtle);
+  --fd-color-metier-gros-oeuvre-solid: var(--fd-palette-brique-700);
+  --fd-color-metier-gros-oeuvre-subtle: var(--fd-palette-brique-100);
+  --fd-color-metier-gros-oeuvre-on-subtle: var(--fd-palette-brique-800);
+  --fd-color-metier-structure-solid: var(--fd-palette-bois-600);
+  --fd-color-metier-structure-subtle: var(--fd-palette-bois-100);
+  --fd-color-metier-structure-on-subtle: var(--fd-palette-bois-800);
+  --fd-color-metier-electricite-solid: var(--fd-palette-jaune-500);
+  --fd-color-metier-electricite-subtle: var(--fd-palette-jaune-100);
+  --fd-color-metier-electricite-on-subtle: var(--fd-palette-jaune-800);
+  --fd-color-metier-exterieurs-solid: var(--fd-palette-feuille-600);
+  --fd-color-metier-exterieurs-subtle: var(--fd-palette-feuille-100);
+  --fd-color-metier-exterieurs-on-subtle: var(--fd-palette-feuille-800);
+  --fd-color-metier-fluides-solid: var(--fd-palette-eau-500);
+  --fd-color-metier-fluides-subtle: var(--fd-palette-eau-100);
+  --fd-color-metier-fluides-on-subtle: var(--fd-palette-eau-800);
+  --fd-color-metier-enveloppe-solid: var(--fd-palette-ardoise-700);
+  --fd-color-metier-enveloppe-subtle: var(--fd-palette-ardoise-100);
+  --fd-color-metier-enveloppe-on-subtle: var(--fd-palette-ardoise-800);
+  --fd-color-metier-amenagement-solid: var(--fd-palette-lavande-600);
+  --fd-color-metier-amenagement-subtle: var(--fd-palette-lavande-100);
+  --fd-color-metier-amenagement-on-subtle: var(--fd-palette-lavande-800);
+  --fd-color-metier-finitions-solid: var(--fd-palette-framboise-500);
+  --fd-color-metier-finitions-subtle: var(--fd-palette-framboise-100);
+  --fd-color-metier-finitions-on-subtle: var(--fd-palette-framboise-800);
+  --fd-color-metier-autre-solid: var(--fd-palette-beton-600);
+  --fd-color-metier-autre-subtle: var(--fd-palette-beton-100);
+  --fd-color-metier-autre-on-subtle: var(--fd-palette-beton-800);
+  /* Cartes au repos (optionnel : préférer le contour border.subtle). */
+  --fd-shadow-sm: 0 1px 2px 0 #15141114, 0 1px 3px 0 #1514110f;
+  /* Menus déroulants, popovers, carte en cours de glisser. */
+  --fd-shadow-md: 0 2px 4px 0 #15141114, 0 6px 16px -2px #1514111f;
+  /* Modales, bottom sheets, toasts. */
+  --fd-shadow-lg: 0 8px 16px 0 #1514111a, 0 20px 40px -8px #15141129;
+  color-scheme: light;
+}
+
+/* ---- theme : dark ---- */
+[data-theme="dark"] {
+  /* Fond de page, derrière les cartes. */
+  --fd-color-bg-canvas: var(--fd-palette-beton-975);
+  /* Cartes, panneaux, tableaux, barres de navigation. */
+  --fd-color-bg-surface: var(--fd-palette-beton-950);
+  /* Menus, popovers, modales, bottom sheets (avec une ombre). */
+  --fd-color-bg-raised: var(--fd-palette-beton-900);
+  /* Zones en creux : champs en lecture seule, pistes de progression, en-têtes de tableau. */
+  --fd-color-bg-sunken: var(--fd-palette-beton-975);
+  /* Survol de lignes et d'éléments neutres. */
+  --fd-color-bg-hover: var(--fd-palette-beton-900);
+  /* Ligne ou élément sélectionné. */
+  --fd-color-bg-selected: var(--fd-palette-bleu-950);
+  /* Toasts, infobulles. */
+  --fd-color-bg-inverse: var(--fd-palette-beton-100);
+  /* Voile derrière une modale ou une bottom sheet. */
+  --fd-color-bg-overlay: #000000b3;
+  /* Texte principal, sur tous les fonds bg.*. */
+  --fd-color-fg-default: var(--fd-palette-beton-100);
+  /* Texte secondaire : métadonnées, aides de champ, dates. Sur bg.canvas, surface, raised, sunken. */
+  --fd-color-fg-muted: var(--fd-palette-beton-400);
+  /* Icônes décoratives, placeholders. 3:1 minimum : jamais pour un texte indispensable. */
+  --fd-color-fg-subtle: var(--fd-palette-beton-500);
+  /* Texte et icônes désactivés (pas d'exigence de contraste, mais toujours doublé d'un état non coloré). */
+  --fd-color-fg-disabled: var(--fd-palette-beton-600);
+  /* Texte sur bg.inverse. */
+  --fd-color-fg-inverse: var(--fd-palette-beton-900);
+  /* Liens dans le texte. */
+  --fd-color-fg-link: var(--fd-color-primary-text);
+  /* Séparateurs de lignes, contours de cartes. */
+  --fd-color-border-subtle: var(--fd-palette-beton-800);
+  /* Contours de boutons secondaires, puces. */
+  --fd-color-border-default: var(--fd-palette-beton-700);
+  /* Contours de champs de saisie et cases à cocher (3:1 minimum). */
+  --fd-color-border-strong: var(--fd-palette-beton-500);
+  /* Anneau de focus clavier, sur tous les fonds. */
+  --fd-color-border-focus: var(--fd-palette-bleu-400);
+  --fd-color-primary-solid: var(--fd-palette-bleu-400);
+  --fd-color-primary-solid-hover: var(--fd-palette-bleu-300);
+  --fd-color-primary-solid-active: var(--fd-palette-bleu-200);
+  --fd-color-primary-on-solid: var(--fd-palette-beton-975);
+  --fd-color-primary-subtle: var(--fd-palette-bleu-950);
+  --fd-color-primary-on-subtle: var(--fd-palette-bleu-200);
+  --fd-color-primary-text: var(--fd-palette-bleu-300);
+  --fd-color-accent-solid: var(--fd-palette-orange-400);
+  --fd-color-accent-solid-hover: var(--fd-palette-orange-300);
+  --fd-color-accent-on-solid: var(--fd-palette-beton-975);
+  --fd-color-accent-subtle: var(--fd-palette-orange-950);
+  --fd-color-accent-on-subtle: var(--fd-palette-orange-200);
+  --fd-color-accent-text: var(--fd-palette-orange-400);
+  --fd-color-success-solid: var(--fd-palette-vert-400);
+  --fd-color-success-on-solid: var(--fd-palette-beton-975);
+  --fd-color-success-subtle: var(--fd-palette-vert-950);
+  --fd-color-success-on-subtle: var(--fd-palette-vert-200);
+  --fd-color-success-border: var(--fd-palette-vert-500);
+  --fd-color-success-text: var(--fd-palette-vert-400);
+  --fd-color-warning-solid: var(--fd-palette-ambre-400);
+  --fd-color-warning-on-solid: var(--fd-palette-beton-975);
+  --fd-color-warning-subtle: var(--fd-palette-ambre-950);
+  --fd-color-warning-on-subtle: var(--fd-palette-ambre-200);
+  --fd-color-warning-border: var(--fd-palette-ambre-500);
+  --fd-color-warning-text: var(--fd-palette-ambre-300);
+  --fd-color-danger-solid: var(--fd-palette-rouge-500);
+  --fd-color-danger-on-solid: var(--fd-palette-beton-975);
+  --fd-color-danger-subtle: var(--fd-palette-rouge-950);
+  --fd-color-danger-on-subtle: var(--fd-palette-rouge-200);
+  --fd-color-danger-border: var(--fd-palette-rouge-500);
+  --fd-color-danger-text: var(--fd-palette-rouge-300);
+  --fd-color-info-solid: var(--fd-palette-bleu-500);
+  --fd-color-info-on-solid: var(--fd-palette-beton-975);
+  --fd-color-info-subtle: var(--fd-palette-bleu-950);
+  --fd-color-info-on-subtle: var(--fd-palette-bleu-200);
+  --fd-color-info-border: var(--fd-palette-bleu-500);
+  --fd-color-info-text: var(--fd-palette-bleu-300);
+  --fd-color-statut-planifie-solid: var(--fd-palette-beton-400);
+  --fd-color-statut-planifie-subtle: var(--fd-palette-beton-900);
+  --fd-color-statut-planifie-on-subtle: var(--fd-palette-beton-200);
+  --fd-color-statut-en-cours-solid: var(--fd-color-info-solid);
+  --fd-color-statut-en-cours-subtle: var(--fd-color-info-subtle);
+  --fd-color-statut-en-cours-on-subtle: var(--fd-color-info-on-subtle);
+  --fd-color-statut-en-attente-solid: var(--fd-color-warning-solid);
+  --fd-color-statut-en-attente-subtle: var(--fd-color-warning-subtle);
+  --fd-color-statut-en-attente-on-subtle: var(--fd-color-warning-on-subtle);
+  --fd-color-statut-en-retard-solid: var(--fd-color-danger-solid);
+  --fd-color-statut-en-retard-subtle: var(--fd-color-danger-subtle);
+  --fd-color-statut-en-retard-on-subtle: var(--fd-color-danger-on-subtle);
+  --fd-color-statut-termine-solid: var(--fd-color-success-solid);
+  --fd-color-statut-termine-subtle: var(--fd-color-success-subtle);
+  --fd-color-statut-termine-on-subtle: var(--fd-color-success-on-subtle);
+  --fd-color-metier-gros-oeuvre-solid: var(--fd-palette-brique-500);
+  --fd-color-metier-gros-oeuvre-subtle: var(--fd-palette-brique-900);
+  --fd-color-metier-gros-oeuvre-on-subtle: var(--fd-palette-brique-200);
+  --fd-color-metier-structure-solid: var(--fd-palette-bois-300);
+  --fd-color-metier-structure-subtle: var(--fd-palette-bois-900);
+  --fd-color-metier-structure-on-subtle: var(--fd-palette-bois-200);
+  --fd-color-metier-electricite-solid: var(--fd-palette-jaune-400);
+  --fd-color-metier-electricite-subtle: var(--fd-palette-jaune-900);
+  --fd-color-metier-electricite-on-subtle: var(--fd-palette-jaune-200);
+  --fd-color-metier-exterieurs-solid: var(--fd-palette-feuille-400);
+  --fd-color-metier-exterieurs-subtle: var(--fd-palette-feuille-900);
+  --fd-color-metier-exterieurs-on-subtle: var(--fd-palette-feuille-200);
+  --fd-color-metier-fluides-solid: var(--fd-palette-eau-500);
+  --fd-color-metier-fluides-subtle: var(--fd-palette-eau-900);
+  --fd-color-metier-fluides-on-subtle: var(--fd-palette-eau-200);
+  --fd-color-metier-enveloppe-solid: var(--fd-palette-ardoise-300);
+  --fd-color-metier-enveloppe-subtle: var(--fd-palette-ardoise-900);
+  --fd-color-metier-enveloppe-on-subtle: var(--fd-palette-ardoise-200);
+  --fd-color-metier-amenagement-solid: var(--fd-palette-lavande-400);
+  --fd-color-metier-amenagement-subtle: var(--fd-palette-lavande-900);
+  --fd-color-metier-amenagement-on-subtle: var(--fd-palette-lavande-200);
+  --fd-color-metier-finitions-solid: var(--fd-palette-framboise-500);
+  --fd-color-metier-finitions-subtle: var(--fd-palette-framboise-900);
+  --fd-color-metier-finitions-on-subtle: var(--fd-palette-framboise-200);
+  --fd-color-metier-autre-solid: var(--fd-palette-beton-500);
+  --fd-color-metier-autre-subtle: var(--fd-palette-beton-900);
+  --fd-color-metier-autre-on-subtle: var(--fd-palette-beton-200);
+  /* Cartes au repos (optionnel : préférer le contour border.subtle). */
+  --fd-shadow-sm: 0 1px 2px 0 #00000066;
+  /* Menus déroulants, popovers, carte en cours de glisser. */
+  --fd-shadow-md: 0 4px 12px 0 #00000080;
+  /* Modales, bottom sheets, toasts. */
+  --fd-shadow-lg: 0 16px 40px -4px #000000a6;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    /* Fond de page, derrière les cartes. */
+    --fd-color-bg-canvas: var(--fd-palette-beton-975);
+    /* Cartes, panneaux, tableaux, barres de navigation. */
+    --fd-color-bg-surface: var(--fd-palette-beton-950);
+    /* Menus, popovers, modales, bottom sheets (avec une ombre). */
+    --fd-color-bg-raised: var(--fd-palette-beton-900);
+    /* Zones en creux : champs en lecture seule, pistes de progression, en-têtes de tableau. */
+    --fd-color-bg-sunken: var(--fd-palette-beton-975);
+    /* Survol de lignes et d'éléments neutres. */
+    --fd-color-bg-hover: var(--fd-palette-beton-900);
+    /* Ligne ou élément sélectionné. */
+    --fd-color-bg-selected: var(--fd-palette-bleu-950);
+    /* Toasts, infobulles. */
+    --fd-color-bg-inverse: var(--fd-palette-beton-100);
+    /* Voile derrière une modale ou une bottom sheet. */
+    --fd-color-bg-overlay: #000000b3;
+    /* Texte principal, sur tous les fonds bg.*. */
+    --fd-color-fg-default: var(--fd-palette-beton-100);
+    /* Texte secondaire : métadonnées, aides de champ, dates. Sur bg.canvas, surface, raised, sunken. */
+    --fd-color-fg-muted: var(--fd-palette-beton-400);
+    /* Icônes décoratives, placeholders. 3:1 minimum : jamais pour un texte indispensable. */
+    --fd-color-fg-subtle: var(--fd-palette-beton-500);
+    /* Texte et icônes désactivés (pas d'exigence de contraste, mais toujours doublé d'un état non coloré). */
+    --fd-color-fg-disabled: var(--fd-palette-beton-600);
+    /* Texte sur bg.inverse. */
+    --fd-color-fg-inverse: var(--fd-palette-beton-900);
+    /* Liens dans le texte. */
+    --fd-color-fg-link: var(--fd-color-primary-text);
+    /* Séparateurs de lignes, contours de cartes. */
+    --fd-color-border-subtle: var(--fd-palette-beton-800);
+    /* Contours de boutons secondaires, puces. */
+    --fd-color-border-default: var(--fd-palette-beton-700);
+    /* Contours de champs de saisie et cases à cocher (3:1 minimum). */
+    --fd-color-border-strong: var(--fd-palette-beton-500);
+    /* Anneau de focus clavier, sur tous les fonds. */
+    --fd-color-border-focus: var(--fd-palette-bleu-400);
+    --fd-color-primary-solid: var(--fd-palette-bleu-400);
+    --fd-color-primary-solid-hover: var(--fd-palette-bleu-300);
+    --fd-color-primary-solid-active: var(--fd-palette-bleu-200);
+    --fd-color-primary-on-solid: var(--fd-palette-beton-975);
+    --fd-color-primary-subtle: var(--fd-palette-bleu-950);
+    --fd-color-primary-on-subtle: var(--fd-palette-bleu-200);
+    --fd-color-primary-text: var(--fd-palette-bleu-300);
+    --fd-color-accent-solid: var(--fd-palette-orange-400);
+    --fd-color-accent-solid-hover: var(--fd-palette-orange-300);
+    --fd-color-accent-on-solid: var(--fd-palette-beton-975);
+    --fd-color-accent-subtle: var(--fd-palette-orange-950);
+    --fd-color-accent-on-subtle: var(--fd-palette-orange-200);
+    --fd-color-accent-text: var(--fd-palette-orange-400);
+    --fd-color-success-solid: var(--fd-palette-vert-400);
+    --fd-color-success-on-solid: var(--fd-palette-beton-975);
+    --fd-color-success-subtle: var(--fd-palette-vert-950);
+    --fd-color-success-on-subtle: var(--fd-palette-vert-200);
+    --fd-color-success-border: var(--fd-palette-vert-500);
+    --fd-color-success-text: var(--fd-palette-vert-400);
+    --fd-color-warning-solid: var(--fd-palette-ambre-400);
+    --fd-color-warning-on-solid: var(--fd-palette-beton-975);
+    --fd-color-warning-subtle: var(--fd-palette-ambre-950);
+    --fd-color-warning-on-subtle: var(--fd-palette-ambre-200);
+    --fd-color-warning-border: var(--fd-palette-ambre-500);
+    --fd-color-warning-text: var(--fd-palette-ambre-300);
+    --fd-color-danger-solid: var(--fd-palette-rouge-500);
+    --fd-color-danger-on-solid: var(--fd-palette-beton-975);
+    --fd-color-danger-subtle: var(--fd-palette-rouge-950);
+    --fd-color-danger-on-subtle: var(--fd-palette-rouge-200);
+    --fd-color-danger-border: var(--fd-palette-rouge-500);
+    --fd-color-danger-text: var(--fd-palette-rouge-300);
+    --fd-color-info-solid: var(--fd-palette-bleu-500);
+    --fd-color-info-on-solid: var(--fd-palette-beton-975);
+    --fd-color-info-subtle: var(--fd-palette-bleu-950);
+    --fd-color-info-on-subtle: var(--fd-palette-bleu-200);
+    --fd-color-info-border: var(--fd-palette-bleu-500);
+    --fd-color-info-text: var(--fd-palette-bleu-300);
+    --fd-color-statut-planifie-solid: var(--fd-palette-beton-400);
+    --fd-color-statut-planifie-subtle: var(--fd-palette-beton-900);
+    --fd-color-statut-planifie-on-subtle: var(--fd-palette-beton-200);
+    --fd-color-statut-en-cours-solid: var(--fd-color-info-solid);
+    --fd-color-statut-en-cours-subtle: var(--fd-color-info-subtle);
+    --fd-color-statut-en-cours-on-subtle: var(--fd-color-info-on-subtle);
+    --fd-color-statut-en-attente-solid: var(--fd-color-warning-solid);
+    --fd-color-statut-en-attente-subtle: var(--fd-color-warning-subtle);
+    --fd-color-statut-en-attente-on-subtle: var(--fd-color-warning-on-subtle);
+    --fd-color-statut-en-retard-solid: var(--fd-color-danger-solid);
+    --fd-color-statut-en-retard-subtle: var(--fd-color-danger-subtle);
+    --fd-color-statut-en-retard-on-subtle: var(--fd-color-danger-on-subtle);
+    --fd-color-statut-termine-solid: var(--fd-color-success-solid);
+    --fd-color-statut-termine-subtle: var(--fd-color-success-subtle);
+    --fd-color-statut-termine-on-subtle: var(--fd-color-success-on-subtle);
+    --fd-color-metier-gros-oeuvre-solid: var(--fd-palette-brique-500);
+    --fd-color-metier-gros-oeuvre-subtle: var(--fd-palette-brique-900);
+    --fd-color-metier-gros-oeuvre-on-subtle: var(--fd-palette-brique-200);
+    --fd-color-metier-structure-solid: var(--fd-palette-bois-300);
+    --fd-color-metier-structure-subtle: var(--fd-palette-bois-900);
+    --fd-color-metier-structure-on-subtle: var(--fd-palette-bois-200);
+    --fd-color-metier-electricite-solid: var(--fd-palette-jaune-400);
+    --fd-color-metier-electricite-subtle: var(--fd-palette-jaune-900);
+    --fd-color-metier-electricite-on-subtle: var(--fd-palette-jaune-200);
+    --fd-color-metier-exterieurs-solid: var(--fd-palette-feuille-400);
+    --fd-color-metier-exterieurs-subtle: var(--fd-palette-feuille-900);
+    --fd-color-metier-exterieurs-on-subtle: var(--fd-palette-feuille-200);
+    --fd-color-metier-fluides-solid: var(--fd-palette-eau-500);
+    --fd-color-metier-fluides-subtle: var(--fd-palette-eau-900);
+    --fd-color-metier-fluides-on-subtle: var(--fd-palette-eau-200);
+    --fd-color-metier-enveloppe-solid: var(--fd-palette-ardoise-300);
+    --fd-color-metier-enveloppe-subtle: var(--fd-palette-ardoise-900);
+    --fd-color-metier-enveloppe-on-subtle: var(--fd-palette-ardoise-200);
+    --fd-color-metier-amenagement-solid: var(--fd-palette-lavande-400);
+    --fd-color-metier-amenagement-subtle: var(--fd-palette-lavande-900);
+    --fd-color-metier-amenagement-on-subtle: var(--fd-palette-lavande-200);
+    --fd-color-metier-finitions-solid: var(--fd-palette-framboise-500);
+    --fd-color-metier-finitions-subtle: var(--fd-palette-framboise-900);
+    --fd-color-metier-finitions-on-subtle: var(--fd-palette-framboise-200);
+    --fd-color-metier-autre-solid: var(--fd-palette-beton-500);
+    --fd-color-metier-autre-subtle: var(--fd-palette-beton-900);
+    --fd-color-metier-autre-on-subtle: var(--fd-palette-beton-200);
+    /* Cartes au repos (optionnel : préférer le contour border.subtle). */
+    --fd-shadow-sm: 0 1px 2px 0 #00000066;
+    /* Menus déroulants, popovers, carte en cours de glisser. */
+    --fd-shadow-md: 0 4px 12px 0 #00000080;
+    /* Modales, bottom sheets, toasts. */
+    --fd-shadow-lg: 0 16px 40px -4px #000000a6;
+    color-scheme: dark;
+  }
+}
+
+/* ---- density : bureau (défaut) ---- */
+:root, [data-density="bureau"] {
+  --fd-size-control-sm: 32px;
+  --fd-size-control-md: 40px;
+  --fd-size-control-lg: 48px;
+  /* Zone cliquable minimale à la souris (WCAG 2.2 : 24 px minimum). */
+  --fd-size-touch-target: 32px;
+  --fd-size-icon-sm: 16px;
+  --fd-size-icon-md: 20px;
+  --fd-size-icon-lg: 24px;
+  /* Hauteur minimale d'une ligne de liste ou de tableau. */
+  --fd-size-row: 44px;
+  /* Marge latérale de page. */
+  --fd-layout-gutter: 24px;
+  /* Padding horizontal des boutons et champs. */
+  --fd-layout-control-padding-x: 12px;
+  /* Espace vertical entre champs d'un formulaire. */
+  --fd-layout-stack: 16px;
+  /* Chiffres clés et titres d'accueil. */
+  --fd-text-display: var(--fd-font-weight-bold) var(--fd-font-size-4xl)/var(--fd-font-line-height-tight) var(--fd-font-family-display);
+  --fd-text-display-letter-spacing: var(--fd-font-letter-spacing-tight);
+  /* Titre de page (nom du chantier). */
+  --fd-text-title-1: var(--fd-font-weight-semibold) var(--fd-font-size-3xl)/var(--fd-font-line-height-tight) var(--fd-font-family-display);
+  --fd-text-title-1-letter-spacing: var(--fd-font-letter-spacing-tight);
+  /* Titre de section. */
+  --fd-text-title-2: var(--fd-font-weight-semibold) var(--fd-font-size-2xl)/var(--fd-font-line-height-snug) var(--fd-font-family-display);
+  --fd-text-title-2-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Titre de carte, de panneau, de modale. */
+  --fd-text-title-3: var(--fd-font-weight-semibold) var(--fd-font-size-lg)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
+  --fd-text-title-3-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Texte courant. */
+  --fd-text-body: var(--fd-font-weight-regular) var(--fd-font-size-md)/var(--fd-font-line-height-normal) var(--fd-font-family-text);
+  --fd-text-body-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Mise en avant dans le texte courant. */
+  --fd-text-body-strong: var(--fd-font-weight-semibold) var(--fd-font-size-md)/var(--fd-font-line-height-normal) var(--fd-font-family-text);
+  --fd-text-body-strong-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Texte secondaire, cellules de tableau dense. */
+  --fd-text-body-sm: var(--fd-font-weight-regular) var(--fd-font-size-sm)/var(--fd-font-line-height-normal) var(--fd-font-family-text);
+  --fd-text-body-sm-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Libellés de champs, boutons, onglets. */
+  --fd-text-label: var(--fd-font-weight-medium) var(--fd-font-size-sm)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
+  --fd-text-label-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Horodatages, mentions, légendes de photo. */
+  --fd-text-caption: var(--fd-font-weight-regular) var(--fd-font-size-xs)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
+  --fd-text-caption-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Sur-titres en capitales (LOT 03, PHASE GROS ŒUVRE). */
+  --fd-text-overline: var(--fd-font-weight-semibold) var(--fd-font-size-xs)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
+  --fd-text-overline-letter-spacing: var(--fd-font-letter-spacing-wide);
+  /* Numéros de lot, devis, bon de livraison. */
+  --fd-text-reference: var(--fd-font-weight-regular) var(--fd-font-size-sm)/var(--fd-font-line-height-snug) var(--fd-font-family-mono);
+  --fd-text-reference-letter-spacing: var(--fd-font-letter-spacing-normal);
+}
+
+/* ---- density : terrain ---- */
+[data-density="terrain"] {
+  --fd-size-control-sm: 48px;
+  --fd-size-control-md: 56px;
+  --fd-size-control-lg: 64px;
+  /* Zone cliquable minimale : 48 px (Material 48 dp, Apple 44 pt, majorée pour les gants). */
+  --fd-size-touch-target: 48px;
+  --fd-size-icon-sm: 20px;
+  --fd-size-icon-md: 24px;
+  --fd-size-icon-lg: 32px;
+  /* Hauteur minimale d'une ligne de liste ou de tableau. */
+  --fd-size-row: 64px;
+  /* Marge latérale de page. */
+  --fd-layout-gutter: 16px;
+  /* Padding horizontal des boutons et champs. */
+  --fd-layout-control-padding-x: 16px;
+  /* Espace vertical entre champs d'un formulaire. */
+  --fd-layout-stack: 20px;
+  /* Chiffres clés et titres d'accueil. */
+  --fd-text-display: var(--fd-font-weight-bold) var(--fd-font-size-4xl)/var(--fd-font-line-height-tight) var(--fd-font-family-display);
+  --fd-text-display-letter-spacing: var(--fd-font-letter-spacing-tight);
+  /* Titre de page (nom du chantier). */
+  --fd-text-title-1: var(--fd-font-weight-semibold) var(--fd-font-size-3xl)/var(--fd-font-line-height-tight) var(--fd-font-family-display);
+  --fd-text-title-1-letter-spacing: var(--fd-font-letter-spacing-tight);
+  /* Titre de section. */
+  --fd-text-title-2: var(--fd-font-weight-semibold) var(--fd-font-size-2xl)/var(--fd-font-line-height-snug) var(--fd-font-family-display);
+  --fd-text-title-2-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Titre de carte, de panneau, de modale. */
+  --fd-text-title-3: var(--fd-font-weight-semibold) var(--fd-font-size-xl)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
+  --fd-text-title-3-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Texte courant. */
+  --fd-text-body: var(--fd-font-weight-regular) var(--fd-font-size-lg)/var(--fd-font-line-height-normal) var(--fd-font-family-text);
+  --fd-text-body-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Mise en avant dans le texte courant. */
+  --fd-text-body-strong: var(--fd-font-weight-semibold) var(--fd-font-size-lg)/var(--fd-font-line-height-normal) var(--fd-font-family-text);
+  --fd-text-body-strong-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Texte secondaire, cellules de tableau dense. */
+  --fd-text-body-sm: var(--fd-font-weight-regular) var(--fd-font-size-md)/var(--fd-font-line-height-normal) var(--fd-font-family-text);
+  --fd-text-body-sm-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Libellés de champs, boutons, onglets. */
+  --fd-text-label: var(--fd-font-weight-medium) var(--fd-font-size-md)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
+  --fd-text-label-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Horodatages, mentions, légendes de photo. */
+  --fd-text-caption: var(--fd-font-weight-regular) var(--fd-font-size-sm)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
+  --fd-text-caption-letter-spacing: var(--fd-font-letter-spacing-normal);
+  /* Sur-titres en capitales (LOT 03, PHASE GROS ŒUVRE). */
+  --fd-text-overline: var(--fd-font-weight-semibold) var(--fd-font-size-sm)/var(--fd-font-line-height-snug) var(--fd-font-family-text);
+  --fd-text-overline-letter-spacing: var(--fd-font-letter-spacing-wide);
+  /* Numéros de lot, devis, bon de livraison. */
+  --fd-text-reference: var(--fd-font-weight-regular) var(--fd-font-size-md)/var(--fd-font-line-height-snug) var(--fd-font-family-mono);
+  --fd-text-reference-letter-spacing: var(--fd-font-letter-spacing-normal);
+}
+
+/* ---- Styles de texte (classes utilitaires) ---- */
+.fd-text-display { font: var(--fd-text-display); letter-spacing: var(--fd-text-display-letter-spacing); }
+.fd-text-title-1 { font: var(--fd-text-title-1); letter-spacing: var(--fd-text-title-1-letter-spacing); }
+.fd-text-title-2 { font: var(--fd-text-title-2); letter-spacing: var(--fd-text-title-2-letter-spacing); }
+.fd-text-title-3 { font: var(--fd-text-title-3); letter-spacing: var(--fd-text-title-3-letter-spacing); }
+.fd-text-body { font: var(--fd-text-body); letter-spacing: var(--fd-text-body-letter-spacing); }
+.fd-text-body-strong { font: var(--fd-text-body-strong); letter-spacing: var(--fd-text-body-strong-letter-spacing); }
+.fd-text-body-sm { font: var(--fd-text-body-sm); letter-spacing: var(--fd-text-body-sm-letter-spacing); }
+.fd-text-label { font: var(--fd-text-label); letter-spacing: var(--fd-text-label-letter-spacing); }
+.fd-text-caption { font: var(--fd-text-caption); letter-spacing: var(--fd-text-caption-letter-spacing); }
+.fd-text-overline { font: var(--fd-text-overline); letter-spacing: var(--fd-text-overline-letter-spacing); }
+.fd-text-reference { font: var(--fd-text-reference); letter-spacing: var(--fd-text-reference-letter-spacing); }

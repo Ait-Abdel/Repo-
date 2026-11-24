@@ -1,0 +1,39 @@
+{
+  "size": {
+    "$type": "dimension",
+    "control": {
+      "$description": "Hauteur des boutons, champs, sélecteurs (souris et clavier).",
+      "sm": { "$value": "32px" },
+      "md": { "$value": "40px" },
+      "lg": { "$value": "48px" }
+    },
+    "touch-target": { "$value": "32px", "$description": "Zone cliquable minimale à la souris (WCAG 2.2 : 24 px minimum)." },
+    "icon": {
+      "sm": { "$value": "16px" },
+      "md": { "$value": "20px" },
+      "lg": { "$value": "24px" }
+    },
+    "row": { "$value": "44px", "$description": "Hauteur minimale d'une ligne de liste ou de tableau." }
+  },
+  "layout": {
+    "$type": "dimension",
+    "gutter": { "$value": "24px", "$description": "Marge latérale de page." },
+    "control-padding-x": { "$value": "12px", "$description": "Padding horizontal des boutons et champs." },
+    "stack": { "$value": "16px", "$description": "Espace vertical entre champs d'un formulaire." }
+  },
+  "text": {
+    "$type": "typography",
+    "$description": "Styles de texte bureau : écrans de gestion denses.",
+    "display": { "$value": {"fontFamily": "{font.family.display}", "fontWeight": "{font.weight.bold}", "fontSize": "{font.size.4xl}", "lineHeight": "{font.line-height.tight}", "letterSpacing": "{font.letter-spacing.tight}"}, "$description": "Chiffres clés et titres d'accueil." },
+    "title-1": { "$value": {"fontFamily": "{font.family.display}", "fontWeight": "{font.weight.semibold}", "fontSize": "{font.size.3xl}", "lineHeight": "{font.line-height.tight}", "letterSpacing": "{font.letter-spacing.tight}"}, "$description": "Titre de page (nom du chantier)." },
+    "title-2": { "$value": {"fontFamily": "{font.family.display}", "fontWeight": "{font.weight.semibold}", "fontSize": "{font.size.2xl}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Titre de section." },
+    "title-3": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.semibold}", "fontSize": "{font.size.lg}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Titre de carte, de panneau, de modale." },
+    "body": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.regular}", "fontSize": "{font.size.md}", "lineHeight": "{font.line-height.normal}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Texte courant." },
+    "body-strong": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.semibold}", "fontSize": "{font.size.md}", "lineHeight": "{font.line-height.normal}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Mise en avant dans le texte courant." },
+    "body-sm": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.regular}", "fontSize": "{font.size.sm}", "lineHeight": "{font.line-height.normal}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Texte secondaire, cellules de tableau dense." },
+    "label": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.medium}", "fontSize": "{font.size.sm}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Libellés de champs, boutons, onglets." },
+    "caption": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.regular}", "fontSize": "{font.size.xs}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Horodatages, mentions, légendes de photo." },
+    "overline": { "$value": {"fontFamily": "{font.family.text}", "fontWeight": "{font.weight.semibold}", "fontSize": "{font.size.xs}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.wide}"}, "$description": "Sur-titres en capitales (LOT 03, PHASE GROS ŒUVRE)." },
+    "reference": { "$value": {"fontFamily": "{font.family.mono}", "fontWeight": "{font.weight.regular}", "fontSize": "{font.size.sm}", "lineHeight": "{font.line-height.snug}", "letterSpacing": "{font.letter-spacing.normal}"}, "$description": "Numéros de lot, devis, bon de livraison." }
+  }
+}

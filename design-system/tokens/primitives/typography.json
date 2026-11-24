@@ -1,0 +1,51 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "display": {
+        "$value": ["Barlow Semi Condensed", "Arial Narrow", "system-ui", "sans-serif"],
+        "$description": "Titres et chiffres clés. Inspirée de la signalétique routière : lisible de loin, compacte."
+      },
+      "text": {
+        "$value": ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        "$description": "Texte courant, formulaires, tableaux. Chiffres tabulaires disponibles (font-variant-numeric: tabular-nums)."
+      },
+      "mono": {
+        "$value": ["JetBrains Mono", "ui-monospace", "SF Mono", "Menlo", "monospace"],
+        "$description": "Références (n° de lot, de devis, de bon), codes d'accès."
+      }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "regular": { "$value": 400 },
+      "medium": { "$value": 500 },
+      "semibold": { "$value": 600 },
+      "bold": { "$value": 700 }
+    },
+    "size": {
+      "$type": "dimension",
+      "$description": "Échelle typographique en rem (1rem = 16px), ratio ≈ 1,2.",
+      "xs": { "$value": "0.75rem" },
+      "sm": { "$value": "0.875rem" },
+      "md": { "$value": "1rem" },
+      "lg": { "$value": "1.125rem" },
+      "xl": { "$value": "1.25rem" },
+      "2xl": { "$value": "1.5rem" },
+      "3xl": { "$value": "1.875rem" },
+      "4xl": { "$value": "2.25rem" },
+      "5xl": { "$value": "3rem" }
+    },
+    "line-height": {
+      "$type": "number",
+      "tight": { "$value": 1.15, "$description": "Titres d'affichage." },
+      "snug": { "$value": 1.3, "$description": "Titres, libellés." },
+      "normal": { "$value": 1.5, "$description": "Texte courant." }
+    },
+    "letter-spacing": {
+      "$type": "dimension",
+      "tight": { "$value": "-0.01em" },
+      "normal": { "$value": "0em" },
+      "wide": { "$value": "0.06em", "$description": "Sur-titres en capitales." }
+    }
+  }
+}

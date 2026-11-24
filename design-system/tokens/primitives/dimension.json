@@ -1,0 +1,46 @@
+{
+  "space": {
+    "$type": "dimension",
+    "$description": "Échelle d'espacement, base 4 px. Utiliser pour marges, gaps et paddings.",
+    "0": { "$value": "0px" },
+    "1": { "$value": "4px", "$description": "Icône ↔ libellé." },
+    "2": { "$value": "8px", "$description": "Entre éléments d'un même groupe (puces, boutons d'une barre)." },
+    "3": { "$value": "12px", "$description": "Padding interne des contrôles compacts, lignes de liste." },
+    "4": { "$value": "16px", "$description": "Padding des cartes, gouttière mobile." },
+    "5": { "$value": "20px" },
+    "6": { "$value": "24px", "$description": "Entre blocs d'une même page, gouttière desktop." },
+    "8": { "$value": "32px", "$description": "Entre sections." },
+    "10": { "$value": "40px" },
+    "12": { "$value": "48px", "$description": "Respiration des en-têtes de page." },
+    "16": { "$value": "64px" },
+    "20": { "$value": "80px" }
+  },
+  "radius": {
+    "$type": "dimension",
+    "$description": "Arrondis sobres : l'outil doit paraître solide, pas ludique.",
+    "none": { "$value": "0px" },
+    "sm": { "$value": "4px", "$description": "Badges, pastilles métier, cases à cocher." },
+    "md": { "$value": "6px", "$description": "Boutons, champs de saisie." },
+    "lg": { "$value": "10px", "$description": "Cartes, panneaux, feuilles mobiles." },
+    "xl": { "$value": "16px", "$description": "Modales, bottom sheets." },
+    "full": { "$value": "9999px", "$description": "Avatars, indicateurs ronds, FAB." }
+  },
+  "border-width": {
+    "$type": "dimension",
+    "thin": { "$value": "1px", "$description": "Séparateurs, contours de cartes et de champs." },
+    "thick": { "$value": "2px", "$description": "Élément sélectionné, champ en erreur." }
+  },
+  "focus-ring": {
+    "$type": "dimension",
+    "width": { "$value": "3px", "$description": "Épaisseur de l'anneau de focus clavier (couleur : color.border.focus)." },
+    "offset": { "$value": "2px", "$description": "Écart entre l'élément et l'anneau." }
+  },
+  "breakpoint": {
+    "$type": "dimension",
+    "$description": "Points de rupture web (à utiliser en JS ou recopiés dans les media queries).",
+    "sm": { "$value": "640px", "$description": "Grand téléphone en paysage." },
+    "md": { "$value": "768px", "$description": "Tablette portrait : la barre latérale se replie." },
+    "lg": { "$value": "1024px", "$description": "Tablette paysage, petit portable : navigation latérale visible." },
+    "xl": { "$value": "1280px", "$description": "Poste du conducteur de travaux : planning et tableaux denses." }
+  }
+}

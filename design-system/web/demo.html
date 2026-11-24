@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fondation BTP — composants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../build/css/tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  /* Mise en page de la démo uniquement (pas un composant). */
+  body { margin: 0; }
+  .demo { max-width: 1120px; margin-inline: auto; padding: var(--fd-space-6) var(--fd-layout-gutter) var(--fd-space-16); display: grid; gap: var(--fd-space-10); }
+  .demo__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--fd-space-4); }
+  .demo__head h1 { margin: 0; font: var(--fd-text-title-1); letter-spacing: var(--fd-text-title-1-letter-spacing); }
+  .demo__head p { margin: var(--fd-space-1) 0 0; color: var(--fd-color-fg-muted); }
+  .demo__toggles { display: flex; gap: var(--fd-space-2); flex-wrap: wrap; }
+  .demo section { display: grid; gap: var(--fd-space-4); }
+  .demo h2 { margin: 0; font: var(--fd-text-title-2); }
+  .demo__row { display: flex; flex-wrap: wrap; gap: var(--fd-space-3); align-items: center; }
+  .demo__grid { display: grid; gap: var(--fd-space-4); grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+  .demo__form { display: grid; gap: var(--fd-layout-stack); grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+  .demo__list { border: var(--fd-border-width-thin) solid var(--fd-color-border-subtle); border-radius: var(--fd-radius-lg); overflow: hidden; }
+  .demo__list .fd-reserve:last-child { border-bottom: 0; }
+  .demo__phone { width: min(100%, 390px); border: var(--fd-border-width-thin) solid var(--fd-color-border-default); border-radius: var(--fd-radius-xl); overflow: hidden; background: var(--fd-color-bg-canvas); box-shadow: var(--fd-shadow-lg); }
+  .demo__phone-body { padding: var(--fd-space-4); display: grid; gap: var(--fd-space-3); }
+  .demo__phone-title { margin: 0; font: var(--fd-text-title-2); }
+</style>
+</head>
+<body class="fd-app">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-planifie" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-dasharray="3 3"/></symbol>
+  <symbol id="i-en-cours" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></symbol>
+  <symbol id="i-en-attente" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M10 9v6M14 9v6"/></symbol>
+  <symbol id="i-en-retard" viewBox="0 0 24 24"><path d="M12 4 21 20H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
+  <symbol id="i-termine" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-check-off" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></symbol>
+  <symbol id="i-check-on" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor"/><path d="m8 12 3 3 5-6" style="stroke: var(--fd-color-bg-surface)"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></symbol>
+  <symbol id="i-cloud-off" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .8-7.9A6 6 0 0 0 6.3 9 4.5 4.5 0 0 0 7 18z"/><path d="M4 4l16 16"/></symbol>
+  <symbol id="i-chantiers" viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></symbol>
+  <symbol id="i-planning" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+  <symbol id="i-reserves" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="m9 13 2 2 4-4"/></symbol>
+  <symbol id="i-equipe" viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 6.5a3 3 0 0 1 0 5.5M21 20a6 6 0 0 0-4-5.6"/></symbol>
+</svg>
+
+<main class="demo">
+  <header class="demo__head">
+    <div>
+      <h1>Fondation BTP</h1>
+      <p>Composants de référence, lus uniquement depuis les tokens.</p>
+    </div>
+    <div class="demo__toggles">
+      <button class="fd-btn fd-btn--sm" type="button" id="toggle-theme">Thème : système</button>
+      <button class="fd-btn fd-btn--sm" type="button" id="toggle-density">Densité : bureau</button>
+    </div>
+  </header>
+
+  <section aria-labelledby="h-btn">
+    <h2 id="h-btn">Boutons</h2>
+    <div class="demo__row">
+      <button class="fd-btn fd-btn--accent" type="button"><svg class="fd-icon" aria-hidden="true"><use href="#i-plus"/></svg>Nouveau chantier</button>
+      <button class="fd-btn fd-btn--primary" type="button">Valider le rapport</button>
+      <button class="fd-btn" type="button">Exporter le planning</button>
+      <button class="fd-btn fd-btn--ghost" type="button">Annuler</button>
+      <button class="fd-btn fd-btn--danger" type="button">Supprimer la réserve</button>
+      <button class="fd-btn fd-btn--primary" type="button" aria-busy="true">Envoi…</button>
+      <button class="fd-btn" type="button" disabled>Désactivé</button>
+      <button class="fd-btn fd-btn--icon" type="button" aria-label="Ajouter une photo"><svg class="fd-icon" aria-hidden="true"><use href="#i-camera"/></svg></button>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-field">
+    <h2 id="h-field">Champs de saisie</h2>
+    <div class="demo__form">
+      <div class="fd-field">
+        <label class="fd-field__label" for="f-surface">Surface coulée</label>
+        <div class="fd-field__control"><input class="fd-input" id="f-surface" inputmode="decimal" value="148,5" aria-describedby="f-surface-help"><span class="fd-field__unit">m²</span></div>
+        <span class="fd-field__help" id="f-surface-help">Dalle du niveau R+1</span>
+      </div>
+      <div class="fd-field fd-field--invalid">
+        <label class="fd-field__label" for="f-qte">Quantité livrée</label>
+        <div class="fd-field__control"><input class="fd-input" id="f-qte" inputmode="decimal" value="12" aria-invalid="true" aria-describedby="f-qte-err"><span class="fd-field__unit">t</span></div>
+        <span class="fd-field__error" id="f-qte-err"><svg class="fd-icon fd-icon--sm" aria-hidden="true"><use href="#i-alert"/></svg>Supérieure au bon de commande (10 t)</span>
+      </div>
+      <div class="fd-field">
+        <label class="fd-field__label" for="f-ref">N° de bon de livraison <span class="fd-field__optional">(facultatif)</span></label>
+        <div class="fd-field__control"><input class="fd-input" id="f-ref" placeholder="BL-2026-0412"></div>
+      </div>
+      <div class="fd-field">
+        <label class="fd-field__label" for="f-lock">Chantier</label>
+        <div class="fd-field__control"><input class="fd-input" id="f-lock" value="Résidence Les Tilleuls" disabled></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-statut">
+    <h2 id="h-statut">Statuts</h2>
+    <div class="demo__row">
+      <span class="fd-badge"><svg class="fd-icon" aria-hidden="true"><use href="#i-planifie"/></svg>Planifié</span>
+      <span class="fd-badge fd-badge--en-cours"><svg class="fd-icon" aria-hidden="true"><use href="#i-en-cours"/></svg>En cours</span>
+      <span class="fd-badge fd-badge--en-attente"><svg class="fd-icon" aria-hidden="true"><use href="#i-en-attente"/></svg>En attente</span>
+      <span class="fd-badge fd-badge--en-retard"><svg class="fd-icon" aria-hidden="true"><use href="#i-en-retard"/></svg>En retard</span>
+      <span class="fd-badge fd-badge--termine"><svg class="fd-icon" aria-hidden="true"><use href="#i-termine"/></svg>Terminé</span>
+      <span class="fd-badge fd-badge--annule"><svg class="fd-icon" aria-hidden="true"><use href="#i-planifie"/></svg>Annulé</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-metier">
+    <h2 id="h-metier">Familles de métiers</h2>
+    <div class="demo__row">
+      <span class="fd-metier fd-metier--gros-oeuvre"><span class="fd-metier__swatch"></span><span class="fd-metier__code">GO</span><span class="fd-metier__label">Gros œuvre</span></span>
+      <span class="fd-metier fd-metier--structure"><span class="fd-metier__swatch"></span><span class="fd-metier__code">CHA</span><span class="fd-metier__label">Charpente</span></span>
+      <span class="fd-metier fd-metier--electricite"><span class="fd-metier__swatch"></span><span class="fd-metier__code">ELE</span><span class="fd-metier__label">Électricité</span></span>
+      <span class="fd-metier fd-metier--exterieurs"><span class="fd-metier__swatch"></span><span class="fd-metier__code">EXT</span><span class="fd-metier__label">Espaces verts</span></span>
+      <span class="fd-metier fd-metier--fluides"><span class="fd-metier__swatch"></span><span class="fd-metier__code">PLO</span><span class="fd-metier__label">Plomberie</span></span>
+      <span class="fd-metier fd-metier--enveloppe"><span class="fd-metier__swatch"></span><span class="fd-metier__code">COU</span><span class="fd-metier__label">Couverture</span></span>
+      <span class="fd-metier fd-metier--amenagement"><span class="fd-metier__swatch"></span><span class="fd-metier__code">PLA</span><span class="fd-metier__label">Plâtrerie</span></span>
+      <span class="fd-metier fd-metier--finitions"><span class="fd-metier__swatch"></span><span class="fd-metier__code">PEI</span><span class="fd-metier__label">Peinture</span></span>
+      <span class="fd-metier"><span class="fd-metier__swatch"></span><span class="fd-metier__code">DIV</span><span class="fd-metier__label">Nettoyage</span></span>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-card">
+    <h2 id="h-card">Cartes chantier</h2>
+    <div class="demo__grid">
+      <article class="fd-card fd-card--interactive">
+        <div class="fd-chantier__head">
+          <div>
+            <div class="fd-chantier__ref">CH-2026-014 · Logements collectifs</div>
+            <h3 class="fd-chantier__title">Résidence Les Tilleuls</h3>
+          </div>
+          <span class="fd-badge fd-badge--en-cours"><svg class="fd-icon" aria-hidden="true"><use href="#i-en-cours"/></svg>En cours</span>
+        </div>
+        <p class="fd-chantier__meta">12 rue des Forges, 69007 Lyon · Bât. A et B</p>
+        <div class="fd-progress">
+          <div class="fd-progress__head"><span>Avancement</span><span class="fd-progress__value">62 %</span></div>
+          <div class="fd-progress__track" role="progressbar" aria-label="Avancement" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"><div class="fd-progress__bar" style="width: 62%"></div></div>
+        </div>
+        <div class="fd-chantier__metiers">
+          <span class="fd-metier fd-metier--gros-oeuvre"><span class="fd-metier__swatch"></span><span class="fd-metier__code">GO</span></span>
+          <span class="fd-metier fd-metier--fluides"><span class="fd-metier__swatch"></span><span class="fd-metier__code">PLO</span></span>
+          <span class="fd-metier fd-metier--electricite"><span class="fd-metier__swatch"></span><span class="fd-metier__code">ELE</span></span>
+          <span class="fd-metier fd-metier--amenagement"><span class="fd-metier__swatch"></span><span class="fd-metier__code">PLA</span></span>
+        </div>
+        <div class="fd-chantier__foot"><span class="fd-num">03/02 → 18/09/2026</span><span>14 compagnons · 5 entreprises</span></div>
+      </article>
+      <article class="fd-card fd-card--interactive">
+        <div class="fd-chantier__head">
+          <div>
+            <div class="fd-chantier__ref">CH-2026-009 · Réhabilitation</div>
+            <h3 class="fd-chantier__title">École Jean-Moulin, toiture</h3>
+          </div>
+          <span class="fd-badge fd-badge--en-retard"><svg class="fd-icon" aria-hidden="true"><use href="#i-en-retard"/></svg>En retard</span>
+        </div>
+        <p class="fd-chantier__meta">Villeurbanne · livraison zinc reportée au 02/12</p>
+        <div class="fd-progress fd-progress--en-retard">
+          <div class="fd-progress__head"><span>Avancement · prévu 70 %</span><span class="fd-progress__value">41 %</span></div>
+          <div class="fd-progress__track" role="progressbar" aria-label="Avancement" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"><div class="fd-progress__bar" style="width: 41%"></div></div>
+        </div>
+        <div class="fd-chantier__metiers">
+          <span class="fd-metier fd-metier--structure"><span class="fd-metier__swatch"></span><span class="fd-metier__code">CHA</span></span>
+          <span class="fd-metier fd-metier--enveloppe"><span class="fd-metier__swatch"></span><span class="fd-metier__code">COU</span></span>
+        </div>
+        <div class="fd-chantier__foot"><span class="fd-num">06/10 → 19/12/2026</span><span>4 compagnons · 2 entreprises</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-reserve">
+    <h2 id="h-reserve">Réserves</h2>
+    <div class="demo__list" role="list">
+      <div class="fd-reserve" role="listitem">
+        <button class="fd-reserve__check" type="button" role="checkbox" aria-checked="false" aria-label="Lever la réserve : joint de carrelage fissuré"><svg class="fd-icon" aria-hidden="true"><use href="#i-check-off"/></svg></button>
+        <div class="fd-reserve__body">
+          <p class="fd-reserve__title">Joint de carrelage fissuré devant la douche</p>
+          <p class="fd-reserve__where">Bât. A · R+2 · Logement 204 · Salle d'eau</p>
+          <div class="fd-reserve__tags"><span class="fd-metier fd-metier--finitions"><span class="fd-metier__swatch"></span><span class="fd-metier__code">CAR</span><span class="fd-metier__label">Carrelage</span></span></div>
+        </div>
+        <div class="fd-reserve__aside"><span class="fd-badge fd-badge--en-retard"><svg class="fd-icon" aria-hidden="true"><use href="#i-en-retard"/></svg>Échue le 20/11</span><span>2 photos</span></div>
+      </div>
+      <div class="fd-reserve" role="listitem">
+        <button class="fd-reserve__check" type="button" role="checkbox" aria-checked="false" aria-label="Lever la réserve : prise non fixée"><svg class="fd-icon" aria-hidden="true"><use href="#i-check-off"/></svg></button>
+        <div class="fd-reserve__body">
+          <p class="fd-reserve__title">Prise de courant non fixée</p>
+          <p class="fd-reserve__where">Bât. A · R+1 · Logement 112 · Séjour</p>
+          <div class="fd-reserve__tags"><span class="fd-metier fd-metier--electricite"><span class="fd-metier__swatch"></span><span class="fd-metier__code">ELE</span><span class="fd-metier__label">Électricité</span></span></div>
+        </div>
+        <div class="fd-reserve__aside"><span class="fd-num">avant le 28/11</span><span>1 photo</span></div>
+      </div>
+      <div class="fd-reserve fd-reserve--levee" role="listitem">
+        <button class="fd-reserve__check" type="button" role="checkbox" aria-checked="true" aria-label="Réserve levée : trace de peinture sur la porte palière"><svg class="fd-icon" aria-hidden="true"><use href="#i-check-on"/></svg></button>
+        <div class="fd-reserve__body">
+          <p class="fd-reserve__title">Trace de peinture sur la porte palière</p>
+          <p class="fd-reserve__where">Bât. B · RDC · Hall</p>
+          <div class="fd-reserve__tags"><span class="fd-metier fd-metier--finitions"><span class="fd-metier__swatch"></span><span class="fd-metier__code">PEI</span><span class="fd-metier__label">Peinture</span></span></div>
+        </div>
+        <div class="fd-reserve__aside"><span class="fd-badge fd-badge--termine"><svg class="fd-icon" aria-hidden="true"><use href="#i-termine"/></svg>Levée le 21/11</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-mobile">
+    <h2 id="h-mobile">Écran mobile (densité terrain)</h2>
+    <div class="demo__phone" data-density="terrain">
+      <div class="demo__phone-body">
+        <div class="fd-banner" role="status">
+          <svg class="fd-icon" aria-hidden="true"><use href="#i-cloud-off"/></svg>
+          <span class="fd-banner__text"><strong>Hors connexion.</strong> 3 éléments en attente de synchronisation.</span>
+          <button class="fd-banner__action" type="button">Réessayer</button>
+        </div>
+        <h3 class="demo__phone-title">Aujourd'hui · Les Tilleuls</h3>
+        <div class="fd-card">
+          <div class="fd-chantier__head">
+            <div>
+              <div class="fd-chantier__ref">Lot 02 · Gros œuvre</div>
+              <h4 class="fd-chantier__title">Coulage dalle R+2, bât. B</h4>
+            </div>
+            <span class="fd-badge fd-badge--en-attente"><svg class="fd-icon" aria-hidden="true"><use href="#i-en-attente"/></svg>En attente</span>
+          </div>
+          <p class="fd-chantier__meta">Toupie prévue à 7 h 30 · 18 m³</p>
+          <button class="fd-btn fd-btn--primary fd-btn--block" type="button"><svg class="fd-icon" aria-hidden="true"><use href="#i-camera"/></svg>Ajouter au rapport du jour</button>
+        </div>
+      </div>
+      <nav class="fd-tabbar" aria-label="Navigation principale">
+        <a class="fd-tabbar__item" href="#" aria-current="page"><svg class="fd-icon" aria-hidden="true"><use href="#i-chantiers"/></svg>Chantiers</a>
+        <a class="fd-tabbar__item" href="#"><svg class="fd-icon" aria-hidden="true"><use href="#i-planning"/></svg>Planning</a>
+        <a class="fd-tabbar__item" href="#"><svg class="fd-icon" aria-hidden="true"><use href="#i-reserves"/></svg>Réserves<span class="fd-tabbar__badge">4</span></a>
+        <a class="fd-tabbar__item" href="#"><svg class="fd-icon" aria-hidden="true"><use href="#i-camera"/></svg>Photos</a>
+        <a class="fd-tabbar__item" href="#"><svg class="fd-icon" aria-hidden="true"><use href="#i-equipe"/></svg>Équipe</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script>
+  const root = document.documentElement;
+  const themes = [null, 'light', 'dark'];
+  const themeLabel = { null: 'système', light: 'clair', dark: 'sombre' };
+  const tBtn = document.getElementById('toggle-theme');
+  const dBtn = document.getElementById('toggle-density');
+  const params = new URLSearchParams(location.search);
+  if (params.get('theme')) root.dataset.theme = params.get('theme');
+  if (params.get('density')) root.dataset.density = params.get('density');
+  const sync = () => {
+    tBtn.textContent = 'Thème : ' + themeLabel[root.dataset.theme ?? null];
+    dBtn.textContent = 'Densité : ' + (root.dataset.density ?? 'bureau');
+  };
+  tBtn.addEventListener('click', () => {
+    const next = themes[(themes.indexOf(root.dataset.theme ?? null) + 1) % themes.length];
+    if (next) root.dataset.theme = next; else delete root.dataset.theme;
+    sync();
+  });
+  dBtn.addEventListener('click', () => {
+    root.dataset.density = root.dataset.density === 'terrain' ? 'bureau' : 'terrain';
+    sync();
+  });
+  sync();
+</script>
+</body>
+</html>

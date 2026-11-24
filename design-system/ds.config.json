@@ -1,0 +1,86 @@
+{
+  "name": "Fondation BTP",
+  "prefix": "fd",
+  "tokensDir": "tokens",
+  "outDir": "build",
+  "remBase": 16,
+  "outputs": ["css", "ts", "json"],
+  "base": ["primitives/color.json", "primitives/dimension.json", "primitives/typography.json", "primitives/motion.json"],
+  "modes": {
+    "theme": {
+      "default": "light",
+      "values": {
+        "light": ["themes/light.json"],
+        "dark": ["themes/dark.json"]
+      },
+      "css": {
+        "attribute": "data-theme",
+        "colorScheme": {
+          "light": "light",
+          "dark": "dark"
+        },
+        "media": {
+          "(prefers-color-scheme: dark)": "dark"
+        }
+      }
+    },
+    "density": {
+      "default": "bureau",
+      "values": {
+        "bureau": ["density/bureau.json"],
+        "terrain": ["density/terrain.json"]
+      },
+      "css": {
+        "attribute": "data-density"
+      }
+    }
+  },
+  "checks": {
+    "contrast": {
+      "axis": "theme",
+      "pairs": [
+        { "fg": "color.fg.default", "bg": ["color.bg.canvas", "color.bg.surface", "color.bg.raised", "color.bg.sunken", "color.bg.hover", "color.bg.selected"], "min": 7, "note": "texte principal : viser AAA pour la lecture en extérieur" },
+        { "fg": "color.fg.muted", "bg": ["color.bg.canvas", "color.bg.surface", "color.bg.raised", "color.bg.sunken"], "min": 4.5 },
+        { "fg": "color.fg.subtle", "bg": ["color.bg.canvas", "color.bg.surface"], "min": 3, "note": "icônes et placeholders" },
+        { "fg": "color.fg.inverse", "bg": "color.bg.inverse", "min": 4.5 },
+        { "fg": "color.fg.link", "bg": ["color.bg.canvas", "color.bg.surface", "color.bg.raised"], "min": 4.5 },
+        { "fg": "color.*.on-solid", "bg": ["color.*.solid"], "min": 4.5 },
+        { "fg": "color.primary.on-solid", "bg": ["color.primary.solid-hover", "color.primary.solid-active"], "min": 4.5 },
+        { "fg": "color.accent.on-solid", "bg": "color.accent.solid-hover", "min": 4.5 },
+        { "fg": "color.*.on-subtle", "bg": ["color.*.subtle"], "min": 4.5 },
+        { "fg": "color.*.text", "bg": ["color.bg.canvas", "color.bg.surface", "color.bg.raised"], "min": 4.5 },
+        { "fg": "color.border.strong", "bg": ["color.bg.canvas", "color.bg.surface"], "min": 3, "note": "contour des champs (WCAG 1.4.11)" },
+        { "fg": "color.border.focus", "bg": ["color.bg.canvas", "color.bg.surface", "color.bg.raised", "color.bg.sunken"], "min": 3 },
+        { "fg": "color.*.border", "bg": ["color.bg.surface"], "min": 3 },
+        { "fg": "color.statut.*.on-subtle", "bg": ["color.statut.*.subtle"], "min": 4.5 },
+        { "fg": "color.statut.*.solid", "bg": ["color.bg.surface"], "min": 3 },
+        { "fg": "color.metier.*.on-subtle", "bg": ["color.metier.*.subtle"], "min": 4.5 },
+        { "fg": "color.metier.*.solid", "bg": ["color.bg.surface", "color.bg.canvas"], "min": 3 }
+      ]
+    },
+    "categorical": [
+      { "name": "familles de métiers", "axis": "theme", "tokens": "color.metier.*.solid", "minDeltaE": 0.08, "minDeltaECvd": 0.04 },
+      { "name": "statuts", "axis": "theme", "tokens": ["color.success.solid", "color.warning.solid", "color.danger.solid", "color.info.solid"], "minDeltaE": 0.1, "minDeltaECvd": 0.05 }
+    ]
+  },
+  "export": {
+    "themeNames": {
+      "light": "Clair",
+      "dark": "Sombre"
+    },
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap",
+    "samples": {
+      "text.display": "62 %",
+      "text.title-1": "Résidence Les Tilleuls",
+      "text.title-2": "Réserves à lever",
+      "text.title-3": "Coulage dalle R+2, bât. B",
+      "text.body": "Toupie prévue à 7 h 30, 18 m³ de béton C25/30.",
+      "text.body-strong": "Joint de carrelage fissuré devant la douche",
+      "text.body-sm": "Bât. A · R+2 · Logement 204 · Salle d'eau",
+      "text.label": "Quantité livrée",
+      "text.caption": "Levée le 21/11 · 2 photos",
+      "text.overline": "LOT 02 · GROS ŒUVRE",
+      "text.reference": "BL-2026-0412"
+    }
+  }
+}

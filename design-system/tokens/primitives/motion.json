@@ -1,0 +1,14 @@
+{
+  "duration": {
+    "$type": "duration",
+    "$description": "Animations courtes et fonctionnelles. Respecter prefers-reduced-motion (durée 0).",
+    "fast": { "$value": "120ms", "$description": "Survol, pression, changement d'état d'un contrôle." },
+    "base": { "$value": "200ms", "$description": "Ouverture de menu, apparition de toast." },
+    "slow": { "$value": "320ms", "$description": "Panneaux, bottom sheets, transitions d'écran." }
+  },
+  "easing": {
+    "$type": "cubicBezier",
+    "standard": { "$value": [0.2, 0, 0, 1], "$description": "Entrées et changements d'état." },
+    "exit": { "$value": [0.3, 0, 1, 1], "$description": "Sorties d'écran." }
+  }
+}
