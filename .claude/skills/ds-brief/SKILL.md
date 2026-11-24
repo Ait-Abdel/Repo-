@@ -68,4 +68,4 @@ La section « Conséquences pour le système » fait le lien avec les étapes su
 
 ## 5. Valider
 
-Présente la direction en quelques lignes, pas le fichier entier, et demande une validation avant de lancer `ds-tokens`. Si l'utilisateur hésite, propose de générer les deux palettes et de comparer.
+Présente le brief en quelques lignes, pas le fichier entier. Avant de lancer `ds-tokens`, passe par `ds-identite` : la direction de ce brief n'est qu'une hypothèse tant qu'elle n'a pas été comparée à d'autres territoires sur des écrans réels.

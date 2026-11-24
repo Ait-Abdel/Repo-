@@ -1,6 +1,6 @@
 # Skills « design system » pour Claude Code
 
-Un ensemble de 7 skills pour créer, à partir d'une thématique, un design system **commun à un site web et à une application mobile**. Il est livré avec un premier système complet : **Fondation BTP**, pour un SaaS de gestion de chantier multi-métiers.
+Un ensemble de 8 skills pour créer, à partir d'une thématique, un design system **commun à un site web et à une application mobile**. Il est livré avec un premier système complet : **Fondation BTP**, pour un SaaS de gestion de chantier multi-métiers.
 
 ## Les skills
 
@@ -10,6 +10,7 @@ Ils sont dans `.claude/skills/` et se chargent automatiquement quand Claude Code
 |---|---|
 | `design-system` | point d'entrée : enchaîne les étapes, sait reprendre là où on en est |
 | `ds-brief` | thématique → utilisateurs, contextes d'usage, personnalité, direction visuelle (`brief.md`) |
+| `ds-identite` | personnalité visuelle : diagnostic du générique, 3 territoires tirés du métier, planche comparative, choix |
 | `ds-tokens` | socle de tokens W3C DTCG : palettes OKLCH, thèmes clair/sombre, densités, contrôles de contraste et de daltonisme, build CSS / TS / JSON |
 | `ds-components` | specs de composants indépendantes de la techno, avec une section web et une section mobile |
 | `ds-web` | intégration web : CSS, React, Vue, Tailwind, mode sombre, responsive |

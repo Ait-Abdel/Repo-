@@ -1,0 +1,655 @@
+<title>Identités chantier</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800;900&family=Atkinson+Hyperlegible:wght@400;700&family=Schibsted+Grotesk:wght@500;700;800;900&family=Instrument+Sans:wght@400;500;600;700&family=Martian+Mono:wght@400;500&display=swap">
+<style>
+/* Mise en page : une page d'exploration neutre qui encadre trois planches,
+   chacune enfermée dans son propre univers (variables CSS scopées par territoire). */
+:root {
+  --bg: #f3f3f1;
+  --fg: #1b1b1a;
+  --muted: #5d5c58;
+  --line: #d5d4cf;
+  --panel: #ffffff;
+  --font-ui: "Instrument Sans", system-ui, sans-serif;
+  --font-label: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #151514; --fg: #ecebe7; --muted: #a9a7a1; --line: #34332f; --panel: #1e1e1c; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #151514; --fg: #ecebe7; --muted: #a9a7a1; --line: #34332f; --panel: #1e1e1c; color-scheme: dark; }
+
+*, *::before, *::after { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 400 16px/1.55 var(--font-ui); }
+.page { max-width: 1320px; margin-inline: auto; padding-block: 48px 96px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 56px; }
+.intro { display: grid; gap: 20px; max-width: 70ch; }
+.intro h1 { margin: 0; font: 700 clamp(30px, 4vw, 44px)/1.1 var(--font-ui); letter-spacing: -0.02em; text-wrap: balance; }
+.intro p { margin: 0; color: var(--muted); }
+.diag { display: grid; gap: 12px; padding: 20px 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+.diag h2 { margin: 0; font: 600 15px/1.3 var(--font-label); text-transform: uppercase; letter-spacing: .06em; }
+.diag ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.diag li { display: grid; grid-template-columns: 22px 1fr; gap: 4px; }
+.diag li::before { content: "✗"; font-weight: 700; color: var(--muted); }
+.jump { display: flex; flex-wrap: wrap; gap: 8px 20px; font: 500 14px/1.4 var(--font-label); }
+.jump a { color: var(--fg); text-underline-offset: 4px; }
+
+/* Planche : cadre commun aux trois territoires */
+.planche { --pad: clamp(20px, 3vw, 40px); border-radius: 4px; overflow: hidden; background: var(--ground); color: var(--ink); scroll-margin-top: 24px; }
+.planche__head { padding: var(--pad); display: grid; gap: 10px; }
+.planche__head > * { min-width: 0; }
+.planche__kicker { margin: 0; font: 500 12px/1.3 var(--font-label); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); }
+.planche__idea { margin: 0; max-width: 58ch; font-size: 18px; line-height: 1.45; }
+.planche__who { margin: 0; max-width: 64ch; color: var(--ink-2); }
+.planche__body { padding: 0 var(--pad) var(--pad); display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 36px; align-items: start; }
+.specs { display: grid; gap: 22px; min-width: 0; }
+.specs h3 { margin: 0 0 8px; font: 600 11px/1.3 var(--font-label); text-transform: uppercase; letter-spacing: .1em; color: var(--ink-2); }
+.specs p, .specs li { font-size: 14px; line-height: 1.5; }
+.specs ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.swatches li { display: grid; grid-template-columns: 34px 1fr; column-gap: 10px; align-items: center; }
+.swatches .sw { grid-row: span 2; width: 34px; height: 34px; border: 1px solid rgba(0,0,0,.18); }
+.swatches b { font-weight: 600; line-height: 1.2; }
+.swatches span:last-child { color: var(--ink-2); font-size: 13px; line-height: 1.3; }
+.typo { display: grid; gap: 6px; }
+.typo p { margin: 0; }
+.sig li { padding-left: 14px; position: relative; }
+.sig li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; background: var(--ink); }
+.demo { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; align-items: start; min-width: 0; }
+.phone { width: 300px; max-width: 100%; justify-self: center; border: 9px solid #1a1a19; border-radius: 30px; overflow: hidden; box-shadow: 0 18px 40px -18px rgba(0,0,0,.45); }
+.phone__screen { display: grid; grid-template-rows: auto 1fr auto; min-height: 520px; }
+.ic { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+@media (max-width: 1120px) {
+  .planche__body { grid-template-columns: minmax(0, 1fr); }
+  .specs { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+}
+@media (max-width: 860px) {
+  .demo { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ------------------------------------------------------------ A · CARTOUCHE */
+.t-a {
+  --ground: #F4F7FA; --paper: #FFFFFF; --ink: #0E2A5C; --ink-2: #4A5D80; --blue: #1F5BD6; --red: #D7261E; --green: #2E7D4F; --trame: #DCE5F0; --focus: #1F5BD6;
+  --a-display: "Archivo", "Arial Narrow", sans-serif; --a-mono: "IBM Plex Mono", ui-monospace, monospace;
+  font-family: "Archivo", system-ui, sans-serif;
+  background-color: var(--ground);
+  background-image: linear-gradient(var(--trame) 1px, transparent 1px), linear-gradient(90deg, var(--trame) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+.t-a .ic { stroke-width: 1.5; }
+.a-name { margin: 0; font: 800 clamp(30px, 8.4vw, 84px)/.95 var(--a-display); font-stretch: 125%; text-transform: uppercase; letter-spacing: .01em; }
+.a-mono { font-family: var(--a-mono); }
+.a-sheet { display: grid; gap: 18px; min-width: 0; }
+.a-cartouche { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1.5px solid var(--ink); background: var(--paper); }
+.a-cell { padding: 8px 12px 10px; display: grid; gap: 4px; align-content: start; border-left: 1.5px solid var(--ink); border-top: 1.5px solid var(--ink); min-width: 0; }
+.a-cell--projet { grid-column: 1 / -1; border-left: 0; border-top: 0; }
+.a-cell--projet + .a-cell { border-left: 0; }
+.a-k { font: 500 10px/1 var(--a-mono); text-transform: uppercase; letter-spacing: .12em; color: var(--ink-2); }
+.a-v { font: 600 14px/1.25 var(--a-mono); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.a-v.a-title { font: 700 22px/1.1 var(--a-display); font-stretch: 112%; }
+.a-status { display: inline-block; font: 600 11px/1 var(--a-mono); text-transform: uppercase; letter-spacing: .08em; padding: 4px 6px; border: 1.5px solid currentColor; white-space: nowrap; }
+.a-status--cours { color: var(--blue); }
+.a-status--retard { color: #fff; background: var(--red); border-color: var(--red); }
+.a-status--attente { color: var(--ink); border-style: dashed; }
+.a-status--fait { color: var(--green); }
+.a-indice { width: 22px; height: 20px; flex: none; }
+.a-indice path { fill: #fff; stroke: var(--red); stroke-width: 1.6; }
+.a-indice text { fill: var(--red); font: 700 11px var(--a-mono); }
+.a-card { position: relative; background: var(--paper); border: 1.5px solid var(--ink); padding: 16px 18px 18px; display: grid; gap: 10px; }
+.a-card::before, .a-card::after { content: ""; position: absolute; width: 12px; height: 12px; border-color: var(--ink); border-style: solid; }
+.a-card::before { top: -7px; left: -7px; border-width: 1.5px 0 0 1.5px; }
+.a-card::after { bottom: -7px; right: -7px; border-width: 0 1.5px 1.5px 0; }
+.a-card-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.a-ref { font: 500 11px/1.2 var(--a-mono); text-transform: uppercase; letter-spacing: .1em; color: var(--ink-2); }
+.a-card-title { margin: 0; font: 700 21px/1.15 var(--a-display); font-stretch: 112%; }
+.a-meta { margin: 0; font-size: 14px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.a-cote { position: relative; height: 54px; margin-inline: 6px; }
+.a-cote__line { position: absolute; left: 0; right: 0; bottom: 10px; height: 1.5px; background: var(--ink); }
+.a-cote__tick { position: absolute; bottom: 4px; width: 1.5px; height: 14px; background: var(--ink); transform: rotate(45deg); }
+.a-cote__tick--start { left: 0; } .a-cote__tick--end { right: 0; }
+.a-cote__fill { position: absolute; left: 0; bottom: 7px; height: 8px; width: calc(var(--v) * 1%); background: var(--red); }
+.a-cote__val { position: absolute; bottom: 20px; left: calc(var(--v) * 1%); transform: translateX(-50%); font: 700 15px/1 var(--a-mono); background: var(--paper); padding-inline: 3px; }
+.a-cote__plan { position: absolute; left: calc(var(--p) * 1%); bottom: 0; height: 30px; border-left: 1.5px dashed var(--ink); }
+.a-cote__plan span { position: absolute; left: 5px; top: -4px; font: 500 10px/1 var(--a-mono); text-transform: uppercase; letter-spacing: .08em; white-space: nowrap; color: var(--ink-2); }
+.a-reperes { display: flex; gap: 8px; flex-wrap: wrap; }
+.a-repere { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--c); background: var(--paper); font: 600 10px/1 var(--a-mono); letter-spacing: .04em; color: var(--ink); }
+.a-list { background: var(--paper); border: 1.5px solid var(--ink); }
+.a-row { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto auto; gap: 14px; align-items: center; padding: 12px 14px; border-top: 1px solid var(--trame); }
+.a-row:first-child { border-top: 0; }
+.a-box { width: 20px; height: 20px; border: 1.5px solid var(--ink); display: grid; place-items: center; color: var(--paper); }
+.a-row--done .a-box { background: var(--green); border-color: var(--green); }
+.a-row-title { margin: 0; font-weight: 600; font-size: 15px; line-height: 1.3; }
+.a-row--done .a-row-title { text-decoration: line-through; color: var(--ink-2); }
+.a-loc { margin: 2px 0 0; font: 500 11px/1.3 var(--a-mono); letter-spacing: .06em; color: var(--ink-2); text-transform: uppercase; }
+.a-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.a-btn { min-height: 42px; padding: 0 18px; border: 1.5px solid var(--ink); background: var(--paper); color: var(--ink); font: 700 13px/1 var(--a-display); font-stretch: 112%; text-transform: uppercase; letter-spacing: .06em; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.a-btn--primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+.a-btn--block { width: 100%; min-height: 56px; font-size: 14px; }
+.a-phone .phone__screen { background-color: var(--ground); background-image: linear-gradient(var(--trame) 1px, transparent 1px), linear-gradient(90deg, var(--trame) 1px, transparent 1px); background-size: 16px 16px; }
+.a-m-head { background: var(--paper); border-bottom: 1.5px solid var(--ink); display: grid; grid-template-columns: 1fr auto; }
+.a-m-head .a-cell { border-top: 0; }
+.a-m-head .a-cell:first-child { border-left: 0; }
+.a-m-body { padding: 16px; display: grid; gap: 14px; align-content: start; }
+.a-m-nav { display: grid; grid-template-columns: repeat(5, 1fr); background: var(--paper); border-top: 1.5px solid var(--ink); }
+.a-m-nav a { position: relative; display: grid; justify-items: center; gap: 3px; padding: 12px 2px 10px; font: 500 9.5px/1 var(--a-mono); text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); text-decoration: none; }
+.a-m-nav a[aria-current] { color: var(--blue); font-weight: 600; }
+.a-m-nav a[aria-current]::before { content: ""; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--blue); }
+
+/* ------------------------------------------------------------ B · TAMPON */
+.t-b {
+  --ground: #DEDDD8; --paper: #FFFFFF; --ink: #121212; --ink-2: #4d4d49; --yellow: #FFC21A; --red: #C8102E; --green: #0B7A4B; --blue: #1F4FD1; --focus: #1F4FD1;
+  --b-display: "Big Shoulders Display", Impact, "Arial Narrow", sans-serif;
+  font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+}
+.t-b .planche__head { background: var(--yellow); }
+.t-b .planche__kicker, .t-b .planche__who { color: var(--ink); }
+.t-b .planche__body { padding-top: var(--pad); }
+.t-b .ic { stroke-width: 2.5; }
+.b-name { margin: 0; font: 900 clamp(64px, 10vw, 128px)/.82 var(--b-display); text-transform: uppercase; letter-spacing: -.01em; }
+.b-display { font-family: var(--b-display); }
+.b-sheet { display: grid; gap: 22px; min-width: 0; }
+.b-header { background: var(--paper); border: 3px solid var(--ink); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 16px; padding: 14px 18px; align-items: center; box-shadow: 5px 5px 0 var(--ink); }
+.b-ref { font: 700 13px/1.2 "Atkinson Hyperlegible", sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+.b-title { margin: 0; font: 800 34px/.95 var(--b-display); text-transform: uppercase; }
+.b-sub { margin: 0; font-size: 15px; color: var(--ink-2); }
+.b-stamp { display: inline-block; font: 800 16px/1 var(--b-display); text-transform: uppercase; letter-spacing: .08em; color: var(--c); border: 2.5px solid var(--c); outline: 1.5px solid var(--c); outline-offset: -7px; padding: 8px 12px 7px; transform: rotate(-4deg); background: var(--paper); white-space: nowrap; }
+.b-card { position: relative; background: var(--paper); border: 3px solid var(--ink); padding: 18px 18px 20px; display: grid; gap: 12px; box-shadow: 5px 5px 0 var(--ink); }
+.b-card .b-stamp { position: absolute; top: 14px; right: 14px; }
+.b-card-title { margin: 0; font: 800 30px/.95 var(--b-display); text-transform: uppercase; padding-right: 130px; }
+.b-meta { margin: 0; font-size: 16px; color: var(--ink-2); }
+.b-prog { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: end; }
+.b-num { font: 900 54px/.8 var(--b-display); }
+.b-num small { font-size: 26px; }
+.b-track { position: relative; height: 22px; border: 3px solid var(--ink); background: var(--paper); }
+.b-fill { height: 100%; width: calc(var(--v) * 1%); background: var(--red); }
+.b-plan { position: absolute; top: -9px; bottom: -9px; left: calc(var(--p) * 1%); width: 3px; background: var(--ink); }
+.b-plan span { position: absolute; bottom: calc(100% + 2px); left: -2px; font: 700 12px/1 "Atkinson Hyperlegible", sans-serif; white-space: nowrap; }
+.b-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.b-tag { display: inline-flex; align-items: center; height: 30px; padding: 0 12px 0 22px; background: var(--c); color: var(--ink); font: 800 15px/1 var(--b-display); letter-spacing: .06em; clip-path: polygon(10px 0, 100% 0, 100% 100%, 10px 100%, 0 50%); -webkit-mask: radial-gradient(circle 3.5px at 13px 50%, transparent 97%, #000 100%); mask: radial-gradient(circle 3.5px at 13px 50%, transparent 97%, #000 100%); }
+.b-list { background: var(--paper); border: 3px solid var(--ink); }
+.b-row { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 16px; border-top: 3px solid var(--ink); }
+.b-row:first-child { border-top: 0; }
+.b-box { width: 34px; height: 34px; border: 3px solid var(--ink); display: grid; place-items: center; }
+.b-row-title { margin: 0; font-weight: 700; font-size: 17px; line-height: 1.25; }
+.b-row-sub { margin: 4px 0 0; font-size: 14px; color: var(--ink-2); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.b-row .b-stamp { font-size: 13px; padding: 6px 9px 5px; outline-offset: -6px; }
+.b-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.b-btn { min-height: 52px; padding: 0 22px; border: 3px solid var(--ink); background: var(--paper); color: var(--ink); font: 800 21px/1 var(--b-display); text-transform: uppercase; letter-spacing: .04em; box-shadow: 4px 4px 0 var(--ink); display: inline-flex; align-items: center; justify-content: center; gap: 10px; transition: transform 80ms, box-shadow 80ms; }
+.b-btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
+.b-btn--primary { background: var(--yellow); }
+.b-btn--block { width: 100%; min-height: 64px; font-size: 24px; }
+.b-phone .phone__screen { background: var(--ground); }
+.b-m-head { background: var(--yellow); padding: 16px 16px 14px; border-bottom: 3px solid var(--ink); }
+.b-m-head .b-ref { font-size: 12px; }
+.b-m-head .b-title { font-size: 40px; }
+.b-m-body { padding: 18px 16px; display: grid; gap: 18px; align-content: start; }
+.b-m-body .b-card { padding: 14px 14px 16px; }
+.b-m-body .b-card-title { font-size: 26px; padding-right: 0; }
+.b-m-body .b-stamp { position: static; justify-self: start; }
+.b-m-nav { display: grid; grid-template-columns: repeat(5, 1fr); background: var(--ink); padding: 6px; gap: 4px; }
+.b-m-nav a { display: grid; justify-items: center; gap: 4px; padding: 9px 2px 8px; font: 800 12px/1 var(--b-display); text-transform: uppercase; letter-spacing: .04em; color: #fff; text-decoration: none; }
+.b-m-nav a[aria-current] { background: var(--yellow); color: var(--ink); }
+
+/* ------------------------------------------------------------ C · BÉTON BRUT */
+.t-c {
+  --ground: #D3D1CB; --paper: #F1F0ED; --ink: #1D1E1C; --ink-2: #55524C; --corten: #9A3B12; --corten-l: #D9824F; --vdg: #2F6B5E; --ligne: #B9B6AE; --focus: #9A3B12;
+  --c-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif; --c-mono: "Martian Mono", ui-monospace, monospace;
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  background-color: var(--ground);
+  background-image: radial-gradient(circle at center, var(--ligne) 0 3.5px, transparent 4px);
+  background-size: 72px 48px;
+  background-position: 36px 24px;
+}
+.t-c .ic { stroke-width: 1.75; }
+.c-name { margin: 0; font: 900 clamp(52px, 8.5vw, 112px)/.86 var(--c-display); letter-spacing: -.045em; }
+.c-mono { font-family: var(--c-mono); }
+.c-sheet { display: grid; gap: 2px; min-width: 0; background: var(--ink); border: 2px solid var(--ink); }
+.c-sheet > * { background: var(--paper); }
+.c-over { font: 400 10.5px/1.3 var(--c-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); }
+.c-header { padding: 22px 24px 20px; display: grid; gap: 14px; }
+.c-header-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.c-title { margin: 0; font: 800 34px/1 var(--c-display); letter-spacing: -.03em; }
+.c-kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ligne); }
+.c-kpi { padding-top: 12px; display: grid; gap: 4px; border-left: 1px solid var(--ligne); padding-left: 14px; }
+.c-kpi:first-child { border-left: 0; padding-left: 0; }
+.c-big { font: 900 64px/.85 var(--c-display); letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+.c-big small { font-size: 24px; letter-spacing: 0; margin-left: 2px; }
+.c-kpi .c-over { color: var(--ink-2); }
+.c-kpi .c-big { font-size: clamp(40px, 10vw, 64px); }
+.c-status { display: inline-flex; align-items: center; gap: 7px; font: 600 11px/1 "Instrument Sans", sans-serif; text-transform: uppercase; letter-spacing: .12em; white-space: nowrap; }
+.c-status i { width: 9px; height: 9px; background: var(--c); }
+.c-card { padding: 20px 24px 22px; display: grid; gap: 12px; }
+.c-card-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; }
+.c-card-title { margin: 0; font: 700 24px/1.1 var(--c-display); letter-spacing: -.02em; }
+.c-meta { margin: 0; font-size: 15px; color: var(--ink-2); }
+.c-prog { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px; align-items: end; }
+.c-prog .c-big { font-size: 56px; }
+.c-bar { position: relative; height: 4px; background: var(--ligne); margin-bottom: 8px; }
+.c-bar span { position: absolute; inset: 0 auto 0 0; width: calc(var(--v) * 1%); background: var(--corten); }
+.c-bar i { position: absolute; left: calc(var(--p) * 1%); top: -8px; bottom: -8px; width: 2px; background: var(--ink); }
+.c-bar em { position: absolute; left: calc(var(--p) * 1%); bottom: 14px; transform: translateX(-50%); font: 400 10px/1 var(--c-mono); font-style: normal; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; color: var(--ink-2); }
+.c-trades { display: flex; gap: 16px; flex-wrap: wrap; }
+.c-trade { display: inline-flex; align-items: center; gap: 6px; font: 500 11px/1 var(--c-mono); letter-spacing: .06em; }
+.c-trade::before { content: ""; width: 12px; height: 12px; background: var(--c); }
+.c-row { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 14px 24px; }
+.c-row + .c-row { border-top: 1px solid var(--ligne); }
+.c-list { display: grid; }
+.c-box { width: 18px; height: 18px; border: 1.5px solid var(--ink); display: grid; place-items: center; }
+.c-row--done .c-box { background: var(--ink); color: var(--paper); }
+.c-row-title { margin: 0; font-weight: 600; font-size: 15px; }
+.c-row--done .c-row-title { color: var(--ink-2); text-decoration: line-through; }
+.c-row-sub { margin: 3px 0 0; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.c-actions { display: flex; gap: 2px; flex-wrap: wrap; background: var(--ink); }
+.c-btn { flex: 1 1 200px; min-height: 52px; border: 0; background: var(--paper); color: var(--ink); font: 600 14px/1 "Instrument Sans", sans-serif; letter-spacing: .04em; text-transform: uppercase; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.c-btn--primary { background: var(--corten); color: #fff; }
+.c-btn--block { width: 100%; min-height: 60px; }
+.c-phone .phone__screen { background: var(--ground); }
+.c-m-head { background: var(--ink); color: #E8E6E1; padding: 18px 16px 16px; display: grid; gap: 10px; }
+.c-m-head .c-over { color: #B5B2AB; }
+.c-m-head .c-title { font-size: 30px; color: #E8E6E1; }
+.c-m-kpi { display: flex; align-items: end; gap: 10px; }
+.c-m-kpi .c-big { font-size: 58px; color: #E8E6E1; }
+.c-m-kpi .c-over { padding-bottom: 6px; color: #B5B2AB; }
+.c-m-body { padding: 16px; display: grid; gap: 2px; align-content: start; }
+.c-m-body .c-card { background: var(--paper); padding: 16px; }
+.c-m-body .c-card-title { font-size: 22px; }
+.c-m-nav { display: grid; grid-template-columns: repeat(5, 1fr); background: var(--ink); }
+.c-m-nav a { display: grid; justify-items: center; gap: 4px; padding: 12px 2px 10px; font: 500 9.5px/1 "Instrument Sans", sans-serif; text-transform: uppercase; letter-spacing: .01em; color: #B5B2AB; text-decoration: none; border-top: 3px solid transparent; }
+.c-m-nav a[aria-current] { color: #E8E6E1; border-top-color: var(--corten-l); }
+
+/* ------------------------------------------------------------ Choisir */
+.choose { display: grid; gap: 18px; }
+.choose h2 { margin: 0; font: 700 28px/1.15 var(--font-ui); letter-spacing: -.015em; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 14px 16px; border-top: 1px solid var(--line); }
+thead th { border-top: 0; font: 600 12px/1.3 var(--font-label); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+tbody th { font-weight: 700; white-space: nowrap; }
+.choose p { margin: 0; max-width: 70ch; color: var(--muted); }
+
+@media (max-width: 560px) {
+  .a-cartouche { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .a-cell:nth-child(4) { border-left: 0; }
+  .a-row { grid-template-columns: 22px minmax(0, 1fr) auto; }
+  .a-row > .a-status { grid-column: 2 / -1; justify-self: start; }
+  .b-row { grid-template-columns: 34px minmax(0, 1fr); }
+  .b-row > .b-stamp { grid-column: 2; justify-self: start; }
+  .b-card .b-stamp { position: static; justify-self: start; }
+  .b-card-title { padding-right: 0; }
+  .c-row { grid-template-columns: 18px minmax(0, 1fr); gap: 12px; padding-inline: 16px; }
+  .c-row > .c-status { grid-column: 2; }
+  .c-header, .c-card { padding-inline: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .b-btn { transition: none; } }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-chantiers" viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></symbol>
+  <symbol id="i-planning" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="1"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+  <symbol id="i-reserves" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="1"/><path d="M9 3h6v3H9z"/><path d="m9 13 2 2 4-4"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-equipe" viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 6.5a3 3 0 0 1 0 5.5M21 20a6 6 0 0 0-4-5.6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+</svg>
+
+<main class="page">
+  <header class="intro">
+    <h1>Trois identités pour le SaaS chantier</h1>
+    <p>Chaque territoire part d'un objet réel du chantier et le transforme en système : couleurs, typographies et trois éléments signatures. Les écrans sont identiques d'une planche à l'autre (fiche chantier, carte en retard, réserves, écran mobile du jour) pour comparer l'identité, pas le contenu.</p>
+    <div class="diag">
+      <h2>Pourquoi la première version faisait générique</h2>
+      <ul>
+        <li>Bleu « SaaS », gris neutres et Inter partout : le trio de la plupart des logiciels.</li>
+        <li>Même arrondi et même ombre légère sur tous les blocs, badges en pilule pastel.</li>
+        <li>Aucune forme propre au métier : statuts, avancement et métiers étaient des composants standards recolorés.</li>
+        <li>Test du métier raté : en remplaçant les chantiers par des livraisons de repas, le design restait valable.</li>
+        <li>Test du pouce raté : sans le nom, impossible de reconnaître le produit.</li>
+      </ul>
+    </div>
+    <nav class="jump" aria-label="Aller à un territoire">
+      <a href="#cartouche">A · Cartouche</a><a href="#tampon">B · Tampon</a><a href="#beton">C · Béton brut</a><a href="#choisir">Comment choisir</a>
+    </nav>
+  </header>
+
+  <!-- ============================================================ A · CARTOUCHE -->
+  <section class="planche t-a" id="cartouche" aria-labelledby="a-name">
+    <div class="planche__head">
+      <p class="planche__kicker">Territoire A · précis, expert</p>
+      <h2 class="a-name" id="a-name">Cartouche</h2>
+      <p class="planche__idea">L'application se lit comme un plan d'exécution : trame de calque, traits nets, cotes, cartouche et indices de révision en rouge.</p>
+      <p class="planche__who">Pour les conducteurs de travaux, bureaux d'études et entreprises générales. Elle rassure par la précision et parle la langue des plans qu'ils lisent toute la journée.</p>
+    </div>
+    <div class="planche__body">
+      <aside class="specs">
+        <div>
+          <h3>Palette</h3>
+          <ul class="swatches">
+            <li><span class="sw" style="background:#F4F7FA"></span><b>Papier calque</b><span>fond, avec la trame de 16 px</span></li>
+            <li><span class="sw" style="background:#0E2A5C"></span><b>Encre de plan</b><span>texte, traits, contours (13:1)</span></li>
+            <li><span class="sw" style="background:#1F5BD6"></span><b>Bleu cyanotype</b><span>action principale, élément actif</span></li>
+            <li><span class="sw" style="background:#D7261E"></span><b>Rouge révision</b><span>modifications, retards, alertes</span></li>
+            <li><span class="sw" style="background:#DCE5F0"></span><b>Trame</b><span>quadrillage et séparateurs</span></li>
+          </ul>
+        </div>
+        <div class="typo">
+          <h3>Typographies</h3>
+          <p style="font:800 22px/1 var(--a-display);font-stretch:125%;text-transform:uppercase">Archivo Expanded</p>
+          <p style="font-size:15px">Archivo, largeur normale, pour le texte courant.</p>
+          <p class="a-mono" style="font-size:13px;letter-spacing:.04em">IBM PLEX MONO · ÉCH. 1:50 · IND. C</p>
+        </div>
+        <div>
+          <h3>Signatures</h3>
+          <ul class="sig">
+            <li><b>Le cartouche</b> en tête de chaque fiche : projet, lot, indice et statut rangés comme sur un plan.</li>
+            <li><b>La cote</b> remplace la barre de progression : barbules obliques, valeur écrite sur le trait, prévu en pointillé.</li>
+            <li><b>L'indice de révision</b> : un triangle rouge marque ce qui a changé depuis la dernière visite. Les métiers sont des bulles de repère.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Vigilance</h3>
+          <p>Traits fins : à épaissir en densité terrain (2 px minimum). Le rouge est réservé aux révisions et aux retards, jamais décoratif.</p>
+        </div>
+      </aside>
+
+      <div class="demo">
+        <div class="a-sheet">
+          <div class="a-cartouche">
+            <div class="a-cell a-cell--projet"><span class="a-k">Projet</span><span class="a-v a-title">Résidence Les Tilleuls</span></div>
+            <div class="a-cell"><span class="a-k">Réf.</span><span class="a-v">CH-2026-014</span></div>
+            <div class="a-cell"><span class="a-k">Lot</span><span class="a-v">02 · Gros œuvre</span></div>
+            <div class="a-cell"><span class="a-k">Indice</span><span class="a-v">C</span></div>
+            <div class="a-cell"><span class="a-k">Statut</span><span class="a-v"><span class="a-status a-status--cours">En cours</span></span></div>
+          </div>
+
+          <article class="a-card">
+            <div class="a-card-top">
+              <span class="a-ref">CH-2026-009 · Réhabilitation</span>
+              <span class="a-status a-status--retard">En retard</span>
+            </div>
+            <h3 class="a-card-title">École Jean-Moulin, toiture</h3>
+            <p class="a-meta">Villeurbanne · livraison zinc reportée au 02/12
+              <svg class="a-indice" viewBox="0 0 24 22" role="img" aria-label="Modifié, indice B"><path d="M12 1.5 22.5 20.5h-21z"/><text x="12" y="17.5" text-anchor="middle">B</text></svg>
+            </p>
+            <div class="a-cote" style="--v:41;--p:70" role="img" aria-label="Avancement 41 %, prévu 70 %">
+              <span class="a-cote__line"></span><span class="a-cote__tick a-cote__tick--start"></span><span class="a-cote__tick a-cote__tick--end"></span>
+              <span class="a-cote__fill"></span><span class="a-cote__val">41 %</span>
+              <span class="a-cote__plan"><span>Prévu 70</span></span>
+            </div>
+            <div class="a-reperes"><span class="a-repere" style="--c:#A27800">CHA</span><span class="a-repere" style="--c:#4A5D80">COU</span><span class="a-repere" style="--c:#B3402A">GO</span></div>
+          </article>
+
+          <div class="a-list" role="list">
+            <div class="a-row" role="listitem">
+              <span class="a-box"></span>
+              <div><p class="a-row-title">Joint de carrelage fissuré devant la douche</p><p class="a-loc">Bât. A · R+2 · Lgt 204 · SdE</p></div>
+              <span class="a-repere" style="--c:#6A4FB0">CAR</span>
+              <span class="a-status a-status--retard">Échue 20/11</span>
+            </div>
+            <div class="a-row a-row--done" role="listitem">
+              <span class="a-box"><svg class="ic" style="width:16px;height:16px;stroke-width:2.5"><use href="#i-check"/></svg></span>
+              <div><p class="a-row-title">Trace de peinture sur la porte palière</p><p class="a-loc">Bât. B · RDC · Hall</p></div>
+              <span class="a-repere" style="--c:#6A4FB0">PEI</span>
+              <span class="a-status a-status--fait">Levée 21/11</span>
+            </div>
+          </div>
+
+          <div class="a-actions"><button class="a-btn a-btn--primary" type="button">Valider le rapport</button><button class="a-btn" type="button">Exporter le planning</button></div>
+        </div>
+
+        <div class="phone a-phone">
+          <div class="phone__screen">
+            <div class="a-m-head">
+              <div class="a-cell"><span class="a-k">Aujourd'hui · Lot 02</span><span class="a-v a-title" style="font-size:20px">Les Tilleuls</span></div>
+              <div class="a-cell"><span class="a-k">Ind.</span><span class="a-v">C</span></div>
+            </div>
+            <div class="a-m-body">
+              <article class="a-card">
+                <div class="a-card-top"><span class="a-ref">Tâche 02.14</span><span class="a-status a-status--attente">En attente</span></div>
+                <h3 class="a-card-title" style="font-size:19px">Coulage dalle R+2, bât. B</h3>
+                <p class="a-meta">Toupie 7 h 30 · 18 m³</p>
+              </article>
+              <button class="a-btn a-btn--primary a-btn--block" type="button"><svg class="ic"><use href="#i-camera"/></svg>Ajouter au rapport</button>
+            </div>
+            <nav class="a-m-nav" aria-label="Navigation (Cartouche)">
+              <a href="#cartouche" aria-current="page"><svg class="ic"><use href="#i-chantiers"/></svg>Chantiers</a>
+              <a href="#cartouche"><svg class="ic"><use href="#i-planning"/></svg>Planning</a>
+              <a href="#cartouche"><svg class="ic"><use href="#i-reserves"/></svg>Réserves</a>
+              <a href="#cartouche"><svg class="ic"><use href="#i-camera"/></svg>Photos</a>
+              <a href="#cartouche"><svg class="ic"><use href="#i-equipe"/></svg>Équipe</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ B · TAMPON -->
+  <section class="planche t-b" id="tampon" aria-labelledby="b-name">
+    <div class="planche__head">
+      <p class="planche__kicker">Territoire B · brut, terrain</p>
+      <h2 class="b-name" id="b-name">Tampon</h2>
+      <p class="planche__idea">Les objets de la cabane de chantier : le jaune des engins, le marqueur noir, les étiquettes à œillet et le tampon encreur qui valide.</p>
+      <p class="planche__who">Pour les chefs d'équipe, compagnons et artisans. Elle est immédiate, se lit en plein soleil et s'utilise avec des gants.</p>
+    </div>
+    <div class="planche__body">
+      <aside class="specs">
+        <div>
+          <h3>Palette</h3>
+          <ul class="swatches">
+            <li><span class="sw" style="background:#FFC21A"></span><b>Jaune engin</b><span>bandeaux, action principale, texte noir dessus (11,6:1)</span></li>
+            <li><span class="sw" style="background:#121212"></span><b>Noir marqueur</b><span>texte, contours épais, navigation</span></li>
+            <li><span class="sw" style="background:#DEDDD8"></span><b>Gris parpaing</b><span>fond, pour faire ressortir les étiquettes blanches</span></li>
+            <li><span class="sw" style="background:#C8102E"></span><b>Encre rouge</b><span>tampons « En retard », « Bloqué »</span></li>
+            <li><span class="sw" style="background:#0B7A4B"></span><b>Encre verte</b><span>tampons « Validé », « Levée »</span></li>
+            <li><span class="sw" style="background:#1F4FD1"></span><b>Encre bleue</b><span>tampon « En cours »</span></li>
+          </ul>
+        </div>
+        <div class="typo">
+          <h3>Typographies</h3>
+          <p style="font:900 30px/.9 var(--b-display);text-transform:uppercase">Big Shoulders</p>
+          <p style="font-size:16px">Atkinson Hyperlegible, dessinée pour la lisibilité des personnes malvoyantes.</p>
+        </div>
+        <div>
+          <h3>Signatures</h3>
+          <ul class="sig">
+            <li><b>Les tampons</b> : chaque statut est un coup de tampon encreur à double filet, légèrement penché.</li>
+            <li><b>Les étiquettes à œillet</b> : les métiers sont des étiquettes de chantier, avec leur couleur de famille et leur code.</li>
+            <li><b>Le bouton qui s'enfonce</b> : contour noir épais, ombre portée franche qui disparaît à l'appui, comme un vrai bouton.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Vigilance</h3>
+          <p>Énergique mais fatigant sur un écran de gestion dense : réserver le jaune aux bandeaux et à l'action principale. Éviter tout rappel des bandes de balisage.</p>
+        </div>
+      </aside>
+
+      <div class="demo">
+        <div class="b-sheet">
+          <div class="b-header">
+            <div style="display:grid;gap:6px;min-width:0">
+              <span class="b-ref">CH-2026-014 · Lot 02 · Gros œuvre</span>
+              <h3 class="b-title">Résidence Les Tilleuls</h3>
+            </div>
+            <span class="b-stamp" style="--c:#1F4FD1">En cours</span>
+          </div>
+
+          <article class="b-card">
+            <span class="b-ref">CH-2026-009 · Réhabilitation</span>
+            <span class="b-stamp" style="--c:#C8102E">En retard</span>
+            <h3 class="b-card-title">École Jean-Moulin, toiture</h3>
+            <p class="b-meta">Villeurbanne · livraison zinc reportée au 02/12</p>
+            <div class="b-prog" style="--v:41;--p:70">
+              <span class="b-num">41<small>%</small></span>
+              <div class="b-track" role="img" aria-label="Avancement 41 %, prévu 70 %"><div class="b-fill"></div><span class="b-plan"><span>prévu 70</span></span></div>
+            </div>
+            <div class="b-tags"><span class="b-tag" style="--c:#E3B17E">CHA</span><span class="b-tag" style="--c:#A9BCD6">COU</span><span class="b-tag" style="--c:#F28B6C">GO</span></div>
+          </article>
+
+          <div class="b-list" role="list">
+            <div class="b-row" role="listitem">
+              <span class="b-box"></span>
+              <div><p class="b-row-title">Joint de carrelage fissuré devant la douche</p><p class="b-row-sub">Bât. A · R+2 · Logement 204 <span class="b-tag" style="--c:#F29BC4;height:24px;font-size:13px">CAR</span></p></div>
+              <span class="b-stamp" style="--c:#C8102E">Échue 20/11</span>
+            </div>
+            <div class="b-row" role="listitem">
+              <span class="b-box" style="background:#0B7A4B;border-color:#0B7A4B;color:#fff"><svg class="ic"><use href="#i-check"/></svg></span>
+              <div><p class="b-row-title" style="text-decoration:line-through;color:#4d4d49">Trace de peinture sur la porte palière</p><p class="b-row-sub">Bât. B · RDC · Hall <span class="b-tag" style="--c:#F29BC4;height:24px;font-size:13px">PEI</span></p></div>
+              <span class="b-stamp" style="--c:#0B7A4B">Levée</span>
+            </div>
+          </div>
+
+          <div class="b-actions"><button class="b-btn b-btn--primary" type="button">Valider le rapport</button><button class="b-btn" type="button">Exporter</button></div>
+        </div>
+
+        <div class="phone b-phone">
+          <div class="phone__screen">
+            <div class="b-m-head">
+              <span class="b-ref">Aujourd'hui · Lot 02</span>
+              <h3 class="b-title">Les Tilleuls</h3>
+            </div>
+            <div class="b-m-body">
+              <article class="b-card">
+                <span class="b-ref">Tâche 02.14</span>
+                <h3 class="b-card-title">Coulage dalle R+2, bât. B</h3>
+                <p class="b-meta">Toupie 7 h 30 · 18 m³</p>
+                <span class="b-stamp" style="--c:#121212">En attente</span>
+              </article>
+              <button class="b-btn b-btn--primary b-btn--block" type="button"><svg class="ic"><use href="#i-camera"/></svg>Ajouter au rapport</button>
+            </div>
+            <nav class="b-m-nav" aria-label="Navigation (Tampon)">
+              <a href="#tampon" aria-current="page"><svg class="ic"><use href="#i-chantiers"/></svg>Chantiers</a>
+              <a href="#tampon"><svg class="ic"><use href="#i-planning"/></svg>Planning</a>
+              <a href="#tampon"><svg class="ic"><use href="#i-reserves"/></svg>Réserves</a>
+              <a href="#tampon"><svg class="ic"><use href="#i-camera"/></svg>Photos</a>
+              <a href="#tampon"><svg class="ic"><use href="#i-equipe"/></svg>Équipe</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ C · BÉTON BRUT -->
+  <section class="planche t-c" id="beton" aria-labelledby="c-name">
+    <div class="planche__head">
+      <p class="planche__kicker">Territoire C · premium, architectural</p>
+      <h2 class="c-name" id="c-name">Béton brut</h2>
+      <p class="planche__idea">Le béton banché et l'acier corten : matière brute, structure apparente, grands chiffres. Une seule couleur vive, celle de la rouille.</p>
+      <p class="planche__who">Pour les promoteurs, maîtres d'ouvrage et entreprises qui vendent de la qualité. Elle est calme et assurée, et donne envie de montrer l'outil au client.</p>
+    </div>
+    <div class="planche__body">
+      <aside class="specs">
+        <div>
+          <h3>Palette</h3>
+          <ul class="swatches">
+            <li><span class="sw" style="background:#D3D1CB"></span><b>Béton banché</b><span>fond, avec les trous de banche</span></li>
+            <li><span class="sw" style="background:#F1F0ED"></span><b>Béton ciré</b><span>surfaces de travail</span></li>
+            <li><span class="sw" style="background:#1D1E1C"></span><b>Anthracite</b><span>texte (14,7:1), structure, navigation</span></li>
+            <li><span class="sw" style="background:#9A3B12"></span><b>Corten</b><span>une seule action principale et l'avancement</span></li>
+            <li><span class="sw" style="background:#2F6B5E"></span><b>Vert-de-gris</b><span>terminé, conforme</span></li>
+          </ul>
+        </div>
+        <div class="typo">
+          <h3>Typographies</h3>
+          <p style="font:900 34px/.9 var(--c-display);letter-spacing:-.045em">Schibsted 62 %</p>
+          <p style="font-size:15px">Instrument Sans pour le texte courant.</p>
+          <p class="c-mono" style="font-size:11px;letter-spacing:.06em">MARTIAN MONO · CH-2026-014</p>
+        </div>
+        <div>
+          <h3>Signatures</h3>
+          <ul class="sig">
+            <li><b>Les grands chiffres</b> : l'avancement, les effectifs et les réserves sont lus d'abord, en très grand, comme une cote sur une façade.</li>
+            <li><b>Les trous de banche</b> : la trame de points des coffrages, discrète, structure le fond.</li>
+            <li><b>La structure apparente</b> : les blocs sont séparés par des joints sombres de 2 px, sans ombre ni arrondi.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Vigilance</h3>
+          <p>Le plus élégant, mais aussi le moins « terrain » : à densifier pour les compagnons. Le corten n'est jamais une couleur d'alerte.</p>
+        </div>
+      </aside>
+
+      <div class="demo">
+        <div class="c-sheet">
+          <header class="c-header">
+            <div class="c-header-top"><span class="c-over">CH-2026-014 · Lot 02 · Gros œuvre</span><span class="c-status" style="--c:#3F5E8C"><i></i>En cours</span></div>
+            <h3 class="c-title">Résidence Les Tilleuls</h3>
+            <div class="c-kpis">
+              <div class="c-kpi"><span class="c-big">62<small>%</small></span><span class="c-over">Avancement</span></div>
+              <div class="c-kpi"><span class="c-big">14</span><span class="c-over">Compagnons</span></div>
+              <div class="c-kpi"><span class="c-big">3</span><span class="c-over">Réserves ouvertes</span></div>
+            </div>
+          </header>
+
+          <article class="c-card">
+            <div class="c-card-top"><span class="c-over">CH-2026-009 · Réhabilitation</span><span class="c-status" style="--c:#A8322A"><i></i>En retard</span></div>
+            <h3 class="c-card-title">École Jean-Moulin, toiture</h3>
+            <p class="c-meta">Villeurbanne · livraison zinc reportée au 02/12</p>
+            <div class="c-prog" style="--v:41;--p:70">
+              <span class="c-big">41<small>%</small></span>
+              <div class="c-bar" role="img" aria-label="Avancement 41 %, prévu 70 %"><span></span><i></i><em>prévu 70 %</em></div>
+            </div>
+            <div class="c-trades"><span class="c-trade" style="--c:#8A6A1F">CHA</span><span class="c-trade" style="--c:#3F5E8C">COU</span><span class="c-trade" style="--c:#A8322A">GO</span></div>
+          </article>
+
+          <div class="c-list" role="list">
+            <div class="c-row" role="listitem">
+              <span class="c-box"></span>
+              <div><p class="c-row-title">Joint de carrelage fissuré devant la douche</p><p class="c-row-sub"><span class="c-over">Bât. A · R+2 · Lgt 204</span><span class="c-trade" style="--c:#7A4E7E">CAR</span></p></div>
+              <span class="c-status" style="--c:#A8322A"><i></i>Échue 20/11</span>
+            </div>
+            <div class="c-row c-row--done" role="listitem">
+              <span class="c-box"><svg class="ic" style="width:14px;height:14px;stroke-width:2.5"><use href="#i-check"/></svg></span>
+              <div><p class="c-row-title">Trace de peinture sur la porte palière</p><p class="c-row-sub"><span class="c-over">Bât. B · RDC · Hall</span><span class="c-trade" style="--c:#7A4E7E">PEI</span></p></div>
+              <span class="c-status" style="--c:#2F6B5E"><i></i>Levée 21/11</span>
+            </div>
+          </div>
+
+          <div class="c-actions"><button class="c-btn c-btn--primary" type="button">Valider le rapport</button><button class="c-btn" type="button">Exporter le planning</button></div>
+        </div>
+
+        <div class="phone c-phone">
+          <div class="phone__screen">
+            <div class="c-m-head">
+              <span class="c-over">Aujourd'hui · Lot 02</span>
+              <h3 class="c-title">Les Tilleuls</h3>
+              <div class="c-m-kpi"><span class="c-big">62<small>%</small></span><span class="c-over">avancement</span></div>
+            </div>
+            <div class="c-m-body">
+              <article class="c-card">
+                <div class="c-card-top"><span class="c-over">Tâche 02.14</span><span class="c-status" style="--c:#8A6A1F"><i></i>En attente</span></div>
+                <h3 class="c-card-title">Coulage dalle R+2, bât. B</h3>
+                <p class="c-meta">Toupie 7 h 30 · 18 m³</p>
+              </article>
+              <button class="c-btn c-btn--primary c-btn--block" type="button"><svg class="ic"><use href="#i-camera"/></svg>Ajouter au rapport</button>
+            </div>
+            <nav class="c-m-nav" aria-label="Navigation (Béton brut)">
+              <a href="#beton" aria-current="page"><svg class="ic"><use href="#i-chantiers"/></svg>Chantiers</a>
+              <a href="#beton"><svg class="ic"><use href="#i-planning"/></svg>Planning</a>
+              <a href="#beton"><svg class="ic"><use href="#i-reserves"/></svg>Réserves</a>
+              <a href="#beton"><svg class="ic"><use href="#i-camera"/></svg>Photos</a>
+              <a href="#beton"><svg class="ic"><use href="#i-equipe"/></svg>Équipe</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="choose" id="choisir" aria-labelledby="choose-h">
+    <h2 id="choose-h">Comment choisir</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Territoire</th><th scope="col">Ressenti</th><th scope="col">Atout terrain</th><th scope="col">Atout bureau</th><th scope="col">Risque</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">A · Cartouche</th><td>Précis, expert, rassurant</td><td>Correct : à épaissir en densité terrain</td><td>Excellent : plannings et fiches denses, langage des plans</td><td>Paraître froid aux artisans</td></tr>
+          <tr><th scope="row">B · Tampon</th><td>Énergique, concret, sans chichi</td><td>Excellent : contraste maximal, grosses cibles, statuts lisibles de loin</td><td>Moyen : fatigant sur de longues sessions</td><td>Basculer dans le cliché du chantier</td></tr>
+          <tr><th scope="row">C · Béton brut</th><td>Calme, premium, architectural</td><td>Moyen : à densifier, peu de couleur pour guider</td><td>Très bon : tableaux de bord, présentation au client</td><td>Paraître trop « agence » pour une PME</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>On peut aussi mélanger : par exemple la structure et les cotes de Cartouche au bureau, avec les tampons et le jaune de Tampon dans l'app mobile. Le territoire choisi sera transformé en tokens, avec les mêmes contrôles de contraste que la première version.</p>
+  </section>
+</main>
