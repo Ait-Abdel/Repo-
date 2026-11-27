@@ -29,7 +29,7 @@ Padding `layout.block-padding`, gap `space.3`, `radius.none`. Largeur minimale 3
 L'information clé dépend du statut : adresse si en cours, cause si en retard (« livraison zinc reportée au 02/12 »). Dates courtes JJ/MM → JJ/MM/AAAA. 4 bulles de repère au maximum, puis « +3 ».
 
 ## Accessibilité
-Un seul lien par carte (le titre), étendu à la carte entière. Ordre de lecture : titre, statut, information clé, avancement, métiers, dates.
+Un seul lien par carte : le titre, `<a class="fd-card__link">`, étendu à toute la carte par un pseudo-élément ; la carte elle-même ne reçoit pas le focus (`tabindex` interdit) et l'anneau de focus se dessine sur toute la carte. Les dates affichées en abrégé (« 03/02 → 18/09/2026 ») ont une version complète pour les lecteurs d'écran (« du 3 février au 18 septembre 2026 »), formatée avec `Intl.DateTimeFormat`. Ordre de lecture : titre, statut, information clé, avancement, métiers, dates.
 
 ## Web
 `<article class="fd-card fd-card--interactive">` avec `.fd-chantier__head`, `.fd-overline`, `.fd-chantier__title`, `.fd-chantier__meta`, `.fd-cote`, `.fd-reperes`, `.fd-chantier__foot`, dans une `.fd-structure` pour une grille.

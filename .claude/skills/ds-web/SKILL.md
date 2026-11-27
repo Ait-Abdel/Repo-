@@ -38,7 +38,15 @@ La référence CSS du système est dans `design-system/web/components.css`. Réu
 - Les tableaux denses deviennent des listes de cartes sous `breakpoint.md`, ou défilent dans leur propre conteneur (`overflow-x: auto`), jamais la page entière.
 - Marges : `layout.gutter`. Largeur de lecture : environ 65 caractères pour le texte long.
 
-## 5. Vérifier
+## 5. Socle d'accessibilité à livrer avec les composants
+
+- Utilitaires : `.<préfixe>-sr-only` (texte pour lecteurs d'écran), `.<préfixe>-skip-link` (« Aller au contenu », premier élément de chaque page), `.<préfixe>-link` (lien souligné).
+- Interactifs : `touch-action: manipulation` et `-webkit-tap-highlight-color` maîtrisé ; jamais `transition: all` ; jamais `outline: none` sans anneau de remplacement.
+- Formulaires : `name`, `autocomplete`, `inputmode` ; `aria-describedby` vers unité, aide et erreur ; bouton désactivé seulement pendant l'envoi.
+- Pages : `<meta name="theme-color">` par thème, `color-scheme`, `scroll-padding-bottom` sous une barre fixe, dates et nombres via `Intl.DateTimeFormat` / `Intl.NumberFormat`.
+- Polices : seulement les graisses réellement utilisées par les styles `text.*`.
+
+## 6. Vérifier
 
 1. `node .claude/skills/ds-audit/scripts/lint-hardcoded.mjs <dossiers du code web>` → zéro valeur en dur hors exceptions marquées `ds-ignore`.
 2. Une page de démonstration qui montre chaque composant dans tous ses états.

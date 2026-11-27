@@ -28,7 +28,7 @@ Actif (voir ci-dessus), pressé (fond `color.chrome.fg-muted` à faible opacité
 Libellés d'un mot, mêmes rubriques et même ordre sur web et mobile.
 
 ## Accessibilité
-`<nav aria-label="Navigation principale">`, `aria-current="page"`, compteur inclus dans le nom (« Réserves, 4 nouvelles »), zone sûre du bas respectée.
+Lien d'évitement « Aller au contenu » en premier élément de chaque page (`.fd-skip-link`, visible au focus clavier). `<nav aria-label="Navigation principale">`, `aria-current="page"`, compteur inclus dans le nom (« Réserves, 4 nouvelles »), zone sûre du bas respectée. Avec une barre d'onglets fixe, la page porte `scroll-padding-bottom` (classe `.fd-has-tabbar`) pour que l'élément focalisé ne passe jamais dessous (WCAG 2.4.11).
 
 ## Web
 `.fd-tabbar` / `.fd-tabbar__item` / `.fd-tabbar__badge` ; en-tête mobile `.fd-mhead`. Barre latérale : à implémenter selon cette spec, avec les mêmes tokens `color.chrome.*`.

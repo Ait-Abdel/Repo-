@@ -34,7 +34,12 @@ Padding `layout.control-padding-x`, libellé `text.label` en capitales (`letter-
 | Pressé | fond plus profond | `color.primary.solid-active`, `color.bg.sunken` |
 | Focus clavier | anneau de 3 px décalé de 2 px | `color.border.focus`, `focus-ring.*` |
 | Désactivé | fond creux, texte éteint | `color.bg.sunken`, `color.fg.disabled` |
-| Chargement | indicateur rotatif, libellé au participe (« ENVOI… ») | `aria-busy="true"` |
+| Chargement | indicateur rotatif, libellé au participe terminé par « … » (« ENVOI… »), bouton **désactivé pendant l'envoi** (pas de double enregistrement) tout en gardant l'apparence de sa variante | `aria-busy="true"` + `disabled` |
+
+## Actions destructrices
+Une suppression n'est jamais immédiate et définitive. Si l'action est réversible, on l'exécute et on affiche un toast « Réserve supprimée · Annuler » pendant 8 secondes. Si elle est irréversible (purge, envoi au client), on demande confirmation dans un dialogue qui nomme l'objet et dont le bouton répète le verbe (« Supprimer le chantier »).
+
+Un bouton de validation reste actif tant que l'envoi n'a pas commencé : on valide au clic et on montre les erreurs, plutôt que de le désactiver tant que le formulaire est incomplet.
 
 ## Contenu
 Verbe à l'infinitif + complément, 1 à 4 mots : « Valider le rapport ». Le texte source est en casse normale ; les capitales sont appliquées en CSS.

@@ -55,7 +55,14 @@ Compare la liste des composants des specs avec ce qui est implémenté de chaque
 | 2.3.3 / mouvement | `prefers-reduced-motion` respecté |
 | 4.1.2 Nom, rôle, valeur | éléments natifs, libellés des boutons icône, `aria-invalid` et message d'erreur liés au champ |
 
-Si Playwright est disponible, prends des captures de la page de démonstration (clair/sombre × densités × 375/1280 px) et regarde-les. Si `@axe-core/playwright` peut s'installer, lance-le sur la page de démonstration et intègre les résultats.
+Si Playwright est disponible, prends des captures de la page de démonstration (clair/sombre × densités × 375/1280 px) et regarde-les. Lance **axe-core** sur chaque combinaison (installer `axe-core` dans un dossier temporaire, injecter `axe.min.js` avec `page.addScriptTag`, `axe.run` avec les tags `wcag2a, wcag2aa, wcag21aa, wcag22aa, best-practice`), puis mesure : cibles < 24 px, présence d'un anneau au parcours clavier (Tab × 40), largeur à 320 px.
+
+### Skills complémentaires, s'ils sont installés
+- `accessibility` (web-quality-skills) : liste de contrôle WCAG 2.2 complète (focus non masqué, cibles, saisie redondante, authentification).
+- `web-design-guidelines` (Vercel) : règles d'interface fichier par fichier (formulaires, typographie « … », `touch-action`, `theme-color`, `Intl`, anti-patterns). Produis ses constats au format `fichier:ligne`.
+- `ui-ux-pro-max` : interroge sa base (`scripts/search.py "<sujet>" --domain ux`) pour confronter les règles de priorité haute (accessibilité, tactile, formulaires) aux specs.
+
+Ne tronque pas la sortie de `check-tokens.mjs` : lis tous les avertissements, pas seulement les dernières lignes.
 
 ## 6. Rapport
 

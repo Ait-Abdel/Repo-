@@ -171,7 +171,7 @@
       },
       "finitions": {
         "$description": "Peinture, carrelage, revêtements de sol, faïence.",
-        "solid": { "$value": "{palette.framboise.500}" },
+        "solid": { "$value": "{palette.framboise.700}" },
         "subtle": { "$value": "{palette.framboise.100}" },
         "on-subtle": { "$value": "{palette.framboise.800}" }
       },

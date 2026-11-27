@@ -12,6 +12,7 @@ Une spec par composant, valable pour le web et le mobile (gabarit : skill `ds-co
 | Bulle de repère (métier) | [repere.md](repere.md) | Signature | P1 | ✅ `.fd-repere` | à faire |
 | Statut | [statut.md](statut.md) | Statuts | P1 | ✅ `.fd-statut` | à faire |
 | Bouton | [bouton.md](bouton.md) | Actions | P1 | ✅ `.fd-btn` | à faire |
+| Lien et utilitaires d'accessibilité | [lien.md](lien.md) | Fondations | P1 | ✅ `.fd-link`, `.fd-skip-link`, `.fd-sr-only` | à faire |
 | Champ de saisie (avec unité) | [champ.md](champ.md) | Formulaires | P1 | ✅ `.fd-field` | à faire |
 | Carte chantier | [carte-chantier.md](carte-chantier.md) | Métier | P1 | ✅ `.fd-card` + `.fd-chantier__*` | à faire |
 | Réserve | [reserve.md](reserve.md) | Métier | P1 | ✅ `.fd-reserve` | à faire |

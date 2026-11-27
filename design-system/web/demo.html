@@ -6,7 +6,9 @@
 <title>Fondation BTP — composants</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800;900&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<meta name="theme-color" content="#d4d2cf" media="(prefers-color-scheme: light)"><!-- ds-ignore : meta sans variables CSS -->
+<meta name="theme-color" content="#151411" media="(prefers-color-scheme: dark)"><!-- ds-ignore -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@700;800;900&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="../build/css/tokens.css">
 <link rel="stylesheet" href="components.css">
 <style>
@@ -28,6 +30,7 @@
 </style>
 </head>
 <body class="fd-app fd-banche">
+<a class="fd-skip-link" href="#contenu">Aller au contenu</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
   <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
@@ -40,11 +43,11 @@
   <symbol id="i-equipe" viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 6.5a3 3 0 0 1 0 5.5M21 20a6 6 0 0 0-4-5.6"/></symbol>
 </svg>
 
-<main class="demo">
+<main class="demo" id="contenu">
   <header class="demo__head">
     <div>
       <h1>Fondation BTP</h1>
-      <p>Plan et matière : composants de référence, lus uniquement depuis les tokens.</p>
+      <p>Plan et matière : composants de référence, lus uniquement depuis les tokens. <a class="fd-link" href="../components/README.md">Voir l'inventaire des composants</a>.</p>
     </div>
     <div class="demo__toggles">
       <button class="fd-btn fd-btn--sm" type="button" id="toggle-theme">Thème : système</button>
@@ -81,7 +84,7 @@
       <button class="fd-btn" type="button">Exporter le planning</button>
       <button class="fd-btn fd-btn--ghost" type="button">Annuler</button>
       <button class="fd-btn fd-btn--danger" type="button">Supprimer la réserve</button>
-      <button class="fd-btn fd-btn--primary" type="button" aria-busy="true">Envoi…</button>
+      <button class="fd-btn fd-btn--primary" type="button" aria-busy="true" disabled>Envoi…</button>
       <button class="fd-btn" type="button" disabled>Désactivé</button>
       <button class="fd-btn fd-btn--icon" type="button" aria-label="Ajouter une photo"><svg class="fd-icon" aria-hidden="true"><use href="#i-camera"/></svg></button>
     </div>
@@ -92,21 +95,21 @@
     <div class="demo__form">
       <div class="fd-field">
         <label class="fd-field__label" for="f-surface">Surface coulée</label>
-        <div class="fd-field__control"><input class="fd-input" id="f-surface" inputmode="decimal" value="148,5" aria-describedby="f-surface-help"><span class="fd-field__unit">m²</span></div>
+        <div class="fd-field__control"><input class="fd-input" id="f-surface" name="surface" autocomplete="off" inputmode="decimal" value="148,5" aria-describedby="f-surface-unit f-surface-help"><span class="fd-field__unit" id="f-surface-unit"><span aria-hidden="true">m²</span><span class="fd-sr-only">mètres carrés</span></span></div>
         <span class="fd-field__help" id="f-surface-help">Dalle du niveau R+1</span>
       </div>
       <div class="fd-field fd-field--invalid">
         <label class="fd-field__label" for="f-qte">Quantité livrée</label>
-        <div class="fd-field__control"><input class="fd-input" id="f-qte" inputmode="decimal" value="12" aria-invalid="true" aria-describedby="f-qte-err"><span class="fd-field__unit">t</span></div>
+        <div class="fd-field__control"><input class="fd-input" id="f-qte" name="quantite" autocomplete="off" inputmode="decimal" value="12" aria-invalid="true" aria-describedby="f-qte-unit f-qte-err"><span class="fd-field__unit" id="f-qte-unit"><span aria-hidden="true">t</span><span class="fd-sr-only">tonnes</span></span></div>
         <span class="fd-field__error" id="f-qte-err"><svg class="fd-icon fd-icon--sm" aria-hidden="true"><use href="#i-alert"/></svg>Supérieure au bon de commande (10 t)</span>
       </div>
       <div class="fd-field">
         <label class="fd-field__label" for="f-ref">N° de bon de livraison <span class="fd-field__optional">(facultatif)</span></label>
-        <div class="fd-field__control"><input class="fd-input" id="f-ref" placeholder="BL-2026-0412"></div>
+        <div class="fd-field__control"><input class="fd-input" id="f-ref" name="bon-livraison" autocomplete="off" spellcheck="false" placeholder="ex. BL-2026-0412…"></div>
       </div>
       <div class="fd-field">
         <label class="fd-field__label" for="f-lock">Chantier</label>
-        <div class="fd-field__control"><input class="fd-input" id="f-lock" value="Résidence Les Tilleuls" disabled></div>
+        <div class="fd-field__control"><input class="fd-input" id="f-lock" name="chantier" value="Résidence Les Tilleuls" disabled></div>
       </div>
     </div>
   </section>
@@ -138,9 +141,9 @@
   <section aria-labelledby="h-card">
     <h2 id="h-card">Cartes chantier · cote d'avancement</h2>
     <div class="fd-structure demo__cards">
-      <article class="fd-card fd-card--interactive" tabindex="0">
+      <article class="fd-card fd-card--interactive">
         <div class="fd-chantier__head"><span class="fd-overline">CH-2026-014 · Logements</span><span class="fd-statut fd-statut--en-cours">En cours</span></div>
-        <h3 class="fd-chantier__title">Résidence Les Tilleuls</h3>
+        <h3 class="fd-chantier__title"><a class="fd-card__link" href="#">Résidence Les Tilleuls</a></h3>
         <p class="fd-chantier__meta">12 rue des Forges, 69007 Lyon · Bât. A et B</p>
         <div class="fd-cote" style="--v:62;--p:58" role="img" aria-label="Avancement 62 %, prévu 58 %">
           <span class="fd-cote__val">62 %</span>
@@ -148,11 +151,11 @@
           <span class="fd-cote__trait"><span class="fd-cote__fait"></span><span class="fd-cote__barbule fd-cote__barbule--debut"></span><span class="fd-cote__barbule fd-cote__barbule--fin"></span></span>
         </div>
         <div class="fd-reperes"><span class="fd-repere fd-repere--gros-oeuvre">GO</span><span class="fd-repere fd-repere--fluides">PLO</span><span class="fd-repere fd-repere--electricite">ELE</span><span class="fd-repere fd-repere--amenagement">PLA</span></div>
-        <div class="fd-chantier__foot"><span class="fd-num">03/02 → 18/09/2026</span><span>14 compagnons · 5 entreprises</span></div>
+        <div class="fd-chantier__foot"><span class="fd-num"><span aria-hidden="true">03/02 → 18/09/2026</span><span class="fd-sr-only">du 3 février au 18 septembre 2026</span></span><span>14 compagnons · 5 entreprises</span></div>
       </article>
-      <article class="fd-card fd-card--interactive" tabindex="0">
+      <article class="fd-card fd-card--interactive">
         <div class="fd-chantier__head"><span class="fd-overline">CH-2026-009 · Réhabilitation</span><span class="fd-statut fd-statut--en-retard">En retard</span></div>
-        <h3 class="fd-chantier__title">École Jean-Moulin, toiture</h3>
+        <h3 class="fd-chantier__title"><a class="fd-card__link" href="#">École Jean-Moulin, toiture</a></h3>
         <p class="fd-chantier__meta">Villeurbanne · livraison zinc reportée au 02/12 <svg class="fd-indice" viewBox="0 0 24 22" role="img" aria-label="Modifié, indice B"><path d="M12 1.5 22.5 20.5h-21z"/><text x="12" y="17.5" text-anchor="middle">B</text></svg></p>
         <div class="fd-cote fd-cote--en-retard" style="--v:41;--p:70" role="img" aria-label="Avancement 41 %, prévu 70 %">
           <span class="fd-cote__val">41 %</span>
@@ -160,7 +163,7 @@
           <span class="fd-cote__trait"><span class="fd-cote__fait"></span><span class="fd-cote__barbule fd-cote__barbule--debut"></span><span class="fd-cote__barbule fd-cote__barbule--fin"></span></span>
         </div>
         <div class="fd-reperes"><span class="fd-repere fd-repere--structure">CHA</span><span class="fd-repere fd-repere--enveloppe">COU</span></div>
-        <div class="fd-chantier__foot"><span class="fd-num">06/10 → 19/12/2026</span><span>4 compagnons · 2 entreprises</span></div>
+        <div class="fd-chantier__foot"><span class="fd-num"><span aria-hidden="true">06/10 → 19/12/2026</span><span class="fd-sr-only">du 6 octobre au 19 décembre 2026</span></span><span>4 compagnons · 2 entreprises</span></div>
       </article>
     </div>
   </section>

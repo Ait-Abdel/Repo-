@@ -63,6 +63,7 @@ Règles :
 - **Couleur jamais seule** : un statut, une catégorie ou une erreur a toujours un libellé ou une icône.
 - **Un composant web seulement** (tableau dense, barre latérale) indique son équivalent mobile : liste de cartes, onglets du bas. L'inverse vaut aussi : un bouton d'action flottant n'existe que sur mobile.
 - Les exemples utilisent du **contenu réel du domaine**, jamais de lorem ipsum.
+- **Accessibilité concrète** (leçons d'audit) : une unité ou une abréviation affichée porte son nom complet pour les lecteurs d'écran ; une carte cliquable a un seul lien étendu, jamais un `tabindex` sur le conteneur ; une action destructrice prévoit annulation (toast) ou confirmation (dialogue) ; un bouton en cours d'envoi est désactivé ; un placeholder montre un exemple et finit par « … ». Le lien dans le texte est toujours souligné.
 
 ## 3. Finir
 

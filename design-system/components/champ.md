@@ -28,13 +28,13 @@ Saisie d'une valeur courte (texte, nombre, quantité avec unité) avec son libel
 |---|---|
 | Focus | anneau autour du cadre entier, unité comprise (`color.border.focus`) |
 | Erreur | cadre `border-width.thick` en `color.danger.border`, message `color.danger.text` |
-| Placeholder | exemple de format en `color.fg.subtle`, jamais la consigne |
+| Placeholder | exemple de format, terminé par « … » (« ex. BL-2026-0412… ») en `color.fg.subtle`, jamais la consigne |
 
 ## Contenu
 Libellé visible en casse normale ; on marque les champs facultatifs. Erreur = problème + valeur de référence (« Supérieure au bon de commande (10 t) »). Nombres au format français.
 
 ## Accessibilité
-`<label for>`, `aria-describedby` pour l'aide et l'erreur, `aria-invalid="true"`, `inputmode="decimal"` pour les quantités. L'erreur est signalée par l'icône, le texte et le cadre épais.
+`<label for>` ; `aria-describedby` vers l'unité, l'aide et l'erreur ; `aria-invalid="true"` ; `inputmode="decimal"` pour les quantités. L'unité affichée en abrégé (« m² ») porte son nom complet pour les lecteurs d'écran (« mètres carrés », classe `fd-sr-only`). Chaque champ a un `name` et un `autocomplete` adapté (`off` pour les champs métier) ; `spellcheck="false"` sur les références et codes. L'erreur est signalée par l'icône, le texte et le cadre épais.
 
 ## Web
 `.fd-field` > `.fd-field__label` + `.fd-field__control` (> `.fd-input` + `.fd-field__unit`) + `.fd-field__help` / `.fd-field__error`.
